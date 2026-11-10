@@ -1,6 +1,11 @@
-# Development checkpoint - v0.4.2
+# Development checkpoint - v0.5.0
 
 ## Approved checkpoint and branch workflow
+
+The user approved v0.4.2 and requested Level 2 work using the existing
+approved artwork. v0.4.1 is pushed on develop; v0.4.2 is committed locally
+at 9569d66a85ad0ba2099c02a7d04501f3b08bd7fc. v0.5.0 is the next test build.
+
 
 v0.4.1 was approved after the red-ninja falling-pose fix. The Git bundle
 places the complete project on `develop`, directly after the repository's
@@ -275,3 +280,46 @@ live and is built by code; it does not use a static screenshot overlay.
 
 This checkpoint is prepared for user testing on develop. It has not been
 pushed, merged, or released. The approved remote baseline remains v0.4.1.
+
+
+## v0.5.0 Level 2 and weapon coverage
+
+Input: Bad Dudes (USA)(4).mmo, 8,850 inputs, beginning at Level 1's exit
+message and covering the complete Level 2 truck stage, claw boss and exit.
+The source recording and ROM stay outside the repository and install archive.
+
+- Reuse all approved player/enemy/effect sources and retain their existing
+  rule imagery. Add 15 layouts for each hero: dagger and nunchaku guards,
+  standing/crouched attacks, overhead attacks and a two-arm victory pose.
+  Both normal palettes and the shared warm palette retain hero identity.
+- Add eight red-ninja running/guard layouts, seven small blue-ninja layouts
+  and ten armored claw-boss layouts. Red-ninja layouts expand across the four
+  known uniform colors; the new boss also has its grey damage-palette mapping.
+- Weapon pickups use the existing dagger illustration and a new nunchaku
+  illustration. Their normal/bright cycle keeps the same shape and alpha.
+- The weapon layouts reuse unarmed body tiles. The context search includes
+  the approved unarmed layouts and keeps their images as the defaults;
+  weapon-specific neighbors select new crops. Old sources are not repainted.
+- Level 2 has its own painted skyline, daytime sky, silver/emerald truck, cab
+  and roadway. Scene RAM $02C0=1 plus the live HUD gate scopes these rules.
+  A y<200 condition prevents scenery overrides from reaching the HUD.
+  Identical source cells in banks 5 and 7 share artwork through exact
+  pixel-pattern matching, covering the scrolling bank switches.
+- The HUD panel now works in Level 2. Both 1P/2P labels remain gold.
+- Native stage-message sprites contain an 8x16 cell with a previously blank
+  upper half. The new live glyphs use both halves, a pale gold fill and dark
+  outline, improving GO TO NEXT STAGE and STAGE 2 CLEAR without changing timing.
+
+Validation: all 1,227 visible gameplay sprite tile/palette combinations in
+the new movie have detailed mappings. Actual MesenCE replays cover the level
+and its transitions. Earlier red-ninja and missed-super-punch clips are
+pixel-identical to v0.4.2 across all 115 and 198 sampled frames respectively.
+Only 24 previous rule images change, all the intentionally enlarged stage
+message glyph halves; the other 7,414 previous mappings and all six previous
+scene PNGs remain identical. Player 2 weapon rendering is additionally
+checked by a documented palette-swap/hero-selector diagnostic, not a player-two movie.
+
+Native sprite limits still apply: overlapping fighters can lose sprite rows.
+Coverage counts establish mappings for recorded states, not every unrecorded
+pose or alternating-two-player situation. Later levels still need recordings.
+No push, merge, tag or release is part of this test-build preparation.

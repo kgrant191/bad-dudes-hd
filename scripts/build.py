@@ -4,7 +4,8 @@ from PIL import ImageDraw
 import json, math, hashlib, argparse
 from player_art import player_art, flash
 from actor_art import actor_art
-from hud_art import hud_tile, panel
+from hud_art import hud_tile, panel, message_tile
+from level2_art import level2_art
 parser=argparse.ArgumentParser(description='Build Bad Dudes HD from its art and captured tile mappings.')
 parser.add_argument('--previews',type=Path,help='Optional directory for offline layout previews')
 args=parser.parse_args()
@@ -60,6 +61,8 @@ hero_palettes=[0xff0f2620,0xff0f2820,0xff301638]
 for pose in json.loads((ROOT/'metadata/effect_poses.json').read_text()):
     if pose['palette'] in hero_palettes:
         keys.extend((row[2],p) for row in pose['tiles'] for p in hero_palettes)
+for pose in json.loads((ROOT/'metadata/v5_actions.json').read_text()):
+    keys.extend((row[2],p) for row in pose['tiles'] for p in pose['palettes'])
 keys=list(dict.fromkeys(keys))
 panel()
 
@@ -98,7 +101,23 @@ for t,name,im,im2 in player_context:
 
 # New actor mappings retain tile/palette identity and use local pose context.
 actor_variants, actor_poses = actor_art(keys)
+# Weapon layouts reuse unarmed body tiles. Include the approved unarmed
+# layouts in the context search so only weapon-specific neighbors select
+# the new crops, and keep the original body as the fallback.
+base_pose_offset=len(actor_poses)
+actor_poses+=player_poses
+for (t,p), variants in actor_variants.items():
+    if t not in player_variants or not any(actor_poses[v['pose']]['sheet']=='player_weapons.png' for v in variants):continue
+    if p not in hero_palettes:continue
+    original=[]
+    for j,v in enumerate(player_variants[t]):
+        q=dict(v);q['pose']+=base_pose_offset
+        q['image']=player2_variants[t][j]['image'] if p==0xff0f2820 else v['image']
+        if p==0xff301638:q['image']=flash(q['image']);q['player2_image']=flash(player2_variants[t][j]['image'])
+        original.append(q)
+    variants[:0]=original
 actor_conditions=[];actor_defaults={};actor_defaults_player2={};actor_context_count=0
+player_rule_count=len(rules)
 for (t,p), variants in actor_variants.items():
     actor_defaults[(t,p)]=variants[0]['image']
     if 'player2_image' in variants[0]:actor_defaults_player2[(t,p)]=variants[0]['player2_image']
@@ -115,6 +134,10 @@ for (t,p), variants in actor_variants.items():
         name=f'actor_{t:X}_{p:X}_{j}'
         actor_conditions.append(f'<condition>{name},spriteNearby,{dx},{dy},{nt:X},{p:08X},Y')
         character_rule(t,p,v['image'],name,v.get('player2_image'));actor_context_count+=1
+rules[:]=rules[player_rule_count:]+rules[:player_rule_count]
+
+for t,p,im,extra in level2_art():
+    rule(t,p,im,'level2&hud&stage_area'+('&'+extra if extra else ''))
 
 # Background art retains the game's live menu, selection and dialogue layers.
 for n,name in [(8,'title_intro'),(9,'title_final')]:
@@ -188,13 +211,10 @@ for t,p in keys:
         if t in [0xd81,0xd82]:
             rule(t,p,hud_tile(t,gold=True),'hud&hud_floor&hud_player_label')
         rule(t,p,hud_tile(t),'hud')
-    if not sprite and t==0x600:
+    if not sprite and t in [0x600,0x700]:
         rule(t,p,blank,'hud_floor')
-    if sprite and p==0xff001020 and 0x160c<=t<=0x1634:
-        candidates=[(int(((pixels(t)>0)!=(pixels(u)>0)).sum()),u) for u in range(0xd80,0xda5)]
-        err,u=min(candidates)
-        if err==0:im=hud_tile(u)
-        else:im=scale(src)
+    if sprite and p==0xff001020 and 0x160c<=t<=0x1635:
+        im=message_tile(t)
     elif (t,p) in actor_defaults:
         im=actor_defaults[(t,p)]
     elif not sprite and bank in [5,6,7]:
@@ -227,7 +247,7 @@ for t,p in keys:
 atlas=Image.new('RGBA',(2048,math.ceil(len(atlas_tiles)/64)*32))
 for i,im in enumerate(atlas_tiles):atlas.paste(im,(i%64*32,i//64*32))
 atlas.save(OUT/'tiles.png',optimize=True)
-header=['# Bad Dudes HD v0.4.2 - Super-punch effect palettes and gold player labels', '<ver>109','<scale>4','<supportedRom>26E184E350F50BFA06038379A84F3B685B7509B8','<overscan>0,0,0,0','<img>tiles.png',
+header=['# Bad Dudes HD v0.5.0 - Level 2, weapon poses and stage messages', '<ver>109','<scale>4','<supportedRom>26E184E350F50BFA06038379A84F3B685B7509B8','<overscan>0,0,0,0','<img>tiles.png',
  '<condition>first_turn,memoryCheckConstant,23F,!=,C0,C0',
  '<condition>second_turn,memoryCheckConstant,23F,==,C0,C0',
  '<condition>second_hero_1,memoryCheckConstant,23F,==,1,1',
@@ -237,17 +257,21 @@ header=['# Bad Dudes HD v0.4.2 - Super-punch effect palettes and gold player lab
  '<condition>select,tileAtPosition,0,0,400,0F172737,N',
  '<condition>briefing,tileAtPosition,0,0,DF1,0F0B181B,Y',
  '<condition>gameplay,memoryCheckConstant,2C0,==,0',
+ '<condition>level2,memoryCheckConstant,2C0,==,1',
  '<condition>hud,tileAtPosition,24,208,D9A,0F001020,N',
  '<condition>hud_player_label,tileNearby,8,0,D9A,0F001020,N',
  '<condition>hud_floor,positionCheckY,>=,200',
+ '<condition>stage_area,positionCheckY,<,200',
  '[gameplay&hud]<background>sky.png,1,0,0,10',
  '[gameplay&hud]<background>hud.png,1,0,0,11',
+ '[level2&hud]<background>hud.png,1,0,0,11',
+ '[level2&hud]<background>level2_sky.png,1,0,0,10',
  '[title_intro]<background>title_intro.png,1,0,0,20',
  '[title_final]<background>title_final.png,1,0,0,20',
  '[select]<background>select.png,1,0,0,10',
  '[briefing]<background>briefing.png,1,0,0,10']
 (OUT/'hires.txt').write_text('\n'.join(header+player_conditions+actor_conditions+rules)+'\n')
-(ROOT/'build_stats.json').write_text(json.dumps({'source_keys':len(keys),'tile_rules':len(rules),'unique_atlas_tiles':len(atlas_tiles),'scale':4,'player_tiles':len(player_defaults),'player_poses_per_character':len(player_poses)+6,'player_characters':2,'player_context_rules':len(player_context)*5,'new_actor_poses':len(actor_poses),'new_actor_keys':len(actor_defaults),'actor_context_rules':actor_context_count},indent=2))
+(ROOT/'build_stats.json').write_text(json.dumps({'source_keys':len(keys),'tile_rules':len(rules),'unique_atlas_tiles':len(atlas_tiles),'scale':4,'player_tiles':len(player_defaults),'player_poses_per_character':len(player_poses)+6+15,'player_characters':2,'player_context_rules':len(player_context)*5,'new_actor_poses':base_pose_offset,'new_actor_keys':len(actor_defaults),'actor_context_rules':actor_context_count},indent=2))
 
 # Offline previews are only for fast layout iteration; Mesen playback is final QA.
 if args.previews:args.previews.mkdir(parents=True,exist_ok=True)

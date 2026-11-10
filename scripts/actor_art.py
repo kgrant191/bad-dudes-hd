@@ -33,7 +33,7 @@ def pickup_variant(im, target):
 
 def actor_art(keys):
     poses=[]
-    for name in ['player_missing','enemy_poses','effect_poses','v4_actions']:
+    for name in ['player_missing','enemy_poses','effect_poses','v4_actions','v5_actions']:
         poses+=json.loads((ROOT/f'metadata/{name}.json').read_text())
     sheets={};variants=defaultdict(list);stats=[];preview=[]
     palettes=defaultdict(set)
@@ -54,6 +54,7 @@ def actor_art(keys):
             cw,ch=sheet.width/cols,sheet.height/rs
             crop=sheet.crop((round(j%cols*cw),round(j//cols*ch),round((j%cols+1)*cw),round((j//cols+1)*ch)))
             if pose.get('flip_art'):crop=crop.transpose(Image.Transpose.FLIP_LEFT_RIGHT)
+            if pose.get('art_rotation'):crop=crop.rotate(pose['art_rotation'],resample=Image.Resampling.BICUBIC,expand=True)
             # Ignore tiny detached fragments from adjacent generated atlas cells.
             from scipy.ndimage import label
             ca=np.array(crop);labels,nlabels=label(ca[:,:,3]>80)
@@ -67,7 +68,8 @@ def actor_art(keys):
             canvas=Image.new('RGBA',original.size);canvas.alpha_composite(painted,bbox[:2])
             return canvas
         canvas=fitted(name)
-        player2=fitted({'player_sheet_missing.png':'player2_missing.png','player_hit.png':'player2_hit.png'}[name]) if name.startswith('player_') else None
+        player2_name=pose.get('player2_sheet') or {'player_sheet_missing.png':'player2_missing.png','player_hit.png':'player2_hit.png'}.get(name)
+        player2=fitted(player2_name) if player2_name else None
         # Cells are the engine's drawable coverage. Clear outside them for QA.
         a=np.array(canvas);loss=int(((a[:,:,3]>32)&(np.array(coverage)==0)).sum())
         stats.append({'pose':i,'sheet':name,'cell':j,'tiles':len(rows),'clipped_pixels':loss})
@@ -82,13 +84,14 @@ def actor_art(keys):
                 if hm:im2=im2.transpose(Image.Transpose.FLIP_LEFT_RIGHT)
                 if vm:im2=im2.transpose(Image.Transpose.FLIP_TOP_BOTTOM)
             for p in palettes[t]:
+                if pose.get('palettes') and p not in pose['palettes']:continue
                 # Never turn intro/black fade palettes into visible actors.
                 if p==0xff0f0f0f:continue
                 if name.startswith('player_') and p not in [0xff0f2620,0xff0f2820,0xff301638]:continue
                 if name in ['ninjas_a.png','ninjas_b.png','specialists.png','enemy_actions.png'] and (p&0xffffff00)!=0xff0f3500:continue
                 if name in ['boss.png','boss_actions.png'] and p not in [0xff0f3606,0xff001020]:continue
                 base=im2 if im2 is not None and p==0xff0f2820 else im
-                painted=pickup_variant(base,p) if name=='effects.png' and j in [0,1] else palette_variant(base,sp,p)
+                painted=pickup_variant(base,p) if pose.get('pickup') or (name=='effects.png' and j in [0,1]) else palette_variant(base,sp,p)
                 variant={'pose':i,'x':x,'y':y,'h':hm,'v':vm,'image':painted}
                 if im2 is not None and p==0xff301638:variant['player2_image']=palette_variant(im2,sp,p)
                 variants[(t,p)].append(variant)

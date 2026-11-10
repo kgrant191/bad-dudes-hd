@@ -32,3 +32,25 @@ def panel():
     d.line((0,802,1023,802),fill=(201,153,73,255),width=3)
     d.line((0,807,1023,807),fill=(61,74,87,255),width=2)
     im.save(ROOT/'pack/hud.png')
+
+
+def message_tile(t):
+    """Full 8x16 stage lettering, split across the native two sprite rows."""
+    from PIL import ImageFilter
+    base=t&~1
+    chars={0x160c:'P',0x160e:'L',0x1610:'A',0x1612:'Y',0x1614:'E',0x1616:'R',
+           0x161a:'1',0x161c:'2',0x161e:'N',0x1620:'X',0x1622:'T',0x1624:'S',
+           0x1626:'G',0x1628:'C',0x162a:'3',0x162c:'4',0x162e:'5',0x1630:'6',0x1632:'O'}
+    char=chars.get(base)
+    if char is None:return scale(tile(t,0xff001020))
+    mask=Image.new('L',(160,256));d=ImageDraw.Draw(mask)
+    d.text((10,0),char,font=ImageFont.truetype(FONT,180),fill=255)
+    mask=mask.crop(mask.getbbox()).resize((100,192),Image.Resampling.LANCZOS)
+    m=Image.new('L',(128,256));m.paste(mask,(14,32))
+    outline=m.filter(ImageFilter.MaxFilter(17))
+    im=Image.new('RGBA',(128,256),(4,9,14,0));im.putalpha(outline)
+    a=np.zeros((256,128,4),dtype='uint8')
+    for y in range(256):a[y,:,:3]=[255,247-int(y*.13),207-int(y*.35)]
+    a[:,:,3]=np.array(m);im.alpha_composite(Image.fromarray(a))
+    im=im.resize((32,64),Image.Resampling.LANCZOS)
+    return im.crop((0,32*(t&1),32,32*(1+(t&1))))

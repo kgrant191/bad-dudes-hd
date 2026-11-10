@@ -143,3 +143,67 @@ positions, panel and composition. Keep scores, time and lives grey. The output
 is a visual reference, not a runtime HUD texture. The implementation reuses the
 existing code-drawn font and letter gradient for context-specific 1/2 glyphs.
 No new character/effect illustrations were needed for this patch.
+
+# Level 2 artwork provenance - v0.5.0
+
+All additions were made with the built-in image tool. Approved source assets
+remain unchanged. The generation prompts used the following production specs;
+ROM-derived guides supplied exact geometry rather than invented animation.
+
+- `player_weapons.png`: style transfer of the exact 4x4 guide, fifteen poses
+  and bottom-right empty. Reuse the approved muscular tan, swept-brown-haired
+  hero in a black tank, gray cargo trousers, gloves and boots. Row 1: dagger
+  guard, nunchaku guard, crouched dagger thrust, crouched dagger windup. Row 2:
+  standing dagger thrust, extended nunchaku strike, nunchaku windup, dagger
+  preparation. Row 3: crouched dagger guard, nunchaku guard, extended nunchaku
+  strike, nunchaku windup. Row 4: upward dagger, upward extended nunchaku,
+  front-facing victory with both fists raised, empty. Preserve all positions,
+  directions, proportions, limbs and weapons; painted arcade shading, clean
+  transparent alpha, no labels, grid, floor, shadows or glow.
+- `player2_weapons.png`: identity-preserving edit of the first sheet. Change
+  only hair/face to the approved Player 2 short upright dark-brown crewcut and
+  squared jaw. Keep every pose, weapon, cell, costume, silhouette and alpha.
+- `ninjas_level2.png`: 4x2, eight source running and guard variations, all
+  facing right. Use the approved masked ninja with red cloth hood/tunic/pants,
+  brown sash, black wraps/boots and tan eye area. Match each knee bend and
+  stance; no extra weapons, scene, grid, labels or shadows; transparent alpha.
+- `small_ninjas.png`: 4x2, seven poses and final cell empty. Agile compact
+  masked navy-blue ninja, black wraps/boots, dark belt. Three walking phases,
+  backward airborne recoil, two curled/rotated tumbles and knee-up jump, in
+  the guide's exact order and orientation. Match approved painted shading;
+  no weapons, labels, grid, glow or floor; transparent alpha.
+- `level2_boss.png`: 4x3, ten poses and final two cells empty. Purple cloth,
+  grey hood/mask, silver segmented armor and three steel claws on each hand.
+  Two walking guards, crouch, overhead claw, two prone states, two tumbling
+  states, horizontal claw punch and leaning double-claw lunge. Preserve the
+  source directions and silhouettes. An extraction pass removed the first
+  output's grey haze/background while retaining the ten characters.
+- `nunchaku_pickup.png`: one square pickup icon, two reddish-brown polished
+  wooden batons connected at their upper ends by a short silver chain,
+  hanging in an inverted V. Compact readable silhouette, painted arcade
+  materials, metal endcaps, crisp outline; transparent alpha, no hands, glow,
+  floor, labels or scene. The dagger pickup reuses effects.png cell 11.
+- `level2_truck.png`: exact background geometry guide at replay frame 600,
+  using the approved Level 1 truck illustration only as material/style
+  reference. Preserve skyline outlines/windows, trailer joins, wheel centers,
+  fuel tanks, roadway and HUD boundary. Pale warm stone nearer towers, dark
+  glass, teal distant towers, blue afternoon sky. Ribbed silver trailer,
+  emerald band, black tires, chrome hubs/tanks. No actors or new objects;
+  bottom HUD region plain dark, with no baked text.
+- `level2_cab.png`: frame 7500 background guide with the same Level 2 style.
+  Preserve skyline above y=388, parapet/posts to y=510, cropped emerald cab
+  at left, road to its right and curb at y=768. Glossy dark green metal,
+  opaque windshield, chrome fuel tank and black tire, small DUDES door word.
+  Replace the cyan dotted road with slate-blue asphalt, not water. No actors,
+  extra vehicles, perspective change or HUD lettering.
+- `level2_sky.png`: clean blue painted arcade daytime sky, medium azure at
+  top fading lighter below, a few delicate pale clouds near the upper quarter,
+  broad clear areas. No horizon, buildings, sun, text or dramatic weather.
+
+`level2_art.py` registers the painted horizontal bands and extracts repeatable
+cells. Identical native cells across the two scrolling CHR banks reuse the
+same art. The new sky is a scene-gated background; stage letters remain live
+code-drawn glyphs, never static screenshot text. The weapon pickup bright
+phase uses the existing alpha-preserving brightness transform. As before,
+all runtime previews under validation/ are actual emulator captures; the
+source sheets and slicing contact sheets are not emulator screenshots.

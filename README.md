@@ -4,31 +4,23 @@ A work-in-progress **4x HD graphics pack** for Bad Dudes (NES), built for MesenC
 
 ![Bad Dudes HD preview](validation/visual_index.png)
 
-## Current build: v0.4.2
+## Current build: v0.5.0
 
-A Level 1 test build with detailed artwork for both selectable heroes,
-ninjas, specialist enemies, the boss, pickups, combat effects and a live HUD.
+A **Level 1 and Level 2 test build**, with the approved character artwork reused
+throughout. Level 2 adds a painted city/highway, moving silver and emerald
+trucks, small blue ninjas and the armored claw boss.
 
-Version 0.4.2 completes the super-punch charge, release and dissipating-effect
-palettes for both heroes, including punches that miss. Both `1P` and `2P` HUD
-labels are fully gold; score, time and lives digits retain their existing color.
+Both heroes now have dagger and nunchaku guards, standing/crouched attacks,
+overhead attacks and the two-arm victory pose. Additional red-ninja poses
+stay HD, and weapon pickups keep their artwork during the bright flash cycle.
+GO TO NEXT STAGE and stage-clear lettering are taller and outlined for contrast.
+The live HUD panel works in Level 2, with both player labels still gold.
 
-Version 0.4.1 fixes the red ninja falling from the upper platform. The build
-also covers all four known uniform colors for existing basic-ninja poses,
-preventing the same missing-palette fallback on other color/pose combinations.
-
-Version 0.4.0 added player 2's short-haired identity across 26 animation
-layouts, including attacks, upward punch, hurt, knockdown and victory.
-Three additional ninja/sword-fighter poses and four boss punch/tumble poses
-cover the latest recording. Clock and energy-can pickups retain the same
-HD art throughout the native flash cycle, alternating normal and brighter
-versions. Character flashes preserve the selected hero's identity.
-
-The earlier stage-entry background fix, approved title, selection, briefing
-font correction, scenery and live HUD remain in place. All six supplied
-recordings have detailed mappings for every observed visible gameplay
-sprite tile/palette key. Unrecorded moves, two-player states and later stages
-still need recordings; the publisher splash retains its baseline treatment.
+The full 8,850-frame Level 2 recording has detailed mappings for every observed
+visible gameplay sprite tile/palette key. The earlier red-ninja and missed
+super-punch clips remain pixel-identical to v0.4.2. Unrecorded moves, alternating
+two-player states and later levels still need testing. This is not a complete
+full-game release.
 
 ## Install
 
@@ -38,7 +30,7 @@ Enable HD packs in NES settings and reload the game if needed.
 
 For manual installation, copy the contents of `pack/` into
 `HdPacks/Bad Dudes (USA)/`. The folder name must match your ROM's base filename.
-All seven PNGs and `hires.txt` must be together. This repository's Code > Download
+All eight PNGs and `hires.txt` must be together. This repository's Code > Download
 ZIP also contains an installable `pack/hires.txt` directory.
 
 Tested with MesenCE 2.2.1. No ROM, emulator or movie recording is included.
@@ -48,7 +40,7 @@ The pack changes presentation; gameplay and music are unchanged.
 
 Approved checkpoints are accumulated on `develop`. Keep `main` at the current
 baseline until the full remake and final regression testing are complete,
-then merge `develop` and create the v1.0.0 release. The v0.4.1 checkpoint is
+then merge `develop` and create the v1.0.0 release. The v0.4.2 checkpoint is
 approved for this development branch; it is not a full-game release.
 
 See [DEVELOPMENT.md](DEVELOPMENT.md) for build setup, tile mapping, validation

@@ -1,52 +1,34 @@
-BAD DUDES HD - v0.4.2
-Super-punch effect fix and fully gold 1P/2P labels; includes all previous fixes
+BAD DUDES HD - v0.5.0
+Level 2, weapon poses and readable stage messages
 
 INSTALL IN MESENCE
 1. Load your Bad Dudes (USA) NES ROM.
-2. Use Tools > HD Packs (NES) > Install HD Pack and select Bad_Dudes_HD_v0.4.2.zip.
-3. Enable HD packs in NES settings, then reload the game.
+2. Tools > HD Packs (NES) > Install HD Pack: select Bad_Dudes_HD_v0.5.0.zip.
+3. Enable HD packs in NES settings and reload the game.
 
-Manual installation:
-Copy hires.txt and all seven PNG files into:
-  HdPacks/Bad Dudes (USA)/
-The folder name must match your ROM's base filename. Replace the older pack.
+Manual installation: replace the previous pack with hires.txt and all eight
+PNG files in HdPacks/Bad Dudes (USA)/. Folder name must match the ROM filename.
 
-CHANGES IN v0.4.2
-- Super-punch charge/release/dissipating effects stay HD for both hero palettes.
-- Both 1P and 2P labels are fully gold; numeric HUD values keep their color.
-- Includes and verifies the red-ninja palette fixes from v0.4.1.
-
-PREVIOUS CHANGES IN v0.4.1
-- Red ninja stays HD while falling from the upper platform.
-- Existing basic-ninja poses cover all four known uniform palettes.
-- All v0.4.0 rule artwork and scene images remain unchanged.
-
-PREVIOUS CHANGES IN v0.4.0
-- Player 2 has his own short-haired artwork across 26 animation layouts.
-- Added sword thrust, overhead sword and crouched ninja punch poses.
-- Added two boss punches and two upside-down tumbling phases.
-- Clock and energy can stay HD while alternating normal/brighter artwork.
-- Normal and warm-flash mappings preserve the active hero's identity.
-- Retains the earlier upward-punch/hurt/death fixes, effects and live HUD.
-- Retains the stage-entry background gate and approved scene artwork.
-- Original movement, animation timing, collisions, music and gameplay retained.
+CHANGES
+- Reuses the approved heroes, ninjas, effects and HUD.
+- Adds dagger/nunchaku poses and two-arm victory for both heroes.
+- Adds missing red-ninja, small-ninja and Level 2 claw-boss poses.
+- Weapon drops stay HD during their normal/brighter flash cycle.
+- Painted Level 2 skyline, sky, trucks, cab and roadway.
+- Taller outlined GO TO NEXT STAGE and stage-clear lettering.
+- Level 2 HUD panel; both 1P and 2P labels remain gold.
 
 TESTED SCOPE
-MesenCE 2.2.1 and the supplied USA ROM. Replayed the original 8,477-input
-Level 1 movie through frame 8,500; the 1,442-input player 1 action clip;
-and the 5,617-input player 2/enemy/boss recording.
-v0.4.1 was replayed against the new 712-input red-ninja clip, including the
-full fall. All 6,485 prior rule images were checked unchanged against v0.4.0.
-v0.4.2 was replayed against 1.mmo (690 inputs) and 2.mmo (1,190 inputs).
-Red-ninja jump/hurt poses, missed super punches and gold 1P labels were checked.
-Gold 2P labels were checked with a nametable-only diagnostic substitution,
-not a two-player gameplay replay. All 7,296 prior rule images are unchanged.
-Every observed visible gameplay sprite tile/palette key has a detailed mapping.
-Unrecorded moves, two-player states and later stages still need recordings.
-Shared tiles may affect untested later stages. Native sprite limits remain.
+MesenCE 2.2.1; complete new 8,850-input movie through Level 2 and its exit.
+All 1,227 observed visible gameplay sprite tile/palette keys have detailed art.
+Earlier 1.mmo and 2.mmo regression clips remain pixel-identical to v0.4.2.
+Player 2 weapons additionally checked with a palette-swap/hero-selector diagnostic;
+this is not a claim of a recorded two-player run. Native sprite limits remain.
+Unrecorded moves, alternating two-player states and later levels need testing.
 The publisher splash retains its baseline treatment.
 
 4x rendering: 1024 x 960 before aspect-ratio correction.
-No ROM, emulator, recording or source build files are included in this ZIP.
+Original animation, collisions, gameplay and audio remain game-controlled.
+No ROM, emulator, recording or source build files are included.
 Supported whole-ROM SHA1: 26E184E350F50BFA06038379A84F3B685B7509B8
 HD pack format: 109.
