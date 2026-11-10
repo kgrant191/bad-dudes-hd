@@ -1,15 +1,16 @@
-BAD DUDES HD - v0.7.1
-Level 4 forest with corrected dog animation and recoil
+BAD DUDES HD - v0.7.2
+Level 4 forest, corrected dogs and inward-facing charge arcs
 
 INSTALL IN MESENCE
 1. Load your Bad Dudes (USA) NES ROM.
-2. Tools > HD Packs (NES) > Install HD Pack: select Bad_Dudes_HD_v0.7.1.zip.
+2. Tools > HD Packs (NES) > Install HD Pack: select Bad_Dudes_HD_v0.7.2.zip.
 3. Enable HD packs in NES settings and reload the game.
 
 Manual installation: replace the previous pack with hires.txt and all eight
 PNG files in HdPacks/Bad Dudes (USA)/. Folder name must match the ROM filename.
 
 CHANGES
+- Super-punch charge arcs now form ( hero ) around the main character.
 - Fixed the dog growing/shrinking between frames: one source scale and stable
   standing-frame alignment preserve body size while legs and head animate.
 - Replaced the incorrect human-shaped dog defeat effect with a dog recoil.

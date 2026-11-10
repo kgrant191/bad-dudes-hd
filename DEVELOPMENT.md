@@ -465,3 +465,18 @@ Final v0.7.1 validation: 565 screenshots over the complete movie; 312 sampled
 frames compared against v0.7.0, with no changed pixels outside dog sprite
 cells. All 88 dog tile/palette keys select dog artwork, all seven layouts
 fit their tile coverage, and 13,154 nonchanged rule images remain byte-identical.
+
+
+## v0.7.2 Charge arc direction
+
+User approved v0.7.1, then requested inward-facing semicircles before pushing.
+Set the existing `flip_art` flag on all nine `effects.png` cell-9 layouts:
+F00-F07, F40-F47 and the F80-F87 aliases. Mirror each full painted arc before
+slicing; retain native per-tile mirroring so the pair forms `( hero )`.
+This covers both characters' normal palettes and the shared warm flash.
+No source illustrations are changed. Dog fixes and all other effects remain.
+
+The bundle includes v0.7.0-v0.7.2 starting at approved/pushed v0.6.0 commit
+4d33cb03b59f43b35f33fb7205a1eb7c2a22667f. Nothing has been pushed from here;
+main remains unchanged. v0.7.1 approval is recorded; this small visual revision
+is supplied for the user's final look before pushing.
