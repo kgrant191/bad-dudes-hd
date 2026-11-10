@@ -1,0 +1,38 @@
+{
+  "version": "0.8.1",
+  "emulator": "MesenCE 2.2.1",
+  "bundle_base": "6b7ada5e7e8419e57f1adb91d7154322227cbf51",
+  "boss_movie": "Bad Dudes (USA)(8).mmo",
+  "boss_movie_inputs": 578,
+  "boss_movie_pixel_comparison": {
+    "compared_frames": 573,
+    "changed_frames": 371,
+    "changed_pixels_outside_boss_cells": 0,
+    "unexpected_frames": []
+  },
+  "visible_boss_movie_sprite_keys": 327,
+  "missing_visible_sprite_keys": 0,
+  "previous_movie": "Bad Dudes (USA)(7).mmo",
+  "previous_movie_inputs": 15268,
+  "previous_movie_compared_screenshots": 629,
+  "previous_movie_changed_screenshots": 73,
+  "previous_movie_unchanged_pre_boss_screenshots": 473,
+  "previous_movie_changed_pixels_outside_boss_cells": 0,
+  "game_state_sequences_unchanged": true,
+  "final_pack_matches_both_replays": true,
+  "loader_errors": 0,
+  "rule_comparison": {
+    "prior_non_boss_rule_images_unchanged": 15896,
+    "changed_boss_rule_images": 108,
+    "removed_boss_context_rules": 92,
+    "added_boss_rules": 32,
+    "changed_non_boss_rules": 0
+  },
+  "defeated_pose_cells": 12,
+  "defeated_pose_clipped_pixels": 0,
+  "limits": [
+    "Only captured visible poses can be checked; offscreen movement is not visible.",
+    "First hero recorded; alternating two-player states are untested.",
+    "Level 6 scenery and unrecorded animations remain pending."
+  ]
+}

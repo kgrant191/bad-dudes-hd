@@ -4,7 +4,7 @@ A work-in-progress **4x HD graphics pack** for Bad Dudes (NES), built for MesenC
 
 ![Bad Dudes HD preview](validation/visual_index.png)
 
-## Current build: v0.8.0
+## Current build: v0.8.1
 
 A **Level 1–5 test build**. Level 5 adds a painted canyon, distant mountains,
 colored freight cars, detailed locomotive vents, metal bogies and rails.
@@ -14,7 +14,8 @@ Missing acrobat flips, weapon thrusts, small-ninja attacks and burning recoil
 frames now keep their HD artwork. Returning earlier bosses also have the
 train stage's alternate costume palette. These shared mappings apply wherever
 the same enemies appear, including earlier levels. The chain-claw boss has
-new movement, attacks, airborne poses and the visible falling-foot fragment.
+detailed movement, attacks and airborne poses. v0.8.1 fixes repeated chain
+fragments and adds the complete defeated pose shown in the new boss recording.
 His face and body retain their separate palette identities.
 
 The main character's recorded moves and damage flashes were checked; no
@@ -26,7 +27,9 @@ short Level 6 opening. Through the Level 5 clear, all **1,937 observed visible
 sprite tile/palette combinations** have detailed mappings. All **588 train
 and canyon background keys** are covered by painted cells, matching aliases,
 color variants or transparent sky cells. Level 6 scenery is still pending.
-Unrecorded animations and alternating two-player states remain unverified.
+The additional 578-input boss recording is checked frame by frame, including
+the grounded defeat. Unrecorded animations and alternating two-player states
+remain unverified.
 This is not a full-game release.
 
 ## Install
@@ -48,8 +51,8 @@ The pack changes presentation; gameplay and music are unchanged.
 Approved checkpoints are accumulated on `develop`. Keep `main` at the current
 baseline until the full remake and final regression testing are complete,
 then merge `develop` and create the v1.0.0 release. The v0.7.2 checkpoint is
-approved and pushed on this development branch. v0.8.0 is prepared for user
-testing and has not been pushed or released.
+approved and pushed on this development branch. v0.8.1 supersedes the unapproved v0.8.0 test build. Neither has been pushed
+or released; the new source bundle includes both changes from v0.7.2.
 
 See [DEVELOPMENT.md](DEVELOPMENT.md) for build setup, tile mapping, validation
 and the next art pass. `art/` contains the source illustrations; `scripts/`

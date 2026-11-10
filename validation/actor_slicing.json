@@ -1312,8 +1312,8 @@
     "pose": 187,
     "sheet": "level5_boss.png",
     "cell": 4,
-    "tiles": 30,
-    "clipped_pixels": 0
+    "tiles": 22,
+    "clipped_pixels": 11
   },
   {
     "pose": 188,
@@ -1333,8 +1333,8 @@
     "pose": 190,
     "sheet": "level5_boss.png",
     "cell": 7,
-    "tiles": 28,
-    "clipped_pixels": 135
+    "tiles": 18,
+    "clipped_pixels": 0
   },
   {
     "pose": 191,
@@ -1359,9 +1359,9 @@
   },
   {
     "pose": 194,
-    "sheet": "level5_boss.png",
-    "cell": 2,
-    "tiles": 4,
+    "sheet": "level5_boss_defeated.png",
+    "cell": 0,
+    "tiles": 12,
     "clipped_pixels": 0
   }
 ]

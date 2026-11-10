@@ -128,6 +128,26 @@ def actor_art(keys):
         assert np.array_equal(pixels(t),pixels(u))
         if (t,p) in keys and (u,p) in variants:
             variants[t,p]=[dict(variants[u,p][0])]
+    # The chain extends by repeating the same native link cell. Cropping each
+    # occurrence from a whole fighter painting gives that repeated cell a hand,
+    # claw or different vertical alignment. Use one weapon strip for all three
+    # byte-identical CHR banks, independent of body pose and chain length.
+    chain_pose=next(i for i,p in enumerate(poses) if p['sheet']=='level5_boss.png' and p['cell']==9)
+    weapon=sheets['level5_boss.png'].crop((1500,415,1800,550))
+    bb=weapon.getchannel('A').point(lambda a:255 if a>80 else 0).getbbox()
+    weapon=weapon.crop(bb).resize((128,36),Image.Resampling.LANCZOS)
+    strip=Image.new('RGBA',(128,64));strip.alpha_composite(weapon,(0,28))
+    for heads,rect in [([0x19ac,0x19ec,0x1d68],(32,0,64,64)),
+                       ([0x19ae,0x19ee,0x1d6a],(96,0,128,64)),
+                       ([0x19b2,0x19f2,0x1d6e],(96,0,128,64))]:
+        part=strip.crop(rect)
+        for t in heads:
+            for half in [0,1]:
+                cell=part.crop((0,half*32,32,(half+1)*32))
+                for p in palettes[t+half]:
+                    if p not in [0xff0f361c,0xff001020]:continue
+                    variants[t+half,p]=[{'pose':chain_pose,'x':0,'y':half*8,'h':0,'v':0,
+                        'image':palette_variant(cell,0xff0f361c,p)}]
     out=Image.new('RGB',(1280,((len(preview)+5)//6)*270),'#293541');d=ImageDraw.Draw(out)
     for j,(orig,im,i) in enumerate(preview):
         x=j%6*212;y=j//6*270;d.text((x,y),f'{i}: {poses[i]["sheet"]} {poses[i]["cell"]}',fill='white');out.paste(im,(x,y+20),im)

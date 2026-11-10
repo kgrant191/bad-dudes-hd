@@ -524,3 +524,34 @@ and the chain-claw boss. See validation/v0.8.0_validation.json for results.
 Captured visible boss poses are covered. Offscreen body positions and moves
 absent from this input cannot be visually validated. Do not claim full-game
 or alternating-two-player coverage. Next: user-test v0.8.0, then Level 6.
+
+
+## v0.8.1 Chain-claw boss correction
+
+The user's second boss movie, Bad Dudes (USA)(8).mmo (578 inputs), exposes
+problems missed by v0.8.0: repeated chain cells contained cropped hands/claws,
+and the full grounded defeat combined original tiles with an isolated HD boot.
+Tile-key coverage alone did not establish correct assembled animation.
+
+Replace the boot-only reference with all twelve cells of the grounded defeat,
+19B4-19BF. level5_boss_defeated.png supplies a complete lying figure. Preserve
+head/body palette separation and the existing damage-flash handling.
+
+The chain link and claw patterns are identical across the 19A, 19E and 1D6
+families. Slice one isolated painted weapon strip into a stable repeated link
+and tip; do not select different pieces of whole fighter paintings for each
+occurrence of a repeated link. Keep native mirroring, length and movement.
+Fit the two forward-attack body references separately from the extending
+chain, so chain length cannot compress the body or crop away the hand.
+All other actor and scenery mappings must retain their v0.8.0 images.
+
+Validation replays all 578 inputs with screenshots every frame, then the
+complete preceding 15,268-input level recording. Inspect assembled boss
+poses, including forward and overhead attacks, jumps, flashes and defeat;
+compare non-boss rule images and game-state sequences against v0.8.0.
+See validation/v0.8.1_validation.json for measured results and limits.
+
+v0.8.1 supersedes the unapproved v0.8.0 build. Neither is pushed. The bundle
+starts at approved/pushed v0.7.2 (6b7ada5e7e8419e57f1adb91d7154322227cbf51)
+and includes both commits. Await the user's test before any push; main stays
+unchanged. Level 6 scenery remains pending.

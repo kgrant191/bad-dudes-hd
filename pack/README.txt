@@ -1,9 +1,9 @@
-BAD DUDES HD - v0.8.0
-Level 5 train, shared enemy repairs and chain-claw boss
+BAD DUDES HD - v0.8.1
+Level 5 train, shared enemy repairs and corrected chain-claw boss
 
 INSTALL IN MESENCE
 1. Load your Bad Dudes (USA) NES ROM.
-2. Tools > HD Packs (NES) > Install HD Pack: select Bad_Dudes_HD_v0.8.0.zip.
+2. Tools > HD Packs (NES) > Install HD Pack: select Bad_Dudes_HD_v0.8.1.zip.
 3. Enable HD packs in NES settings and reload the game.
 
 Manual installation: replace the previous pack with hires.txt and all eight
@@ -15,7 +15,8 @@ CHANGES
 - Acrobat cartwheel/flip/tuck frames and ninja weapon thrusts.
 - Small ninja attack and both burning recoil layouts.
 - Returning bosses retain their HD art in the train's alternate palette.
-- Chain-claw boss movement, attacks, jumping, recoil and visible falling foot.
+- Chain-claw boss movement, attacks, jumping, recoil and full grounded defeat.
+- Stable repeated chain links and claw tips across attacks and CHR bank swaps.
 - Boss head/body palette separation and repeated chain aliases preserved.
 - Main character checked; all recorded hero moves already have HD art.
 - Approved dog scale/recoil, charge arcs and earlier-level fixes retained.
@@ -25,10 +26,10 @@ MesenCE 2.2.1; the complete 15,268-input recording through the Level 5 clear
 and the opening of Level 6. All 1,937 visible sprite tile/palette combinations
 through the Level 5 clear have detailed art. All 588 Level 5 background keys
 are mapped. The full Level 4 movie is replayed against approved v0.7.2.
-The supplied movie records the first hero, not a two-player run.
+The additional 578-input boss recording is checked frame by frame.
+The supplied movies record the first hero, not a two-player run.
 Native sprite limits and screen-edge clipping remain game-controlled.
-Unrecorded states and Level 6 scenery still need work. The boss's offscreen
-movement cannot be visually verified; recorded visible poses are covered.
+Unrecorded states and Level 6 scenery still need work. Offscreen movements cannot be visually verified.
 
 4x rendering: 1024 x 960 before aspect-ratio correction.
 Gameplay timing, collisions and audio remain game-controlled.
