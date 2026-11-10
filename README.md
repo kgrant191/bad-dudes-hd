@@ -45,7 +45,7 @@ The pack changes presentation; gameplay and music are unchanged.
 
 Approved checkpoints are accumulated on `develop`. Keep `main` at the current
 baseline until the full remake and final regression testing are complete,
-then merge `develop` and create the v1.0.0 release. The v0.4.2 checkpoint is
+then merge `develop` and create the v1.0.0 release. The v0.5.1 checkpoint is
 approved for this development branch; it is not a full-game release.
 
 See [DEVELOPMENT.md](DEVELOPMENT.md) for build setup, tile mapping, validation

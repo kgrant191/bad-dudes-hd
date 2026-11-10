@@ -2,9 +2,12 @@
 
 ## Approved checkpoint and branch workflow
 
-The user approved v0.4.2 and requested Level 2 work using the existing
-approved artwork. v0.4.1 is pushed on develop; v0.4.2 is committed locally
-at 9569d66a85ad0ba2099c02a7d04501f3b08bd7fc. v0.5.1 is the current test build.
+The user approved v0.5.1 on November 10, 2026 and requested a bundle to
+push to develop. This includes the approved Level 2 and weapon artwork,
+readable stage messages, gold player labels, and truck/cab fixes.
+The tested graphics checkpoint is 2e1db693ed54d515a1fb93824246f285f1c79150.
+The last verified remote develop checkpoint is v0.4.1; the bundle carries
+all subsequent local commits. Bundle preparation does not push the branch.
 
 
 v0.4.1 was approved after the red-ninja falling-pose fix. The Git bundle
@@ -357,5 +360,5 @@ cab frames. All 10,099 other rule images and all seven scene PNGs are
 unchanged. The HUD and upper scene are pixel-identical at every sampled
 frame. All 35 source-art files remain byte-identical to v0.5.0.
 
-The patch is a local develop checkpoint for testing. Main stays unchanged;
-no push, merge, tag or v1.0.0 release is authorized by this graphics fix.
+The patch is approved for develop and included in the v0.5.1 push bundle.
+Main stays unchanged until the full remake and final testing are complete.
