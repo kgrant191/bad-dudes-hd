@@ -1,0 +1,22 @@
+{
+  "version": "0.4.2",
+  "unchanged_v0_4_1_rule_images": 7296,
+  "unchanged_scene_images": 6,
+  "coverage": {
+    "1.mmo": {
+      "visible_sprite_keys": 505,
+      "detailed_sprite_keys": 505,
+      "missing": [],
+      "replay_frames": 690
+    },
+    "2.mmo": {
+      "visible_sprite_keys": 489,
+      "detailed_sprite_keys": 489,
+      "missing": [],
+      "replay_frames": 1190
+    }
+  },
+  "red_ninja_already_covered_by_v0_4_1": true,
+  "new_effect_keys_observed": 18,
+  "hud_rule": "Digits 1/2 immediately before P, below y=200, on live HUD use gold. Numeric values retain their existing art."
+}

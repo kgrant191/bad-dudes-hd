@@ -54,6 +54,12 @@ for metadata in ['enemy_poses','v4_actions']:
     for pose in json.loads((ROOT/f'metadata/{metadata}.json').read_text()):
         if pose['sheet'] in ['ninjas_a.png','ninjas_b.png'] or (pose['sheet']=='enemy_actions.png' and pose['cell']==2):
             keys.extend((row[2],p) for row in pose['tiles'] for p in ninja_palettes)
+# Charge, release and dissipating punch effects alternate between the active
+# hero's normal palette and the shared flash palette, even on a missed punch.
+hero_palettes=[0xff0f2620,0xff0f2820,0xff301638]
+for pose in json.loads((ROOT/'metadata/effect_poses.json').read_text()):
+    if pose['palette'] in hero_palettes:
+        keys.extend((row[2],p) for row in pose['tiles'] for p in hero_palettes)
 keys=list(dict.fromkeys(keys))
 panel()
 
@@ -179,6 +185,8 @@ for t,p in keys:
         else:im=blank
         rule(t,p,im,'briefing');special[(t,p,'briefing')]=im
     if not sprite and 0xd80<=t<=0xda7:
+        if t in [0xd81,0xd82]:
+            rule(t,p,hud_tile(t,gold=True),'hud&hud_floor&hud_player_label')
         rule(t,p,hud_tile(t),'hud')
     if not sprite and t==0x600:
         rule(t,p,blank,'hud_floor')
@@ -219,7 +227,7 @@ for t,p in keys:
 atlas=Image.new('RGBA',(2048,math.ceil(len(atlas_tiles)/64)*32))
 for i,im in enumerate(atlas_tiles):atlas.paste(im,(i%64*32,i//64*32))
 atlas.save(OUT/'tiles.png',optimize=True)
-header=['# Bad Dudes HD v0.4.1 - Ninja falling-pose palette coverage', '<ver>109','<scale>4','<supportedRom>26E184E350F50BFA06038379A84F3B685B7509B8','<overscan>0,0,0,0','<img>tiles.png',
+header=['# Bad Dudes HD v0.4.2 - Super-punch effect palettes and gold player labels', '<ver>109','<scale>4','<supportedRom>26E184E350F50BFA06038379A84F3B685B7509B8','<overscan>0,0,0,0','<img>tiles.png',
  '<condition>first_turn,memoryCheckConstant,23F,!=,C0,C0',
  '<condition>second_turn,memoryCheckConstant,23F,==,C0,C0',
  '<condition>second_hero_1,memoryCheckConstant,23F,==,1,1',
@@ -230,6 +238,7 @@ header=['# Bad Dudes HD v0.4.1 - Ninja falling-pose palette coverage', '<ver>109
  '<condition>briefing,tileAtPosition,0,0,DF1,0F0B181B,Y',
  '<condition>gameplay,memoryCheckConstant,2C0,==,0',
  '<condition>hud,tileAtPosition,24,208,D9A,0F001020,N',
+ '<condition>hud_player_label,tileNearby,8,0,D9A,0F001020,N',
  '<condition>hud_floor,positionCheckY,>=,200',
  '[gameplay&hud]<background>sky.png,1,0,0,10',
  '[gameplay&hud]<background>hud.png,1,0,0,11',

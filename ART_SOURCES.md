@@ -131,3 +131,15 @@ Saved as `art/boss_actions.png`.
 
 The pickup flash is a runtime color transform of the existing art, preserving
 alpha and silhouette exactly. No new pickup illustration was required.
+
+
+# HUD label reference - v0.4.2
+
+`art/hud_label_reference.png` was generated with the built-in image tool from
+the exact HUD screenshot selected by the user. Prompt: change only the numeral
+1 in both visible 1P labels from grey to the metallic gold gradient of the P;
+keep both labels reading 1P, preserve all other text, colors, health bars,
+positions, panel and composition. Keep scores, time and lives grey. The output
+is a visual reference, not a runtime HUD texture. The implementation reuses the
+existing code-drawn font and letter gradient for context-specific 1/2 glyphs.
+No new character/effect illustrations were needed for this patch.

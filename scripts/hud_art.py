@@ -2,7 +2,7 @@
 from common import *
 from PIL import ImageDraw, ImageFont
 FONT=str(ROOT/'tools/fonts/DejaVuSansMono-Bold.ttf')
-def hud_tile(t):
+def hud_tile(t, gold=False):
     im=Image.new('RGBA',(128,128));d=ImageDraw.Draw(im)
     if t==0xd80:return im.resize((32,32))
     if 0xd81<=t<=0xda4:
@@ -13,7 +13,8 @@ def hud_tile(t):
         # Fit all glyphs within their original 8-pixel cell.
         bb=mask.getbbox();mask=mask.crop(bb).resize((100,104),Image.Resampling.LANCZOS)
         glyph=Image.new('RGBA',(100,104));a=np.zeros((104,100,4),dtype='uint8')
-        top=np.array([246,249,255] if char.isdigit() else [248,208,128]);bottom=np.array([167,196,218] if char.isdigit() else [174,123,55])
+        numeric=char.isdigit() and not gold
+        top=np.array([246,249,255] if numeric else [248,208,128]);bottom=np.array([167,196,218] if numeric else [174,123,55])
         for y in range(104):a[y,:,:3]=top+(bottom-top)*y/103
         a[:,:,3]=np.array(mask);im.alpha_composite(Image.fromarray(a),(12,8))
     elif t==0xda7:

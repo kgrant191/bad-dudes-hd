@@ -4,10 +4,14 @@ A work-in-progress **4x HD graphics pack** for Bad Dudes (NES), built for MesenC
 
 ![Bad Dudes HD preview](validation/visual_index.png)
 
-## Current build: v0.4.1
+## Current build: v0.4.2
 
 A Level 1 test build with detailed artwork for both selectable heroes,
 ninjas, specialist enemies, the boss, pickups, combat effects and a live HUD.
+
+Version 0.4.2 completes the super-punch charge, release and dissipating-effect
+palettes for both heroes, including punches that miss. Both `1P` and `2P` HUD
+labels are fully gold; score, time and lives digits retain their existing color.
 
 Version 0.4.1 fixes the red ninja falling from the upper platform. The build
 also covers all four known uniform colors for existing basic-ninja poses,
@@ -21,7 +25,7 @@ HD art throughout the native flash cycle, alternating normal and brighter
 versions. Character flashes preserve the selected hero's identity.
 
 The earlier stage-entry background fix, approved title, selection, briefing
-font correction, scenery and live HUD remain in place. All four supplied
+font correction, scenery and live HUD remain in place. All six supplied
 recordings have detailed mappings for every observed visible gameplay
 sprite tile/palette key. Unrecorded moves, two-player states and later stages
 still need recordings; the publisher splash retains its baseline treatment.

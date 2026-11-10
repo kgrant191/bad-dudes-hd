@@ -1,11 +1,13 @@
 {
-  "version": "0.4.1",
+  "version": "0.4.2",
   "emulator": "MesenCE 2.2.1",
   "replay_frames": {
     "original": 8500,
     "player1_action_clip": 1442,
     "player2_combat_clip": 5617,
-    "red_ninja_clip": 712
+    "red_ninja_clip": 712,
+    "red_ninja_truck_clip": 690,
+    "missed_super_punch_clip": 1190
   },
   "loader_errors": 0,
   "visible_sprite_coverage": {
@@ -59,5 +61,28 @@
       "FF0F3510",
       "FF0F351C"
     ]
-  }
+  },
+  "v0_4_2_verification": {
+    "version": "0.4.2",
+    "unchanged_v0_4_1_rule_images": 7296,
+    "unchanged_scene_images": 6,
+    "coverage": {
+      "1.mmo": {
+        "visible_sprite_keys": 505,
+        "detailed_sprite_keys": 505,
+        "missing": [],
+        "replay_frames": 690
+      },
+      "2.mmo": {
+        "visible_sprite_keys": 489,
+        "detailed_sprite_keys": 489,
+        "missing": [],
+        "replay_frames": 1190
+      }
+    },
+    "red_ninja_already_covered_by_v0_4_1": true,
+    "new_effect_keys_observed": 18,
+    "hud_rule": "Digits 1/2 immediately before P, below y=200, on live HUD use gold. Numeric values retain their existing art."
+  },
+  "hud_2p_diagnostic": "Nametable label substitution only; actual Mesen output checked."
 }

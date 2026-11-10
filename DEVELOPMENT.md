@@ -1,4 +1,4 @@
-# Development checkpoint - v0.4.1
+# Development checkpoint - v0.4.2
 
 ## Approved checkpoint and branch workflow
 
@@ -241,3 +241,37 @@ from the upper walkway at capture frames 291-326 used original tiles
   above and fixed v0.4.1 captures below. No HD pack loader errors occurred.
 - The source checkpoint remains unpushed. Later stages and unrecorded
   layouts retain the previously documented testing limits.
+
+
+## v0.4.2 super-punch palette phases and gold player labels
+
+Additional inputs: `1.mmo` (690 frames) and `2.mmo` (1,190 frames), same USA ROM.
+The first clip's red ninja is already fully covered by v0.4.1's uniform-family
+expansion: every gameplay pixel above the HUD in the new replay is identical
+to v0.4.1, including the red ninja jump and hurt sequence.
+
+The second clip exposed 18 missing player-2 effect palette keys: F00-F05,
+F12-F1D with FF0F2820. Existing effect sheets already contained these layouts.
+`build.py` now expands all hero effect poses across FF0F2620/FF0F2820/FF301638,
+covering charge, release and dissipation even when a super punch misses.
+This adds 136 possible effect palette keys, including the 18 newly observed.
+
+`hud_tile(t, gold=True)` uses the existing letter gradient for digit glyphs.
+Only digits D81/D82 with a neighboring P tile D9A eight pixels to their right,
+below y=200, on the live HUD receive this variant. Both player labels qualify;
+scores, time and lives keep their original numeric styling. The HUD panel,
+font outlines, gameplay logic and animation timing are unchanged.
+
+Validation: both complete clips replayed with screenshots every six frames,
+no loader errors. All 7,296 previous rule images and six scene PNGs are
+byte-identical to v0.4.1; only new contextual HUD rules change existing labels.
+Coverage is recorded in `validation/v0.4.2_coverage.json`. The diagnostic Lua
+changes only nametable label digits from 1 to 2, validating actual Mesen
+rendering of gold 2P without claiming a two-player gameplay replay.
+
+The user's selected HUD crop was edited with the built-in image tool as a
+visual reference (`art/hud_label_reference.png`). Runtime HUD lettering stays
+live and is built by code; it does not use a static screenshot overlay.
+
+This checkpoint is prepared for user testing on develop. It has not been
+pushed, merged, or released. The approved remote baseline remains v0.4.1.
