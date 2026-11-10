@@ -1303,6 +1303,9 @@
     "sheet": "effects.png",
     "cell": 10,
     "columns": 4,
-    "rows": 3
+    "rows": 3,
+    "excluded_palettes": [
+      4279174704
+    ]
   }
 ]

@@ -259,7 +259,7 @@ for t,p in keys:
 atlas=Image.new('RGBA',(2048,math.ceil(len(atlas_tiles)/64)*32))
 for i,im in enumerate(atlas_tiles):atlas.paste(im,(i%64*32,i//64*32))
 atlas.save(OUT/'tiles.png',optimize=True)
-header=['# Bad Dudes HD v0.7.0 - Level 4 forest and animation coverage', '<ver>109','<scale>4','<supportedRom>26E184E350F50BFA06038379A84F3B685B7509B8','<overscan>0,0,0,0','<img>tiles.png',
+header=['# Bad Dudes HD v0.7.1 - Consistent dog animation and correct recoil', '<ver>109','<scale>4','<supportedRom>26E184E350F50BFA06038379A84F3B685B7509B8','<overscan>0,0,0,0','<img>tiles.png',
  '<condition>first_turn,memoryCheckConstant,23F,!=,C0,C0',
  '<condition>second_turn,memoryCheckConstant,23F,==,C0,C0',
  '<condition>second_hero_1,memoryCheckConstant,23F,==,1,1',

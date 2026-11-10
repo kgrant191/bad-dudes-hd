@@ -433,3 +433,35 @@ input count; do not claim coverage of later levels or the following transition.
 v0.6.0 is approved and pushed to develop. This v0.7.0 checkpoint awaits user
 testing. Do not push or merge without approval; main stays unchanged until
 final v1.0.0. Next: address Level 4 feedback, then the next level recording.
+
+
+## v0.7.1 Dog scale and recoil correction
+
+User screenshots exposed two issues in v0.7.0. The two standing dog poses had
+native opaque bounds 100 versus 120 HD pixels wide; fitting each illustration
+to that rectangle stretched the second body by 20 percent. `art_scale` now
+keeps all six source cells at 0.34 pixels per source pixel. `art_anchor` holds
+the two standing cells at the same position and baseline. Their silhouettes
+can change slightly with leg/head movement without stretching the torso.
+All seven dog layouts have zero painted pixels outside their native tile cells.
+
+The twelve recoil tiles $150C-$1517 with palette FF0F0630 were already counted
+as covered because `effects.png` cell 10 mapped them to a humanoid silhouette.
+The original movie at frames 4082-4106 shows an upright recoiling dog. Exclude
+that palette from the generic effect and add an explicit dog-only recoil pose
+from `level4_dog_recoil.png`. Do not change the effect's other palettes.
+Coverage checks must distinguish the correct actor artwork from any replacement.
+
+`tools/verify_v0.7.1.lua` captures the complete 9,360-input movie with dense
+sampling of both dog encounters. Validation compares non-dog pixels and all
+non-dog rule images against v0.7.0, checks the recoil and both standing phases,
+and retains the original game-state sequence. No other artwork is modified.
+
+This build supersedes unapproved v0.7.0. Its source bundle starts at approved
+v0.6.0 commit 4d33cb03b59f43b35f33fb7205a1eb7c2a22667f and includes both Level 4
+commits. Await user testing before push; keep main unchanged.
+
+Final v0.7.1 validation: 565 screenshots over the complete movie; 312 sampled
+frames compared against v0.7.0, with no changed pixels outside dog sprite
+cells. All 88 dog tile/palette keys select dog artwork, all seven layouts
+fit their tile coverage, and 13,154 nonchanged rule images remain byte-identical.

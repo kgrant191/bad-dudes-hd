@@ -1117,21 +1117,21 @@
     "sheet": "level4_dogs.png",
     "cell": 0,
     "tiles": 12,
-    "clipped_pixels": 4
+    "clipped_pixels": 0
   },
   {
     "pose": 160,
     "sheet": "level4_dogs.png",
     "cell": 1,
     "tiles": 10,
-    "clipped_pixels": 77
+    "clipped_pixels": 0
   },
   {
     "pose": 161,
     "sheet": "level4_dogs.png",
     "cell": 2,
     "tiles": 14,
-    "clipped_pixels": 43
+    "clipped_pixels": 0
   },
   {
     "pose": 162,
@@ -1216,5 +1216,12 @@
     "cell": 2,
     "tiles": 20,
     "clipped_pixels": 49
+  },
+  {
+    "pose": 174,
+    "sheet": "level4_dog_recoil.png",
+    "cell": 0,
+    "tiles": 12,
+    "clipped_pixels": 0
   }
 ]

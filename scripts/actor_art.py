@@ -73,8 +73,15 @@ def actor_art(keys):
                 ca[~keep[labels],3]=0;crop=Image.fromarray(ca)
             bb=crop.getchannel('A').point(lambda a:255 if a>80 else 0).getbbox()
             if not bb or not bbox:raise ValueError(f'Empty actor cell: {sheet_name} {j}')
-            painted=crop.crop(bb).resize((bbox[2]-bbox[0],bbox[3]-bbox[1]),Image.Resampling.LANCZOS)
-            canvas=Image.new('RGBA',original.size);canvas.alpha_composite(painted,bbox[:2])
+            if 'art_scale' in pose:
+                # Shared sheet scale keeps a limb or head movement from
+                # stretching the animal's body to a new native bounding box.
+                k=pose['art_scale'];size=(round((bb[2]-bb[0])*k),round((bb[3]-bb[1])*k))
+                ax,ay=pose['art_anchor'];position=(round(ax-size[0]/2),round(ay-size[1]))
+            else:
+                size=(bbox[2]-bbox[0],bbox[3]-bbox[1]);position=bbox[:2]
+            painted=crop.crop(bb).resize(size,Image.Resampling.LANCZOS)
+            canvas=Image.new('RGBA',original.size);canvas.alpha_composite(painted,position)
             return canvas
         canvas=fitted(name)
         player2_name=pose.get('player2_sheet') or {'player_sheet_missing.png':'player2_missing.png','player_hit.png':'player2_hit.png'}.get(name)
@@ -93,6 +100,7 @@ def actor_art(keys):
                 if hm:im2=im2.transpose(Image.Transpose.FLIP_LEFT_RIGHT)
                 if vm:im2=im2.transpose(Image.Transpose.FLIP_TOP_BOTTOM)
             for p in palettes[t]:
+                if p in pose.get('excluded_palettes',[]):continue
                 allowed=pose.get('palettes')
                 if allowed and p not in allowed and not (p==0xff0f351a and any((q&0xffffff00)==0xff0f3500 for q in allowed)):continue
                 # Never turn intro/black fade palettes into visible actors.

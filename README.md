@@ -4,17 +4,20 @@ A work-in-progress **4x HD graphics pack** for Bad Dudes (NES), built for MesenC
 
 ![Bad Dudes HD preview](validation/visual_index.png)
 
-## Current build: v0.7.0
+## Current build: v0.7.1
 
 A **Level 1–4 test build**. Level 4 now has painted forest canopies, mossy
 trunks, fern walls, golden stone ledges, fallen logs and broken stumps.
 Its live HUD keeps the established gold labels, moving scores, health and timer.
 
-Dogs have six walking/running phases, sword ninjas have the newly recorded
+Dogs retain a consistent body scale through six walking/running phases and
+use a dog recoil sprite when defeated. Sword ninjas have the newly recorded
 kneeling attacks, and flaming ninjas retain their standing and running
 animations. The armored boss has detailed movement, attack, recoil and defeat
 poses. The small ninja's gray uniform now uses the existing HD animation set.
 The approved hero artwork and earlier sewer/truck fixes remain included.
+The v0.7.1 patch fixes the dog size pulsing and an incorrectly shared humanoid
+defeat effect from v0.7.0.
 
 The complete 9,360-input Level 4 recording has detailed mappings for all
 1,561 observed visible gameplay sprite tile/palette combinations. All 217
@@ -42,7 +45,7 @@ The pack changes presentation; gameplay and music are unchanged.
 Approved checkpoints are accumulated on `develop`. Keep `main` at the current
 baseline until the full remake and final regression testing are complete,
 then merge `develop` and create the v1.0.0 release. The v0.6.0 checkpoint is
-approved and pushed on this development branch. v0.7.0 is prepared for user
+approved and pushed on this development branch. v0.7.1 is prepared for user
 testing and has not been pushed or released.
 
 See [DEVELOPMENT.md](DEVELOPMENT.md) for build setup, tile mapping, validation

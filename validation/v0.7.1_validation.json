@@ -1,0 +1,44 @@
+{
+  "version": "0.7.1",
+  "emulator": "MesenCE 2.2.1",
+  "base_commit": "7ba70e71d5c0f9587ca03a111515f610d9eec4e0",
+  "movie_frames": 9360,
+  "captured_frames": 565,
+  "compared_frames": 312,
+  "changed_frames": [
+    570,
+    600,
+    630,
+    660,
+    3780,
+    3810,
+    3840,
+    3870,
+    3900,
+    3930,
+    3960,
+    3990,
+    4020,
+    4050,
+    4080
+  ],
+  "changed_pixels_outside_dog_cells": [],
+  "correct_dog_art_keys": 88,
+  "dog_layouts": 7,
+  "dog_clipped_painted_pixels": 0,
+  "dog_source_scale": 0.34,
+  "standing_anchor": [
+    80,
+    128
+  ],
+  "previous_rule_images_unchanged": 13154,
+  "changed_rule_images": 71,
+  "changed_rule_palette": "FF0F0630",
+  "other_scene_pngs_unchanged": 7,
+  "scene_progression_unchanged": true,
+  "loader_errors": 0,
+  "recoil_reference_frames": [
+    4082,
+    4106
+  ]
+}

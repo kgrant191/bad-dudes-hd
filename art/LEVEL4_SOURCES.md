@@ -37,3 +37,16 @@ The source images retain their generated resolution. Scene registration,
 cell slicing, palette variants and pose context are in `level4_art.py`,
 `actor_art.py` and `metadata/v7_actions.json`. The small gray ninja reuses the
 approved `small_ninjas.png` poses with a uniform-only palette transformation.
+
+
+## v0.7.1 recoil and scale correction
+
+The six existing dog source cells are unchanged; the slicer uses one common
+scale instead of independently stretching each frame to its native silhouette.
+A new single-cell transparent `level4_dog_recoil.png` uses the native recoil
+layout as the exact pose/orientation guide and `level4_dogs.png` as the identity
+reference. Prompt: one complete lean reddish-brown pointed-ear dog recoiling
+upward/backward, nearly upright, muzzle left and slightly upward, front paws
+left, curving torso, hind paws pulled up, tail lower left; matching white muzzle,
+chest and paws, illustrated arcade fur, no humanoid shape, injury, floor, glow,
+labels or scene. Generated with the built-in image tool; original alpha retained.

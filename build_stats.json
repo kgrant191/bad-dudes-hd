@@ -1,13 +1,13 @@
 {
   "source_keys": 8145,
   "tile_rules": 13225,
-  "unique_atlas_tiles": 9280,
+  "unique_atlas_tiles": 9281,
   "scale": 4,
   "player_tiles": 310,
   "player_poses_per_character": 42,
   "player_characters": 2,
   "player_context_rules": 120,
-  "new_actor_poses": 174,
+  "new_actor_poses": 175,
   "new_actor_keys": 5038,
   "actor_context_rules": 1424
 }
