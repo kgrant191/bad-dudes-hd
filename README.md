@@ -4,28 +4,24 @@ A work-in-progress **4x HD graphics pack** for Bad Dudes (NES), built for MesenC
 
 ![Bad Dudes HD preview](validation/visual_index.png)
 
-## Current build: v0.5.1
+## Current build: v0.6.0
 
-This patch fills the black squares in the truck tires and keeps the wheel
-size consistent through every mapped animation phase. The cab now uses the
-same emerald finish across both scrolling banks, including its roof, rear
-panel and window. It reuses the existing approved artwork.
+A **Level 1–3 test build**. Level 3 now has painted sewer masonry, overhead
+pipes, ladders, flowing and recessed drains, and the broken-wall boss area.
+The live HUD supports Level 3's alternate white palette and keeps the gold
+player labels, moving scores, timer and health bars.
 
-A **Level 1 and Level 2 test build**, with the approved character artwork reused
-throughout. Level 2 adds a painted city/highway, moving silver and emerald
-trucks, small blue ninjas and the armored claw boss.
+The new recording adds a red ninja dagger attack, green ninja boss states,
+appearance/white-flash/disappearance/defeat frames, and a narrow raised-fist
+victory pose for both heroes. Familiar ninja and super-punch animations reuse
+the approved artwork when the game switches CHR banks or uniform colors.
+The earlier truck-wheel and emerald-cab fixes remain included.
 
-Both heroes now have dagger and nunchaku guards, standing/crouched attacks,
-overhead attacks and the two-arm victory pose. Additional red-ninja poses
-stay HD, and weapon pickups keep their artwork during the bright flash cycle.
-GO TO NEXT STAGE and stage-clear lettering are taller and outlined for contrast.
-The live HUD panel works in Level 2, with both player labels still gold.
-
-The full 8,850-frame Level 2 recording has detailed mappings for every observed
-visible gameplay sprite tile/palette key. The earlier red-ninja and missed
-super-punch clips remain pixel-identical to v0.4.2. Unrecorded moves, alternating
-two-player states and later levels still need testing. This is not a complete
-full-game release.
+The complete 10,341-input Level 3 recording has detailed mappings for all
+1,411 observed visible gameplay sprite tile/palette combinations. All 212
+captured Level 3 scenery keys use the painted references. Coverage is limited
+to recorded states; later levels, unrecorded moves and alternating two-player
+play still need testing. This is not a complete full-game release.
 
 ## Install
 
@@ -45,8 +41,8 @@ The pack changes presentation; gameplay and music are unchanged.
 
 Approved checkpoints are accumulated on `develop`. Keep `main` at the current
 baseline until the full remake and final regression testing are complete,
-then merge `develop` and create the v1.0.0 release. The v0.5.1 checkpoint is
-approved for this development branch; it is not a full-game release.
+then merge `develop` and create the v1.0.0 release. The v0.5.1 checkpoint is approved on this development branch. v0.6.0 is
+prepared for user testing and has not been pushed or released.
 
 See [DEVELOPMENT.md](DEVELOPMENT.md) for build setup, tile mapping, validation
 and the next art pass. `art/` contains the source illustrations; `scripts/`

@@ -7,7 +7,9 @@ from PIL import ImageDraw
 def palette_variant(im, source, target):
     if source == target: return im
     a=np.array(im).astype(float);rgb=a[:,:,:3]
-    if target==0xff001020: # boss damage flash
+    if target==0xff303030:
+        rgb[:]=[247,255,244]
+    elif target==0xff001020: # boss damage flash
         grey=rgb@np.array([.299,.587,.114]);rgb[:]=grey[:,:,None]*.75+62
     elif target==0xff301638:
         rgb[:]=np.minimum(255,rgb*.55+np.array([255,126,57])*.45)
@@ -17,9 +19,10 @@ def palette_variant(im, source, target):
         r,g,b=rgb[:,:,0],rgb[:,:,1],rgb[:,:,2]
         if src==0x12: mask=(b>r*1.12)&(b>g*1.04)
         elif src==0x10: mask=(np.max(rgb,axis=2)-np.min(rgb,axis=2)<27)
+        elif src==0x1a: mask=(g>r*1.15)&(g>b*1.15)
         elif src==0x1c: mask=(g>r*1.15)&(b>r*1.1)
         else: mask=(r>g*1.35)&(r>b*1.55)&(g<120)
-        colors={0x12:[54,82,194],0x16:[190,47,35],0x10:[151,157,164],0x1c:[24,155,156]}
+        colors={0x12:[54,82,194],0x16:[190,47,35],0x10:[151,157,164],0x1c:[24,155,156],0x1a:[39,146,38]}
         lum=rgb.max(axis=2)/190
         rgb[mask]=np.clip(lum[mask,None]*np.array(colors.get(dst,[151,157,164])),0,255)
     return Image.fromarray(np.clip(a,0,255).astype('uint8'))
@@ -33,7 +36,7 @@ def pickup_variant(im, target):
 
 def actor_art(keys):
     poses=[]
-    for name in ['player_missing','enemy_poses','effect_poses','v4_actions','v5_actions']:
+    for name in ['player_missing','enemy_poses','effect_poses','v4_actions','v5_actions','v6_actions']:
         poses+=json.loads((ROOT/f'metadata/{name}.json').read_text())
     sheets={};variants=defaultdict(list);stats=[];preview=[]
     palettes=defaultdict(set)
@@ -48,7 +51,8 @@ def actor_art(keys):
             if vm:im=im.transpose(Image.Transpose.FLIP_TOP_BOTTOM)
             original.alpha_composite(im,(x*4,y*4));coverage.paste(255,(x*4,y*4,(x+8)*4,(y+8)*4))
         name=pose['sheet'];j=pose['cell'];bbox=original.getchannel('A').getbbox()
-        def fitted(sheet_name):
+        def fitted(sheet_name, cell=None):
+            j=pose["cell"] if cell is None else cell
             if sheet_name not in sheets:sheets[sheet_name]=Image.open(ROOT/'art'/sheet_name).convert('RGBA')
             sheet=sheets[sheet_name];cols=pose['columns'];rs=pose['rows']
             cw,ch=sheet.width/cols,sheet.height/rs
@@ -69,7 +73,7 @@ def actor_art(keys):
             return canvas
         canvas=fitted(name)
         player2_name=pose.get('player2_sheet') or {'player_sheet_missing.png':'player2_missing.png','player_hit.png':'player2_hit.png'}.get(name)
-        player2=fitted(player2_name) if player2_name else None
+        player2=fitted(player2_name, pose.get("player2_cell")) if player2_name else None
         # Cells are the engine's drawable coverage. Clear outside them for QA.
         a=np.array(canvas);loss=int(((a[:,:,3]>32)&(np.array(coverage)==0)).sum())
         stats.append({'pose':i,'sheet':name,'cell':j,'tiles':len(rows),'clipped_pixels':loss})
@@ -84,7 +88,8 @@ def actor_art(keys):
                 if hm:im2=im2.transpose(Image.Transpose.FLIP_LEFT_RIGHT)
                 if vm:im2=im2.transpose(Image.Transpose.FLIP_TOP_BOTTOM)
             for p in palettes[t]:
-                if pose.get('palettes') and p not in pose['palettes']:continue
+                allowed=pose.get('palettes')
+                if allowed and p not in allowed and not (p==0xff0f351a and any((q&0xffffff00)==0xff0f3500 for q in allowed)):continue
                 # Never turn intro/black fade palettes into visible actors.
                 if p==0xff0f0f0f:continue
                 if name.startswith('player_') and p not in [0xff0f2620,0xff0f2820,0xff301638]:continue

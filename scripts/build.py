@@ -6,6 +6,7 @@ from player_art import player_art, flash
 from actor_art import actor_art
 from hud_art import hud_tile, panel, message_tile
 from level2_art import level2_art
+from level3_art import level3_art
 parser=argparse.ArgumentParser(description='Build Bad Dudes HD from its art and captured tile mappings.')
 parser.add_argument('--previews',type=Path,help='Optional directory for offline layout previews')
 args=parser.parse_args()
@@ -50,7 +51,7 @@ for line in (ROOT/'metadata/capture_rules.txt').read_text().splitlines():
 keys=list(dict.fromkeys(keys+ [tuple(k) for k in json.loads((ROOT/"metadata/additional_keys.json").read_text())]))
 # Basic ninjas share pose tiles across all four uniform palettes. Cover the
 # full known family rather than requiring a movie of each pose/color pair.
-ninja_palettes=[0xff0f3512,0xff0f3516,0xff0f3510,0xff0f351c]
+ninja_palettes=[0xff0f3512,0xff0f3516,0xff0f3510,0xff0f351c,0xff0f351a]
 for metadata in ['enemy_poses','v4_actions']:
     for pose in json.loads((ROOT/f'metadata/{metadata}.json').read_text()):
         if pose['sheet'] in ['ninjas_a.png','ninjas_b.png'] or (pose['sheet']=='enemy_actions.png' and pose['cell']==2):
@@ -61,8 +62,9 @@ hero_palettes=[0xff0f2620,0xff0f2820,0xff301638]
 for pose in json.loads((ROOT/'metadata/effect_poses.json').read_text()):
     if pose['palette'] in hero_palettes:
         keys.extend((row[2],p) for row in pose['tiles'] for p in hero_palettes)
-for pose in json.loads((ROOT/'metadata/v5_actions.json').read_text()):
-    keys.extend((row[2],p) for row in pose['tiles'] for p in pose['palettes'])
+for metadata in ['v5_actions','v6_actions']:
+    for pose in json.loads((ROOT/f'metadata/{metadata}.json').read_text()):
+        keys.extend((row[2],p) for row in pose['tiles'] for p in pose['palettes'])
 keys=list(dict.fromkeys(keys))
 panel()
 
@@ -140,6 +142,9 @@ level2_conditions=[]
 for t,p,im,extra in level2_art(level2_conditions):
     rule(t,p,im,'level2&hud&stage_area'+('&'+extra if extra else ''))
 
+for t,p,im in level3_art():
+    rule(t,p,im,'level3&hud3&stage_area')
+
 # Background art retains the game's live menu, selection and dialogue layers.
 for n,name in [(8,'title_intro'),(9,'title_final')]:
     im=Image.open(ROOT/'art/title.png').convert('RGBA').resize((1024,960),Image.Resampling.LANCZOS)
@@ -209,10 +214,12 @@ for t,p in keys:
         else:im=blank
         rule(t,p,im,'briefing');special[(t,p,'briefing')]=im
     if not sprite and 0xd80<=t<=0xda7:
+        hud_gate='hud3' if p==0x0f001030 else 'hud'
+        label_gate='hud_player_label3' if p==0x0f001030 else 'hud_player_label'
         if t in [0xd81,0xd82]:
-            rule(t,p,hud_tile(t,gold=True),'hud&hud_floor&hud_player_label')
-        rule(t,p,hud_tile(t),'hud')
-    if not sprite and t in [0x600,0x700]:
+            rule(t,p,hud_tile(t,gold=True),hud_gate+'&hud_floor&'+label_gate)
+        rule(t,p,hud_tile(t),hud_gate)
+    if not sprite and t in [0x600,0x700,0x800]:
         rule(t,p,blank,'hud_floor')
     if sprite and p==0xff001020 and 0x160c<=t<=0x1635:
         im=message_tile(t)
@@ -248,7 +255,7 @@ for t,p in keys:
 atlas=Image.new('RGBA',(2048,math.ceil(len(atlas_tiles)/64)*32))
 for i,im in enumerate(atlas_tiles):atlas.paste(im,(i%64*32,i//64*32))
 atlas.save(OUT/'tiles.png',optimize=True)
-header=['# Bad Dudes HD v0.5.1 - Stable truck wheels and emerald cab', '<ver>109','<scale>4','<supportedRom>26E184E350F50BFA06038379A84F3B685B7509B8','<overscan>0,0,0,0','<img>tiles.png',
+header=['# Bad Dudes HD v0.6.0 - Level 3 sewer and animation coverage', '<ver>109','<scale>4','<supportedRom>26E184E350F50BFA06038379A84F3B685B7509B8','<overscan>0,0,0,0','<img>tiles.png',
  '<condition>first_turn,memoryCheckConstant,23F,!=,C0,C0',
  '<condition>second_turn,memoryCheckConstant,23F,==,C0,C0',
  '<condition>second_hero_1,memoryCheckConstant,23F,==,1,1',
@@ -259,20 +266,24 @@ header=['# Bad Dudes HD v0.5.1 - Stable truck wheels and emerald cab', '<ver>109
  '<condition>briefing,tileAtPosition,0,0,DF1,0F0B181B,Y',
  '<condition>gameplay,memoryCheckConstant,2C0,==,0',
  '<condition>level2,memoryCheckConstant,2C0,==,1',
+ '<condition>level3,memoryCheckConstant,2C0,==,2',
  '<condition>hud,tileAtPosition,24,208,D9A,0F001020,N',
  '<condition>hud_player_label,tileNearby,8,0,D9A,0F001020,N',
+ '<condition>hud3,tileAtPosition,24,208,D9A,0F001030,N',
+ '<condition>hud_player_label3,tileNearby,8,0,D9A,0F001030,N',
  '<condition>hud_floor,positionCheckY,>=,200',
  '<condition>stage_area,positionCheckY,<,200',
  '[gameplay&hud]<background>sky.png,1,0,0,10',
  '[gameplay&hud]<background>hud.png,1,0,0,11',
  '[level2&hud]<background>hud.png,1,0,0,11',
+ '[level3&hud3]<background>hud.png,1,0,0,11',
  '[level2&hud]<background>level2_sky.png,1,0,0,10',
  '[title_intro]<background>title_intro.png,1,0,0,20',
  '[title_final]<background>title_final.png,1,0,0,20',
  '[select]<background>select.png,1,0,0,10',
  '[briefing]<background>briefing.png,1,0,0,10']
 (OUT/'hires.txt').write_text('\n'.join(header+player_conditions+actor_conditions+level2_conditions+rules)+'\n')
-(ROOT/'build_stats.json').write_text(json.dumps({'source_keys':len(keys),'tile_rules':len(rules),'unique_atlas_tiles':len(atlas_tiles),'scale':4,'player_tiles':len(player_defaults),'player_poses_per_character':len(player_poses)+6+15,'player_characters':2,'player_context_rules':len(player_context)*5,'new_actor_poses':base_pose_offset,'new_actor_keys':len(actor_defaults),'actor_context_rules':actor_context_count},indent=2))
+(ROOT/'build_stats.json').write_text(json.dumps({'source_keys':len(keys),'tile_rules':len(rules),'unique_atlas_tiles':len(atlas_tiles),'scale':4,'player_tiles':len(player_defaults),'player_poses_per_character':len(player_poses)+6+15+1,'player_characters':2,'player_context_rules':len(player_context)*5,'new_actor_poses':base_pose_offset,'new_actor_keys':len(actor_defaults),'actor_context_rules':actor_context_count},indent=2))
 
 # Offline previews are only for fast layout iteration; Mesen playback is final QA.
 if args.previews:args.previews.mkdir(parents=True,exist_ok=True)

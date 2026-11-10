@@ -887,5 +887,124 @@
     "cell": 0,
     "tiles": 4,
     "clipped_pixels": 0
+  },
+  {
+    "pose": 127,
+    "sheet": "level3_ninjas.png",
+    "cell": 0,
+    "tiles": 12,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 128,
+    "sheet": "level3_ninjas.png",
+    "cell": 1,
+    "tiles": 12,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 129,
+    "sheet": "level3_ninjas.png",
+    "cell": 2,
+    "tiles": 16,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 130,
+    "sheet": "level3_ninjas.png",
+    "cell": 3,
+    "tiles": 20,
+    "clipped_pixels": 22
+  },
+  {
+    "pose": 131,
+    "sheet": "level3_ninjas.png",
+    "cell": 4,
+    "tiles": 12,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 132,
+    "sheet": "player_level3_victory.png",
+    "cell": 0,
+    "tiles": 20,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 133,
+    "sheet": "effects.png",
+    "cell": 9,
+    "tiles": 2,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 134,
+    "sheet": "effects.png",
+    "cell": 9,
+    "tiles": 2,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 135,
+    "sheet": "effects.png",
+    "cell": 9,
+    "tiles": 4,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 136,
+    "sheet": "effects.png",
+    "cell": 4,
+    "tiles": 2,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 137,
+    "sheet": "effects.png",
+    "cell": 7,
+    "tiles": 16,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 138,
+    "sheet": "effects.png",
+    "cell": 8,
+    "tiles": 4,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 139,
+    "sheet": "effects.png",
+    "cell": 8,
+    "tiles": 16,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 140,
+    "sheet": "effects.png",
+    "cell": 5,
+    "tiles": 4,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 141,
+    "sheet": "ninjas_b.png",
+    "cell": 6,
+    "tiles": 14,
+    "clipped_pixels": 11
+  },
+  {
+    "pose": 142,
+    "sheet": "ninjas_a.png",
+    "cell": 6,
+    "tiles": 16,
+    "clipped_pixels": 44
+  },
+  {
+    "pose": 143,
+    "sheet": "effects.png",
+    "cell": 3,
+    "tiles": 2,
+    "clipped_pixels": 0
   }
 ]

@@ -1,24 +1,12 @@
-# Development checkpoint - v0.5.1
+# Development checkpoint - v0.6.0
 
-## Approved checkpoint and branch workflow
+## Current checkpoint and branch workflow
 
-The user approved v0.5.1 on November 10, 2026 and requested a bundle to
-push to develop. This includes the approved Level 2 and weapon artwork,
-readable stage messages, gold player labels, and truck/cab fixes.
-The tested graphics checkpoint is 2e1db693ed54d515a1fb93824246f285f1c79150.
-The last verified remote develop checkpoint is v0.4.1; the bundle carries
-all subsequent local commits. Bundle preparation does not push the branch.
-
-
-v0.4.1 was approved after the red-ninja falling-pose fix. The Git bundle
-places the complete project on `develop`, directly after the repository's
-existing main commit 586f6b869d01371472cb10eaebcb9df69d0ef1b0. It includes
-the existing commit, so it can be cloned independently without prerequisites.
-The bundle is prepared for the user to push; preparation does not push it.
-
-Continue approved checkpoints on `develop`. Keep `main` unchanged until all
-planned stages and final regression checks are complete. At that point merge
-to `main`, tag v1.0.0 and publish the install ZIP as the release asset.
+v0.6.0 is prepared for user testing from approved develop commit e98eeb3
+(v0.5.1). The user pushed that approved checkpoint on November 10, 2026.
+This work has not been pushed, merged, tagged or released. Continue on
+`develop`; keep `main` unchanged until the full remake and final regression
+checks are complete, then merge and publish v1.0.0.
 
 ## Inputs and replay
 
@@ -362,3 +350,47 @@ frame. All 35 source-art files remain byte-identical to v0.5.0.
 
 The patch is approved for develop and included in the v0.5.1 push bundle.
 Main stays unchanged until the full remake and final testing are complete.
+
+
+## v0.6.0 Level 3 and animation coverage
+
+Input: Bad Dudes (USA)(5).mmo, 10,341 input frames. The movie starts at the
+Level 2 exit and covers the full sewer stage, green ninja boss and Stage 3
+Clear. An exploratory replay continued past the recording; coverage and final
+validation stop at the input count. Do not claim Level 4 coverage.
+
+- Six new source atlases/references preserve original geometry: four sewer
+  scenes, five ninja layouts, and a two-cell hero victory sheet. Existing
+  art files remain byte-identical. No ROM, movie or emulator is included.
+- `level3_art.py` registers the four backgrounds to captured tile positions,
+  slices all 212 observed bank-8 tile/palette keys and scopes them to scene
+  RAM $02C0=2, the exact live HUD palette and y<200. There are no material
+  fallbacks in the recorded Level 3 scenery.
+- New HUD gate `hud3` recognizes D9A at (24,208), palette 0F001030. The
+  earlier exact 0F001020 gate is retained. Do not ignore the HUD palette:
+  doing so can expose artwork during black transition/fade states.
+- `v6_actions.json` adds 17 actor/effect layouts. The green uniform palette
+  FF0F351A reuses approved basic/specialist ninja artwork; additional CHR
+  layouts reuse the matching full pose, preserving relative context checks.
+- F80–F9F duplicate the earlier punch-effect bank. FA0/FA1 cover its sparkle;
+  FA/FB ninja layouts reuse the approved guard and airborne ninja poses.
+- New boss upright, guard, flat defeat and disappearing layouts, plus the
+  red ninja dagger extension, are painted. FF303030 uses the new silhouette
+  in near-white to retain the native appearance flash.
+- Both heroes have the narrow raised-fist victory pose. `player2_cell`
+  allows distinct hero cells in the same source sheet. Normal FF0F2620 and
+  FF0F2820 and shared FF301638 preserve hero identity through the existing
+  $023F selector. The Level 3 recording contains player 1 only.
+- All 10,217 existing runtime rule images are byte-identical and present;
+  all seven pre-existing scene/panel PNGs remain unchanged.
+- Build: 6,982 source keys, 11,561 runtime rules, 7,847 unique atlas cells,
+  42 player poses per hero, 144 additional actor/effect layouts.
+- Sprite coverage: 1,411/1,411 observed visible gameplay keys, excluding
+  intentional black fade states, empty source cells and stage-message glyphs
+  (the latter use their existing live font mappings).
+- `tools/verify_v0.6.0.lua` captures the full recording with dense checks at
+  the dagger attack, boss appearance/sparkle and final defeat/victory.
+  `validation/v0.6.0_validation.json` records completed regression results.
+
+Continue with user feedback on v0.6.0, then Level 4 recordings. Unrecorded
+moves, alternating two-player cases and later stages still require testing.

@@ -1,34 +1,32 @@
-BAD DUDES HD - v0.5.1
-Stable truck wheels and emerald cab
+BAD DUDES HD - v0.6.0
+Level 3 sewer, ninja boss and animation coverage
 
 INSTALL IN MESENCE
 1. Load your Bad Dudes (USA) NES ROM.
-2. Tools > HD Packs (NES) > Install HD Pack: select Bad_Dudes_HD_v0.5.1.zip.
+2. Tools > HD Packs (NES) > Install HD Pack: select Bad_Dudes_HD_v0.6.0.zip.
 3. Enable HD packs in NES settings and reload the game.
 
 Manual installation: replace the previous pack with hires.txt and all eight
 PNG files in HdPacks/Bad Dudes (USA)/. Folder name must match the ROM filename.
 
 CHANGES
-- Fixes black squares in the tires and inconsistent wheel size between phases.
-- Keeps the cab roof and body in the same emerald finish across scrolling banks.
-- Fills missing cab rear-panel and window cells with the existing artwork.
-- Reuses the approved heroes, ninjas, effects and HUD.
-- Adds dagger/nunchaku poses and two-arm victory for both heroes.
-- Adds missing red-ninja, small-ninja and Level 2 claw-boss poses.
-- Weapon drops stay HD during their normal/brighter flash cycle.
-- Painted Level 2 skyline, sky, trucks, cab and roadway.
-- Taller outlined GO TO NEXT STAGE and stage-clear lettering.
-- Level 2 HUD panel; both 1P and 2P labels remain gold.
+- Painted Level 3 sewer walls, pipes, ladders, drains and broken-wall boss area.
+- Live Level 3 HUD, including its alternate white source palette and gold labels.
+- Added red ninja dagger attack and green ninja boss appearance/defeat states.
+- Existing ninja poses stay HD through green palettes and alternate tile banks.
+- Alternate super-punch banks and sparkle frames use the approved effects.
+- Both heroes have the newly recorded narrow raised-fist victory pose.
+- Previous artwork, Level 2 trucks, wheel fixes and emerald cab are retained.
 
 TESTED SCOPE
-MesenCE 2.2.1; complete new 8,850-input movie through Level 2 and its exit.
-All 1,227 observed visible gameplay sprite tile/palette keys have detailed art.
-Earlier 1.mmo and 2.mmo regression clips remain pixel-identical to v0.4.2.
-Player 2 weapons additionally checked with a palette-swap/hero-selector diagnostic;
-this is not a claim of a recorded two-player run. Native sprite limits remain.
-Unrecorded moves, alternating two-player states and later levels need testing.
-The publisher splash retains its baseline treatment.
+MesenCE 2.2.1; complete 10,341-input Level 3 movie through Stage 3 Clear.
+All 1,411 visible gameplay sprite tile/palette combinations have detailed art.
+All 212 captured Level 3 scenery keys use painted references.
+Earlier Level 2 recording replayed for regression checks.
+The new second-hero pose is mapped to normal and shared warm-flash palettes;
+the supplied Level 3 movie records the first hero, not a two-player run.
+Native sprite limits remain. Unrecorded moves, alternating two-player states
+and later levels still need testing. Publisher splash keeps baseline treatment.
 
 4x rendering: 1024 x 960 before aspect-ratio correction.
 Gameplay timing, collisions and audio remain game-controlled.

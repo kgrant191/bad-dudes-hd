@@ -1,0 +1,25 @@
+{
+  "version": "0.6.0",
+  "emulator": "MesenCE 2.2.1",
+  "source_commit": "e98eeb3",
+  "level3_movie_frames": 10341,
+  "level3_captured_frames": 658,
+  "level3_scene_progression_unchanged": true,
+  "level3_sprite_keys": 1411,
+  "level3_detailed_sprite_keys": 1411,
+  "level3_missing_sprite_keys": 0,
+  "level3_painted_background_keys": 212,
+  "level3_material_fallback_keys": 0,
+  "previous_rule_images_unchanged": 10217,
+  "previous_scene_pngs_unchanged": 7,
+  "previous_source_art_unchanged": true,
+  "level2_replay_frames": 8850,
+  "level2_compared_screenshots": 264,
+  "level2_changed_screenshots": [],
+  "loader_errors": 0,
+  "limits": [
+    "Movie records hero 1; hero 2 mapping is not a two-player replay.",
+    "Native sprite limits and occlusion preserved.",
+    "Unrecorded states and Level 4 onward remain unverified."
+  ]
+}
