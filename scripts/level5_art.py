@@ -35,6 +35,15 @@ def level5_art(conditions):
             if key in mapped:continue
             x,y=min(places,key=lambda a:(abs(a[0]-128),a[1]))
             mapped[key]=art.crop((x*4,y*4,x*4+32,y*4+32));places_by_key[key]=(x,y)
+    # The engine's 580-5FF bank alternates with A00-A7F every two frames.
+    # Several identical native patterns occupy different painted panel rows.
+    # Resolve the explicit bank counterpart before generic pattern matching,
+    # otherwise an unchanged native panel can select a different HD row.
+    engine_bank_art={}
+    for t in range(0x580,0x600):
+        p=0x0f0b1b2b;u=t+0x480
+        if (t,p) in mapped and np.array_equal(pixels(t),pixels(u)):
+            engine_bank_art[u,p]=mapped[t,p]
     patterns={};any_palette=defaultdict(list)
     for (t,p),im in mapped.items():
         pat=pixels(t).tobytes();patterns.setdefault((pat,p),im)
@@ -47,7 +56,7 @@ def level5_art(conditions):
         a[:,:,:3]=np.minimum(255,lum[:,:,None]*target/np.dot(target,[.299,.587,.114]));return Image.fromarray(a.astype('uint8'))
     fallback=[];out=[]
     for t,p in json.loads((ROOT/'metadata/level5_background_keys.json').read_text()):
-        ix=pixels(t);pat=ix.tobytes();im=mapped.get((t,p),patterns.get((pat,p)))
+        ix=pixels(t);pat=ix.tobytes();im=engine_bank_art.get((t,p),mapped.get((t,p),patterns.get((pat,p))))
         # Palette changes must recolor one registered freight-car surface,
         # not splice in differently aligned rib/door art from another view.
         # The engine palette keeps its own painted panel/vent surfaces.
@@ -103,5 +112,5 @@ def level5_art(conditions):
         shadow=refs[0][1].crop((320,300,352,332));a=np.array(shadow);a[:,:,:3]=(a[:,:,:3]*.55).astype('uint8')
         extra.append((t,p,Image.fromarray(a),row+'&'+near))
     out=extra+out
-    (ROOT/'validation/level5_background_mapping.json').write_text(json.dumps({'reference_cells':len(mapped),'material_fallback':fallback,'train_context_rules':len(context['train']),'canyon_shadow_rules':len(context['canyon_blanks'])},indent=2)+'\n')
+    (ROOT/'validation/level5_background_mapping.json').write_text(json.dumps({'reference_cells':len(mapped),'material_fallback':fallback,'train_context_rules':len(context['train']),'canyon_shadow_rules':len(context['canyon_blanks']),'engine_bank_aliases':len(engine_bank_art)},indent=2)+'\n')
     return out

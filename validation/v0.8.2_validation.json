@@ -1,0 +1,79 @@
+{
+  "version": "0.8.2",
+  "movie": "Bad Dudes (USA)(8).mmo",
+  "movie_inputs": 578,
+  "compared_frames": 573,
+  "changed_frames": 288,
+  "unaligned_pixels_outside_engine_body": 729594,
+  "stage_clear_capture_offsets": [
+    {
+      "frame": 492,
+      "matching_baseline_frame": 491
+    },
+    {
+      "frame": 494,
+      "matching_baseline_frame": 493
+    }
+  ],
+  "changed_pixels_outside_engine_body_after_capture_alignment": 0,
+  "steady_body_interval": [
+    6,
+    374
+  ],
+  "steady_body_frames": 369,
+  "unique_body_images": {
+    "native": 1,
+    "before": 2,
+    "after": 1
+  },
+  "game_state_sequence_unchanged": true,
+  "loader_errors": 0,
+  "runtime_assets_match_replay": true,
+  "rule_comparison": {
+    "unchanged_rules": 16467,
+    "changed_rules": [
+      [
+        "[level5&hud&stage_area]",
+        "A0D",
+        "0F0B1B2B"
+      ],
+      [
+        "[level5&hud&stage_area]",
+        "A0E",
+        "0F0B1B2B"
+      ],
+      [
+        "[level5&hud&stage_area]",
+        "A12",
+        "0F0B1B2B"
+      ],
+      [
+        "[level5&hud&stage_area]",
+        "A1D",
+        "0F0B1B2B"
+      ],
+      [
+        "[level5&hud&stage_area]",
+        "A1E",
+        "0F0B1B2B"
+      ],
+      [
+        "[level5&hud&stage_area]",
+        "A2D",
+        "0F0B1B2B"
+      ],
+      [
+        "[level5&hud&stage_area]",
+        "A2E",
+        "0F0B1B2B"
+      ]
+    ],
+    "added_rules": [],
+    "removed_rules": []
+  },
+  "baseline": "v0.8.1 full Level 5 replay and v0.8.0 Level 4 regression retained; not rerun for this seven-rule correction.",
+  "limits": [
+    "First hero recorded; alternating two-player states remain untested.",
+    "Level 6 scenery and unrecorded animations remain pending."
+  ]
+}

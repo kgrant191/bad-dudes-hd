@@ -555,3 +555,29 @@ v0.8.1 supersedes the unapproved v0.8.0 build. Neither is pushed. The bundle
 starts at approved/pushed v0.7.2 (6b7ada5e7e8419e57f1adb91d7154322227cbf51)
 and includes both commits. Await the user's test before any push; main stays
 unchanged. Level 6 scenery remains pending.
+
+
+## v0.8.2 Stable green locomotive panels
+
+User noticed excessive shaking during the boss. Comparing frames 6-374 of
+Bad Dudes (USA)(8).mmo shows one native engine-body image but two HD images
+alternating every two frames. The source game is not shaking those panels.
+
+The engine's native 580-5FF / A00-A7F bank counterparts are byte-identical,
+but generic pattern matching selected differently registered painted rows
+for repeated native patterns. Resolve the explicit counterpart from the
+13410 engine reference before generic matching. Restrict this to FF-less
+background palette 0F0B1B2B and validate the native pixels before aliasing.
+Fourteen aliases resolve to the original engine reference; seven replacement
+images change. No actor, wheel, other palette or context rule changes.
+
+Replay all 578 inputs with every-frame captures. Check the green body is
+identical through the 369-frame fight interval, compare every other pixel
+against v0.8.1, retain the same game-state sequence, and compare all rule
+images. Two stage-clear screenshots lag the decoded video by one frame;
+record those offsets and require an exact adjacent-frame match outside the
+engine panel area. Combat frames need no alignment adjustment. The complete preceding level replay remains the v0.8.1 baseline;
+this focused fix does not rerun that long recording. See v0.8.2_validation.json.
+
+This supersedes unapproved v0.8.0/v0.8.1. The source bundle includes all three
+commits from approved/pushed v0.7.2. Nothing is pushed; main stays unchanged.
