@@ -68,6 +68,8 @@ int main(int argc,char**argv){
  int id=LoadScript("capture",argv[1],script.c_str(),-1);
  auto listener=std::make_shared<CaptureListener>();
  if(!build && !std::getenv("SKIP_METADATA")) _emu->GetNotificationManager()->RegisterNotificationListener(listener);
+ // Movie/ROM loading resets runtime speed flags; apply after setup.
+ settings->SetFlag(EmulationFlags::MaximumSpeed);
  Resume();
  for(int i=0;i<6000;i++){
  std::this_thread::sleep_for(std::chrono::milliseconds(100));

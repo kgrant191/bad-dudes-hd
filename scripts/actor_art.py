@@ -9,10 +9,15 @@ def palette_variant(im, source, target):
     a=np.array(im).astype(float);rgb=a[:,:,:3]
     if target==0xff303030:
         rgb[:]=[247,255,244]
-    elif target==0xff001020: # boss damage flash
+    elif target in [0xff001020,0xff300010]: # boss damage flash
         grey=rgb@np.array([.299,.587,.114]);rgb[:]=grey[:,:,None]*.75+62
     elif target==0xff301638:
         rgb[:]=np.minimum(255,rgb*.55+np.array([255,126,57])*.45)
+    elif target==0xff0f1018:
+        # Final-stage return of the armored Level 4 boss: olive armor.
+        spread=rgb.max(axis=2)-rgb.min(axis=2);mask=spread<48
+        lum=rgb.max(axis=2)/180
+        rgb[mask]=np.clip(lum[mask,None]*np.array([128,123,61]),0,255)
     elif target==0xff0f1c08:
         # Returning bosses retain their detailed skin/armor; only the native
         # costume palette changes to the train encounter's olive brown.
@@ -53,7 +58,7 @@ def pickup_variant(im, target):
 
 def actor_art(keys):
     poses=[]
-    for name in ['player_missing','enemy_poses','effect_poses','v4_actions','v5_actions','v6_actions','v7_actions','v8_actions','v9_actions']:
+    for name in ['player_missing','enemy_poses','effect_poses','v4_actions','v5_actions','v6_actions','v7_actions','v8_actions','v9_actions','v10_actions']:
         poses+=json.loads((ROOT/f'metadata/{name}.json').read_text())
     sheets={};variants=defaultdict(list);stats=[];preview=[]
     palettes=defaultdict(set)
@@ -114,7 +119,7 @@ def actor_art(keys):
             for p in palettes[t]:
                 if p in pose.get('excluded_palettes',[]):continue
                 part_palette=pose.get('tile_palettes',{}).get(str(t))
-                if part_palette is not None and p not in [part_palette,0xff001020]:continue
+                if part_palette is not None and p not in [part_palette,0xff001020]+pose.get('damage_palettes',[]):continue
                 allowed=pose.get('palettes')
                 if allowed and p not in allowed and not (p==0xff0f351a and any((q&0xffffff00)==0xff0f3500 for q in allowed)):continue
                 # Never turn intro/black fade palettes into visible actors.
@@ -164,6 +169,10 @@ def actor_art(keys):
                     if p not in [0xff0f361c,0xff001020]:continue
                     variants[t+half,p]=[{'pose':chain_pose,'x':0,'y':half*8,'h':0,'v':0,
                         'image':palette_variant(cell,0xff0f361c,p)}]
+    # Rescue victory reuses the detailed hand through an alternate CHR tile.
+    assert np.array_equal(pixels(0xf6f),pixels(0xf2f))
+    for p in [0xff0f2620,0xff0f2820,0xff301638]:
+        if (0xf2f,p) in variants:variants[0xf6f,p]=[dict(variants[0xf2f,p][0])]
     out=Image.new('RGB',(1280,((len(preview)+5)//6)*270),'#293541');d=ImageDraw.Draw(out)
     for j,(orig,im,i) in enumerate(preview):
         x=j%6*212;y=j//6*270;d.text((x,y),f'{i}: {poses[i]["sheet"]} {poses[i]["cell"]}',fill='white');out.paste(im,(x,y+20),im)

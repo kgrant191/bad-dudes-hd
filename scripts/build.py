@@ -10,6 +10,7 @@ from level3_art import level3_art
 from level4_art import level4_art
 from level5_art import level5_art
 from level6_art import level6_art
+from level7_art import level7_art, level7_sprite_art, ending_art
 parser=argparse.ArgumentParser(description='Build Bad Dudes HD from its art and captured tile mappings.')
 parser.add_argument('--previews',type=Path,help='Optional directory for offline layout previews')
 args=parser.parse_args()
@@ -45,6 +46,12 @@ def character_rule(t,p,im,condition=None,player2=None):
         for active in ['first_turn&second_hero_1','second_turn&second_hero_2']:
             rule(t,p,player2,active+('&'+condition if condition else ''))
     rule(t,p,im,condition)
+def hud_image(t,p,gold=False):
+    im=hud_tile(t,gold=gold)
+    if p in [0x0f0b1a10,0x0f0f0b00,0x0f0f0f0f,0x0f011210]:
+        a=np.array(im);ratio=np.array(tile(0xd9a,p))[:,:,:3].max()/255
+        a[:,:,:3]=(a[:,:,:3]*ratio).astype('uint8');im=Image.fromarray(a)
+    return im
 def no_bg(im,color_index=0,t=None):
     a=np.array(im);a[pixels(t)==color_index,3]=0;return Image.fromarray(a)
 keys=[]
@@ -65,9 +72,10 @@ hero_palettes=[0xff0f2620,0xff0f2820,0xff301638]
 for pose in json.loads((ROOT/'metadata/effect_poses.json').read_text()):
     if pose['palette'] in hero_palettes:
         keys.extend((row[2],p) for row in pose['tiles'] for p in hero_palettes)
-for metadata in ['v5_actions','v6_actions','v7_actions','v8_actions','v9_actions']:
+for metadata in ['v5_actions','v6_actions','v7_actions','v8_actions','v9_actions','v10_actions']:
     for pose in json.loads((ROOT/f'metadata/{metadata}.json').read_text()):
         keys.extend((row[2],p) for row in pose['tiles'] for p in pose['palettes'])
+keys.extend((0xf6f,p) for p in hero_palettes)
 keys=list(dict.fromkeys(keys))
 panel()
 
@@ -158,6 +166,17 @@ for t,p,im,extra in level5_art(level5_conditions):
 for t,p,im in level6_art():
     rule(t,p,im,'level6&hud6&stage_area')
 
+for t,p,im in level7_art():
+    rule(t,p,im,'level7&hud7&stage_area')
+    rule(t,p,blank,'level7&hud7&hud_floor')
+
+for t,p,im in level7_sprite_art():
+    rule(t,p,im,'level7')
+
+ending_headers=[]
+for t,p,im,condition in ending_art(ending_headers):
+    rule(t,p,im,condition)
+
 # Background art retains the game's live menu, selection and dialogue layers.
 for n,name in [(8,'title_intro'),(9,'title_final')]:
     im=Image.open(ROOT/'art/title.png').convert('RGBA').resize((1024,960),Image.Resampling.LANCZOS)
@@ -227,12 +246,15 @@ for t,p in keys:
         else:im=blank
         rule(t,p,im,'briefing');special[(t,p,'briefing')]=im
     if not sprite and 0xd80<=t<=0xda7:
-        hud_gate={0x0f001030:'hud3',0x0f071727:'hud4',0x0f1c2c3b:'hud6'}.get(p,'hud')
-        label_gate={0x0f001030:'hud_player_label3',0x0f071727:'hud_player_label4',0x0f1c2c3b:'hud_player_label6'}.get(p,'hud_player_label')
+        hud_gate={0x0f001030:'hud3',0x0f071727:'hud4',0x0f1c2c3b:'hud6',0x0f1b2a20:'hud7',0x0f011220:'hud7',0x0f011210:'hud7',0x0f0b1a10:'hud7',0x0f0f0b00:'hud7',0x0f0f0f0f:'hud7'}.get(p,'hud')
+        label_gate={0x0f001030:'hud_player_label3',0x0f071727:'hud_player_label4',0x0f1c2c3b:'hud_player_label6',0x0f1b2a20:'hud_player_label7',0x0f011220:'hud_player_label7',0x0f011210:'hud_player_label7',0x0f0b1a10:'hud_player_label7',0x0f0f0b00:'hud_player_label7',0x0f0f0f0f:'hud_player_label7'}.get(p,'hud_player_label')
+        if hud_gate=='hud7':hud_gate='level7&hud7'
         if t in [0xd81,0xd82]:
-            rule(t,p,hud_tile(t,gold=True),hud_gate+'&hud_floor&'+label_gate)
-        rule(t,p,hud_tile(t),hud_gate)
-    if not sprite and t in [0x600,0x700,0x800,0x900,0xa00,0xb00]:
+            rule(t,p,hud_image(t,p,gold=True),hud_gate+'&hud_floor&'+label_gate)
+        rule(t,p,hud_image(t,p),hud_gate)
+    if not sprite and t==0xdbc:
+        rule(t,p,hud_image(0xda7,p),'level7&hud7&hud_floor')
+    if not sprite and t in [0x600,0x700,0x800,0x900,0xa00,0xb00,0xc00,0xe00]:
         rule(t,p,blank,'hud_floor')
     if sprite and p==0xff001020 and 0x160c<=t<=0x1635:
         im=message_tile(t)
@@ -268,7 +290,7 @@ for t,p in keys:
 atlas=Image.new('RGBA',(2048,math.ceil(len(atlas_tiles)/64)*32))
 for i,im in enumerate(atlas_tiles):atlas.paste(im,(i%64*32,i//64*32))
 atlas.save(OUT/'tiles.png',optimize=True)
-header=['# Bad Dudes HD v0.9.0 - Cave scenery, staff boss and stable small ninja animation', '<ver>109','<scale>4','<supportedRom>26E184E350F50BFA06038379A84F3B685B7509B8','<overscan>0,0,0,0','<img>tiles.png',
+header=['# Bad Dudes HD v0.10.0 - Final factory, helicopter boss and ending', '<ver>109','<scale>4','<supportedRom>26E184E350F50BFA06038379A84F3B685B7509B8','<overscan>0,0,0,0','<img>tiles.png',
  '<condition>first_turn,memoryCheckConstant,23F,!=,C0,C0',
  '<condition>second_turn,memoryCheckConstant,23F,==,C0,C0',
  '<condition>second_hero_1,memoryCheckConstant,23F,==,1,1',
@@ -283,6 +305,9 @@ header=['# Bad Dudes HD v0.9.0 - Cave scenery, staff boss and stable small ninja
  '<condition>level4,memoryCheckConstant,2C0,==,3',
  '<condition>level5,memoryCheckConstant,2C0,==,4',
  '<condition>level6,memoryCheckConstant,2C0,==,5',
+ '<condition>level7,memoryCheckConstant,2C0,==,6',
+ '<condition>hud7,tileAtPosition,24,208,D9A,0F1B2A20,Y',
+ '<condition>hud_player_label7,tileNearby,8,0,D9A,0F1B2A20,Y',
  '<condition>hud6,tileAtPosition,24,208,D9A,0F1C2C3B,N',
  '<condition>hud_player_label6,tileNearby,8,0,D9A,0F1C2C3B,N',
  '<condition>hud4,tileAtPosition,24,208,D9A,0F071727,N',
@@ -300,13 +325,19 @@ header=['# Bad Dudes HD v0.9.0 - Cave scenery, staff boss and stable small ninja
  '[level4&hud4]<background>hud.png,1,0,0,11',
  '[level5&hud]<background>hud.png,1,0,0,11',
  '[level6&hud6]<background>hud.png,1,0,0,11',
+
  '[level5&hud]<background>level2_sky.png,1,0,0,10',
  '[level2&hud]<background>level2_sky.png,1,0,0,10',
  '[title_intro]<background>title_intro.png,1,0,0,20',
  '[title_final]<background>title_final.png,1,0,0,20',
  '[select]<background>select.png,1,0,0,10',
  '[briefing]<background>briefing.png,1,0,0,10']
-(OUT/'hires.txt').write_text('\n'.join(header+player_conditions+actor_conditions+level2_conditions+level5_conditions+rules)+'\n')
+# Keep the final-stage HUD on the native palette fade timing.
+for p in sorted({p for t,p in json.loads((ROOT/'metadata/level7_movie_keys.json').read_text()) if t==0xd9a}):
+    gate=f'hud7_palette_{p:X}'
+    brightness=float(np.array(tile(0xd9a,p))[:,:,:3].max())/255
+    header.extend([f'<condition>{gate},tileAtPosition,24,208,D9A,{p:08X},N',f'[level7&{gate}]<background>hud.png,{brightness:.5f},0,0,11'])
+(OUT/'hires.txt').write_text('\n'.join(header+ending_headers+player_conditions+actor_conditions+level2_conditions+level5_conditions+rules)+'\n')
 (ROOT/'build_stats.json').write_text(json.dumps({'source_keys':len(keys),'tile_rules':len(rules),'unique_atlas_tiles':len(atlas_tiles),'scale':4,'player_tiles':len(player_defaults),'player_poses_per_character':len(player_poses)+6+15+1,'player_characters':2,'player_context_rules':len(player_context)*5,'new_actor_poses':base_pose_offset,'new_actor_keys':len(actor_defaults),'actor_context_rules':actor_context_count},indent=2))
 
 # Offline previews are only for fast layout iteration; Mesen playback is final QA.

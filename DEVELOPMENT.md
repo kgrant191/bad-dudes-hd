@@ -1,12 +1,15 @@
-# Development checkpoint - v0.9.0
+# Development checkpoint - v0.10.0
 
 ## Current checkpoint and branch workflow
 
-v0.8.2 is approved and pushed to `develop` at
-bf56adb886c0e2002c6e17e80ccbd6b693e69523 (user confirmed November 10, 2026).
-v0.9.0 is the next local test build; its source bundle starts at that commit.
-Do not push, merge, tag or release without approval. Keep `main` unchanged
-until the full remake and final regressions are complete; then publish v1.0.0.
+v0.9.0 is approved by the user at local develop commit
+26e3d2a574e7364e6483891705aa0afe0ef1c1cc (November 10, 2026).
+The latest confirmed pushed checkpoint is v0.8.2 at
+bf56adb886c0e2002c6e17e80ccbd6b693e69523; do not assume v0.9.0 was pushed.
+The final-level movie is Bad Dudes (USA)(10).mmo, 20,087 inputs.
+v0.10.0 is prepared for testing before a release. Its bundle includes both
+v0.9.0 and this final-level work from the confirmed pushed base.
+Keep main unchanged until the user-approved release sequence is complete.
 Historical entries below retain their original checkpoint status.
 
 ## Inputs and replay
@@ -95,13 +98,18 @@ directories before replay. Delete HOME/done first. Set SKIP_METADATA=1 for
 ordinary screenshot verification. Capture scripts allow file IO in Mesen.
 Use a separate output directory for original and HD screenshots.
 
-## Next art pass
+## Agreed completion sequence
 
-1. User-test v0.9.0, especially small-ninja size/animation and the cave boss.
-2. Gather the next level and complete its new scenery/enemies.
-3. Capture unrecorded moves, alternating two-player states and game over.
-4. Assess the publisher splash, then run the final full-game regression.
-5. After approval, merge develop to main and prepare the v1.0.0 release.
+1. Finish the final level from Bad Dudes (USA)(10).mmo and obtain user approval.
+2. The user will record a complete player 2 playthrough. Replay the entire movie
+   and audit player 2, enemy animation/palette coverage, scenery, effects,
+   transitions and any other visible regressions; fix findings before proceeding.
+3. Generate before/after screenshots and a recording for the user to post.
+4. Create the v1.0.0 release after those checks and review are complete.
+
+The future full-playthrough audit is broader than a player 2 sprite check.
+Do not claim it is complete before the user supplies that movie, and do not
+publish v1.0.0 or final promotional comparisons during the current stage pass.
 
 The current title shows its new logo throughout both title poses; the original
 logo arrival timing is not reproduced. Scenery still retains the original NES
@@ -632,3 +640,48 @@ Native sprite limits, offscreen clipping, gameplay timing and collisions remain
 unchanged. Coverage does not establish unrecorded moves, alternating two-player
 states, the next level or its entry transition. This checkpoint
 awaits user testing and approval before push; main is unchanged.
+
+
+## v0.10.0 final-level pass (November 10, 2026)
+
+Baseline: approved v0.9.0 commit 26e3d2a574e7364e6483891705aa0afe0ef1c1cc.
+User recording: Bad Dudes (USA)(10).mmo, 20,087 inputs, starts at the cave exit,
+completes the final factory and helicopter encounter, then shows the rescue,
+office dialogue and opening White House credits. ROM and recording remain
+external inputs, excluded from the repository and install ZIP.
+
+Five painted factory references and one helicopter reference provide the
+scenery. Native CHR/palette identities control scrolling and moving geometry.
+Rotor phases use a shared painted metal surface under each native contour;
+skid transparency prevents the ground stripe entering an airborne skid tile.
+The elevator doors use their own 1BC2–1BFD sprite range, distinct from the
+returning armored boss in banks 18/19 and palette FF0F1018.
+
+`v10_actions.json` adds the final masked boss, narrow small-ninja layouts,
+airborne specialist and rescue poses. Existing Level 4 boss poses include
+the olive final-stage palette. Small-ninja families include all observed
+uniform palettes. Shared pose tiles keep one head/torso crop.
+The rescue hand tile F6F aliases byte-identical F2F, retaining each hero's art.
+
+Level 7 uses RAM scene 6 and a live D9A HUD tile gate. All stage scenery is
+hidden below y200 so floor fragments cannot leak into the HUD. HUD palette
+fades follow the original palette brightness. DBC is the enemy-health period;
+1634/1635 are the Stage 7 digit. Office scene B and credits scene C use
+illustrated plates with transparent original layers and regenerated live font
+cells. These two ending plates have static figures/flags, while dialogue and
+credit scrolling remain live. This is a deliberate presentation choice,
+not a claim of frame-for-frame cutscene-animation preservation.
+
+Validation: `validation/v0.10.0_validation.json`, coverage and canonical tile
+rule comparison, native replay screenshots/logs, plus full Level 6 regression.
+All previous source artwork and non-atlas runtime PNGs remain unchanged.
+No push, merge, tag or release is performed at this checkpoint.
+
+Approval sequence: final-stage test approval; user supplies player 2 full
+playthrough; full player/enemy/scenery/effect regression; promotional
+before/after images and movie; merge approved develop and release v1.0.0.
+
+The native capture helper reapplies MaximumSpeed after movie loading, which
+resets runtime speed flags. Captured game frames/input order remain unchanged;
+the validation replay is not wall-clock throttled. Distribution ZIP contains
+only the pack, not this developer utility or compiled emulator code.

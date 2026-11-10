@@ -1,30 +1,35 @@
-BAD DUDES HD - v0.9.0
-Level 6 caves, staff fighter and small-ninja animation fixes
+BAD DUDES HD - v0.10.0
+Final factory, helicopter boss, rescue and illustrated ending
 
 INSTALL IN MESENCE
 1. Load your Bad Dudes (USA) NES ROM.
-2. Tools > HD Packs (NES) > Install HD Pack: select Bad_Dudes_HD_v0.9.0.zip.
+2. Tools > HD Packs (NES) > Install HD Pack: select Bad_Dudes_HD_v0.10.0.zip.
 3. Enable HD packs in NES settings and reload the game.
 
-Manual installation: replace the previous pack with hires.txt and all eight
+Manual installation: replace the previous pack with hires.txt and all ten
 PNG files in HdPacks/Bad Dudes (USA)/. Folder name must match the ROM filename.
 
 CHANGES
-- Painted Level 6 cave walls, pillars, platforms, stalagmites and spikes.
-- Falling stone fragments and the live gold-label HUD for the cave palette.
-- Consistent small-ninja scale and shared head/torso cells during animation.
-- Matching small-ninja sai attack and newly recorded airborne recoil.
-- Staff boss walking, turning, kick, crouched thrust, recoil and defeat poses.
-- Newly recorded dog leap using the approved dog artwork and scale.
-- Earlier train, chain-claw boss, dog recoil, charge-arc and player fixes retained.
+- Painted final factory, dragon relief, vents, catwalks and elevator shafts.
+- Moving steel doors, helicopter body, rotor phases, opening cabin and skids.
+- Gold-masked final boss: attack, recoil, flash and defeat artwork.
+- Returning armored boss in the final-level olive palette.
+- New small-ninja layouts, uniform palettes and airborne specialist pose.
+- Presidential rescue and the hero's alternate victory hand tile.
+- Illustrated office/White House ending with live dialogue and credits.
+- Final-stage HUD, native palette fades, Stage 7 Clear and punctuation.
+- All previous stage, player and animation fixes included.
 
 TESTED SCOPE
-MesenCE 2.2.1, complete 12,331-input cave recording plus Level 4 regression.
-All 1,485 observed visible gameplay sprite keys and 209 cave background keys
-have replacements. The movie reaches Stage 6 Clear but ends before the next
-level. The supplied movies record the first hero.
-Native sprite limits and screen-edge clipping remain game-controlled.
-Unrecorded states, two-player turns and the next level still need testing.
+MesenCE 2.2.1, complete 20,087-input final-stage recording and a complete
+12,331-input Level 6 regression. All 2,487 observed gameplay sprite keys
+have detailed mappings. The recording reaches the rescue and opening credits.
+Ending illustrations use static character and flag artwork; dialogue and
+credit timing remain game-controlled. Native sprite limits and clipping remain.
+Later credits, unrecorded moves and full player 2 playthrough need regression.
+
+This checkpoint awaits testing and approval. Player 2 regression comes next,
+then before/after promotional material, then the v1.0.0 release.
 
 4x rendering: 1024 x 960 before aspect-ratio correction.
 Gameplay timing, collisions and audio remain game-controlled.

@@ -1475,5 +1475,96 @@
     "cell": 1,
     "tiles": 2,
     "clipped_pixels": 0
+  },
+  {
+    "pose": 211,
+    "sheet": "level7_boss.png",
+    "cell": 0,
+    "tiles": 18,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 212,
+    "sheet": "level7_boss.png",
+    "cell": 1,
+    "tiles": 22,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 213,
+    "sheet": "level7_boss.png",
+    "cell": 2,
+    "tiles": 18,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 214,
+    "sheet": "level7_boss.png",
+    "cell": 3,
+    "tiles": 8,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 215,
+    "sheet": "level7_boss.png",
+    "cell": 4,
+    "tiles": 10,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 216,
+    "sheet": "level7_boss.png",
+    "cell": 5,
+    "tiles": 18,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 217,
+    "sheet": "level7_boss.png",
+    "cell": 6,
+    "tiles": 22,
+    "clipped_pixels": 2
+  },
+  {
+    "pose": 218,
+    "sheet": "level7_boss.png",
+    "cell": 7,
+    "tiles": 22,
+    "clipped_pixels": 66
+  },
+  {
+    "pose": 219,
+    "sheet": "level7_extra.png",
+    "cell": 0,
+    "tiles": 8,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 220,
+    "sheet": "level7_extra.png",
+    "cell": 1,
+    "tiles": 22,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 221,
+    "sheet": "level7_extra.png",
+    "cell": 2,
+    "tiles": 12,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 222,
+    "sheet": "level7_extra.png",
+    "cell": 3,
+    "tiles": 20,
+    "clipped_pixels": 123
+  },
+  {
+    "pose": 223,
+    "sheet": "level7_extra.png",
+    "cell": 0,
+    "tiles": 8,
+    "clipped_pixels": 0
   }
 ]
