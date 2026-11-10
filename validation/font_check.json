@@ -1,0 +1,13 @@
+{
+  "version": "0.1.1",
+  "glyph_tiles": [
+    "D1E",
+    "D23"
+  ],
+  "cap_width_px": 28,
+  "stem_width_px": 8,
+  "replay_frames": 2420,
+  "exit_code": 0,
+  "typewriter_retained": true,
+  "other_art_unchanged": true
+}

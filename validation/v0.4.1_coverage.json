@@ -1,0 +1,16 @@
+{
+  "version": "0.4.1",
+  "new_movie_inputs": 712,
+  "visible_sprite_keys": 350,
+  "detailed_sprite_keys": 350,
+  "missing": [],
+  "unchanged_v0_4_0_rule_images": 6485,
+  "unchanged_scene_images": 6,
+  "fixed_falling_tiles": "1230-123F, palette FF0F3516, frames 291-326",
+  "known_uniform_palettes": [
+    "FF0F3512",
+    "FF0F3516",
+    "FF0F3510",
+    "FF0F351C"
+  ]
+}

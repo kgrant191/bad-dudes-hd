@@ -1,0 +1,24 @@
+{
+  "palettes": {
+    "FF0F0F0F": {
+      "first_frame": 2439,
+      "last_frame": 2440,
+      "tile_count": 6,
+      "tile_instances": 12
+    },
+    "FF0F2620": {
+      "first_frame": 2441,
+      "last_frame": 8501,
+      "tile_count": 310,
+      "tile_instances": 74796
+    },
+    "FF301638": {
+      "first_frame": 3784,
+      "last_frame": 7876,
+      "tile_count": 64,
+      "tile_instances": 15865
+    }
+  },
+  "unmapped_visible_player_tiles": [],
+  "missing_base_keys": []
+}
