@@ -1,35 +1,34 @@
-BAD DUDES HD - v0.7.2
-Level 4 forest, corrected dogs and inward-facing charge arcs
+BAD DUDES HD - v0.8.0
+Level 5 train, shared enemy repairs and chain-claw boss
 
 INSTALL IN MESENCE
 1. Load your Bad Dudes (USA) NES ROM.
-2. Tools > HD Packs (NES) > Install HD Pack: select Bad_Dudes_HD_v0.7.2.zip.
+2. Tools > HD Packs (NES) > Install HD Pack: select Bad_Dudes_HD_v0.8.0.zip.
 3. Enable HD packs in NES settings and reload the game.
 
 Manual installation: replace the previous pack with hires.txt and all eight
 PNG files in HdPacks/Bad Dudes (USA)/. Folder name must match the ROM filename.
 
 CHANGES
-- Super-punch charge arcs now form ( hero ) around the main character.
-- Fixed the dog growing/shrinking between frames: one source scale and stable
-  standing-frame alignment preserve body size while legs and head animate.
-- Replaced the incorrect human-shaped dog defeat effect with a dog recoil.
-- Painted forest leaves, trunks, ferns, cliff ledges, fallen logs and stumps.
-- Live forest HUD with gold labels, health bars, timer and score.
-- Six dog animation phases and three newly recorded sword-ninja attacks.
-- Standing and running flame-ninja animations.
-- Armored boss movement, attacks, recoil and defeat animation states.
-- Small gray ninja keeps its HD art through its alternate palette.
-- Approved hero artwork, sewer stage and truck/cab/wheel fixes retained.
+- Painted canyon, mountains, freight cars, locomotive, wheels and track.
+- Matching art across the moving train's two CHR banks and color variants.
+- Acrobat cartwheel/flip/tuck frames and ninja weapon thrusts.
+- Small ninja attack and both burning recoil layouts.
+- Returning bosses retain their HD art in the train's alternate palette.
+- Chain-claw boss movement, attacks, jumping, recoil and visible falling foot.
+- Boss head/body palette separation and repeated chain aliases preserved.
+- Main character checked; all recorded hero moves already have HD art.
+- Approved dog scale/recoil, charge arcs and earlier-level fixes retained.
 
 TESTED SCOPE
-MesenCE 2.2.1; complete 9,360-input Level 4 movie through the boss defeat.
-All 1,561 visible gameplay sprite tile/palette combinations have detailed art.
-All 217 captured forest scenery keys are replaced; three partial rock corners
-use painted material with the native shape. Level 3 replayed for regression.
+MesenCE 2.2.1; the complete 15,268-input recording through the Level 5 clear
+and the opening of Level 6. All 1,937 visible sprite tile/palette combinations
+through the Level 5 clear have detailed art. All 588 Level 5 background keys
+are mapped. The full Level 4 movie is replayed against approved v0.7.2.
 The supplied movie records the first hero, not a two-player run.
-Native sprite limits remain. Unrecorded moves, alternating two-player states
-and later levels still need testing. Publisher splash keeps baseline treatment.
+Native sprite limits and screen-edge clipping remain game-controlled.
+Unrecorded states and Level 6 scenery still need work. The boss's offscreen
+movement cannot be visually verified; recorded visible poses are covered.
 
 4x rendering: 1024 x 960 before aspect-ratio correction.
 Gameplay timing, collisions and audio remain game-controlled.

@@ -1,12 +1,12 @@
-# Development checkpoint - v0.6.0
+# Development checkpoint - v0.8.0
 
 ## Current checkpoint and branch workflow
 
-v0.6.0 is prepared for user testing from approved develop commit e98eeb3
-(v0.5.1). The user pushed that approved checkpoint on November 10, 2026.
-This work has not been pushed, merged, tagged or released. Continue on
-`develop`; keep `main` unchanged until the full remake and final regression
-checks are complete, then merge and publish v1.0.0.
+v0.7.2 is approved and pushed to `develop` at
+6b7ada5e7e8419e57f1adb91d7154322227cbf51 (verified November 10, 2026).
+v0.8.0 is the next local test build. Its bundle starts at that exact checkpoint.
+Do not push, merge, tag or release without approval. Keep `main` unchanged
+until the full remake and final regressions are complete; then publish v1.0.0.
 
 ## Inputs and replay
 
@@ -96,10 +96,11 @@ Use a separate output directory for original and HD screenshots.
 
 ## Next art pass
 
-1. User-test v0.4.1 in normal play, including both characters and item flashes.
-2. Capture unrecorded moves, alternating two-player states and game over.
-3. Gather Level 2 and later recordings before adding their art.
-4. Replace the publisher splash and assess any unrecorded menu states.
+1. User-test v0.8.0, including the train, shared enemies and chain-claw boss.
+2. Gather the Level 6 recording and finish its scenery/new enemies.
+3. Capture unrecorded moves, alternating two-player states and game over.
+4. Assess the publisher splash, then run the final full-game regression.
+5. After approval, merge develop to main and prepare the v1.0.0 release.
 
 The current title shows its new logo throughout both title poses; the original
 logo arrival timing is not reproduced. Scenery still retains the original NES
@@ -480,3 +481,46 @@ The bundle includes v0.7.0-v0.7.2 starting at approved/pushed v0.6.0 commit
 4d33cb03b59f43b35f33fb7205a1eb7c2a22667f. Nothing has been pushed from here;
 main remains unchanged. v0.7.1 approval is recorded; this small visual revision
 is supplied for the user's final look before pushing.
+
+
+## v0.8.0 Level 5 train and shared animation repairs
+
+Input: Bad Dudes (USA)(7).mmo, 15,268 inputs. Scene RAM $02C0 is 3 for
+206 frames, 4 for 14,763 frames and 5 for the final 299 frames. Scenery rules
+require scene 4, the exact live HUD palette and y < 200. The Level 6 opening
+is preserved but its scenery is not part of this pass.
+
+Three registered source views (300, 10860, 13410) map the canyon, freight
+cars and engine. All 588 observed background keys use painted references,
+identical CHR-pattern aliases, costume/material color transforms or explicit
+transparent sky cells. Reuse level2_sky.png rather than adding a duplicate.
+Freight variants share one registered steel surface before color conversion,
+so palette changes cannot splice a differently aligned door/rib reference.
+Local body-row checks keep freight roofs/panels consistent during native
+attribute swaps; adjacent canyon rock anchors fill ten blank shadow cases.
+These extra rules are confined to the live Level 5 scene. The locomotive
+keeps its own 0F0B1B2B background palette; it is excluded
+from the freight recolor path so its painted panels cannot gain bright blocks.
+
+v8_actions.json adds 20 actor/effect layouts: eight attack/acrobat/recoil
+references, ten chain-claw boss/weapon references, a second burning recoil
+layout and the visible boot as the boss falls offscreen. The chain's bank-1D
+aliases are validated against byte-identical native pixels. Boss head tiles
+use FF0F3606; body uses FF0F361C. `tile_palettes` binds each source tile to its
+own palette while allowing its damage flash. `art_rect` supports the source
+atlas's actual cell bounds without changing existing equal-grid sheets.
+
+The train reuses earlier boss sprites with FF0F1C08. Permit that palette for
+boss/boss_actions and the Level 2 boss. Retain skin/armor and recolor the
+costume to olive brown. Shared new ninja moves cover the known uniform family;
+the small ninja additionally retains FF0F3602. No hero frame was missing.
+
+All 13,225 previous rule images remain byte-identical and no prior rule is
+removed. The source illustrations for earlier levels are unchanged. Actual
+Level 4 playback is compared against approved v0.7.2. The Level 5 movie is
+replayed in full, with extra sampling around burning recoil, acrobat flips
+and the chain-claw boss. See validation/v0.8.0_validation.json for results.
+
+Captured visible boss poses are covered. Offscreen body positions and moves
+absent from this input cannot be visually validated. Do not claim full-game
+or alternating-two-player coverage. Next: user-test v0.8.0, then Level 6.

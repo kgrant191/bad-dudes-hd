@@ -1,0 +1,11 @@
+{
+  "version": "0.8.0",
+  "movie": "Bad Dudes (USA)(7).mmo",
+  "replay_frames": 15268,
+  "visible_gameplay_sprite_keys": 1937,
+  "detailed_sprite_keys": 1937,
+  "missing": [],
+  "scope": "Level 4 exit through Level 5 clear; excludes the short Level 6 opening.",
+  "last_covered_frame": 14969,
+  "excluded": "Empty native sprite tiles, fade-to-black palette, live stage-message glyphs."
+}

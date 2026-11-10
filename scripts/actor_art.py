@@ -13,6 +13,13 @@ def palette_variant(im, source, target):
         grey=rgb@np.array([.299,.587,.114]);rgb[:]=grey[:,:,None]*.75+62
     elif target==0xff301638:
         rgb[:]=np.minimum(255,rgb*.55+np.array([255,126,57])*.45)
+    elif target==0xff0f1c08:
+        # Returning bosses retain their detailed skin/armor; only the native
+        # costume palette changes to the train encounter's olive brown.
+        r,g,b=rgb[:,:,0],rgb[:,:,1],rgb[:,:,2]
+        mask=((r>g*1.6)&(r>b*1.4)&(g<110)) if source==0xff0f3606 else ((r>g*1.15)&(b>g*1.15))
+        lum=rgb.max(axis=2)/170
+        rgb[mask]=np.clip(lum[mask,None]*np.array([111,95,43]),0,255)
     elif source==0xff0f3602 and target==0xff0f3510:
         # Level 4 reuses the small ninja poses in a gray uniform.
         r,g,b=rgb[:,:,0],rgb[:,:,1],rgb[:,:,2]
@@ -41,7 +48,7 @@ def pickup_variant(im, target):
 
 def actor_art(keys):
     poses=[]
-    for name in ['player_missing','enemy_poses','effect_poses','v4_actions','v5_actions','v6_actions','v7_actions']:
+    for name in ['player_missing','enemy_poses','effect_poses','v4_actions','v5_actions','v6_actions','v7_actions','v8_actions']:
         poses+=json.loads((ROOT/f'metadata/{name}.json').read_text())
     sheets={};variants=defaultdict(list);stats=[];preview=[]
     palettes=defaultdict(set)
@@ -51,7 +58,7 @@ def actor_art(keys):
         rows=pose['tiles'];sp=pose['palette'];w=max(r[0] for r in rows)+8;h=max(r[1] for r in rows)+8
         original=Image.new('RGBA',(w*4,h*4));coverage=Image.new('L',original.size)
         for x,y,t,hm,vm in rows:
-            im=scale(tile(t,sp))
+            im=scale(tile(t,pose.get('tile_palettes',{}).get(str(t),sp)))
             if hm:im=im.transpose(Image.Transpose.FLIP_LEFT_RIGHT)
             if vm:im=im.transpose(Image.Transpose.FLIP_TOP_BOTTOM)
             original.alpha_composite(im,(x*4,y*4));coverage.paste(255,(x*4,y*4,(x+8)*4,(y+8)*4))
@@ -61,7 +68,7 @@ def actor_art(keys):
             if sheet_name not in sheets:sheets[sheet_name]=Image.open(ROOT/'art'/sheet_name).convert('RGBA')
             sheet=sheets[sheet_name];cols=pose['columns'];rs=pose['rows']
             cw,ch=sheet.width/cols,sheet.height/rs
-            crop=sheet.crop((round(j%cols*cw),round(j//cols*ch),round((j%cols+1)*cw),round((j//cols+1)*ch)))
+            crop=sheet.crop(pose.get('art_rect',(round(j%cols*cw),round(j//cols*ch),round((j%cols+1)*cw),round((j//cols+1)*ch))))
             if pose.get('flip_art'):crop=crop.transpose(Image.Transpose.FLIP_LEFT_RIGHT)
             if pose.get('art_rotation'):crop=crop.rotate(pose['art_rotation'],resample=Image.Resampling.BICUBIC,expand=True)
             # Ignore tiny detached fragments from adjacent generated atlas cells.
@@ -101,18 +108,26 @@ def actor_art(keys):
                 if vm:im2=im2.transpose(Image.Transpose.FLIP_TOP_BOTTOM)
             for p in palettes[t]:
                 if p in pose.get('excluded_palettes',[]):continue
+                part_palette=pose.get('tile_palettes',{}).get(str(t))
+                if part_palette is not None and p not in [part_palette,0xff001020]:continue
                 allowed=pose.get('palettes')
                 if allowed and p not in allowed and not (p==0xff0f351a and any((q&0xffffff00)==0xff0f3500 for q in allowed)):continue
                 # Never turn intro/black fade palettes into visible actors.
                 if p==0xff0f0f0f:continue
                 if name.startswith('player_') and p not in [0xff0f2620,0xff0f2820,0xff301638]:continue
                 if name in ['ninjas_a.png','ninjas_b.png','specialists.png','enemy_actions.png'] and (p&0xffffff00)!=0xff0f3500:continue
-                if name in ['boss.png','boss_actions.png'] and p not in [0xff0f3606,0xff001020]:continue
+                if name in ['boss.png','boss_actions.png'] and p not in [0xff0f3606,0xff001020,0xff0f1c08]:continue
                 base=im2 if im2 is not None and p==0xff0f2820 else im
-                painted=pickup_variant(base,p) if pose.get('pickup') or (name=='effects.png' and j in [0,1]) else palette_variant(base,sp,p)
+                painted=pickup_variant(base,p) if pose.get('pickup') or (name=='effects.png' and j in [0,1]) else palette_variant(base,part_palette if part_palette is not None else sp,p)
                 variant={'pose':i,'x':x,'y':y,'h':hm,'v':vm,'image':painted}
                 if im2 is not None and p==0xff301638:variant['player2_image']=palette_variant(im2,sp,p)
                 variants[(t,p)].append(variant)
+    # The airborne chain has byte-identical CHR aliases in bank 1D.
+    for alias in json.loads((ROOT/'metadata/v8_sprite_aliases.json').read_text()):
+        t,u,p=alias['tile'],alias['source'],alias['palette']
+        assert np.array_equal(pixels(t),pixels(u))
+        if (t,p) in keys and (u,p) in variants:
+            variants[t,p]=[dict(variants[u,p][0])]
     out=Image.new('RGB',(1280,((len(preview)+5)//6)*270),'#293541');d=ImageDraw.Draw(out)
     for j,(orig,im,i) in enumerate(preview):
         x=j%6*212;y=j//6*270;d.text((x,y),f'{i}: {poses[i]["sheet"]} {poses[i]["cell"]}',fill='white');out.paste(im,(x,y+20),im)

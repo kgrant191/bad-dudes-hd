@@ -4,28 +4,30 @@ A work-in-progress **4x HD graphics pack** for Bad Dudes (NES), built for MesenC
 
 ![Bad Dudes HD preview](validation/visual_index.png)
 
-## Current build: v0.7.2
+## Current build: v0.8.0
 
-A **Level 1–4 test build**. Level 4 now has painted forest canopies, mossy
-trunks, fern walls, golden stone ledges, fallen logs and broken stumps.
-Its live HUD keeps the established gold labels, moving scores, health and timer.
+A **Level 1–5 test build**. Level 5 adds a painted canyon, distant mountains,
+colored freight cars, detailed locomotive vents, metal bogies and rails.
+Scrolling and the original moving tile-bank swaps remain game-controlled.
 
-Dogs retain a consistent body scale through six walking/running phases and
-use a dog recoil sprite when defeated. Sword ninjas have the newly recorded
-kneeling attacks, and flaming ninjas retain their standing and running
-animations. The armored boss has detailed movement, attack, recoil and defeat
-poses. The small ninja's gray uniform now uses the existing HD animation set.
-The approved hero artwork and earlier sewer/truck fixes remain included.
-The v0.7.1 patch fixes the dog size pulsing and an incorrectly shared humanoid
-defeat effect from v0.7.0. The v0.7.2 charge arcs now face inward, forming
-`( hero )` around the character.
+Missing acrobat flips, weapon thrusts, small-ninja attacks and burning recoil
+frames now keep their HD artwork. Returning earlier bosses also have the
+train stage's alternate costume palette. These shared mappings apply wherever
+the same enemies appear, including earlier levels. The chain-claw boss has
+new movement, attacks, airborne poses and the visible falling-foot fragment.
+His face and body retain their separate palette identities.
 
-The complete 9,360-input Level 4 recording has detailed mappings for all
-1,561 observed visible gameplay sprite tile/palette combinations. All 217
-captured forest scenery keys are replaced: 214 use registered painted cells
-and three partial rock corners use matching painted material with native masks.
-Coverage is limited to recorded states; later levels, unrecorded moves and
-alternating two-player play still need testing. This is not a full-game release.
+The main character's recorded moves and damage flashes were checked; no
+additional hero frames were missing. Both approved heroes, the fixed dog
+animation/recoil and inward-facing `( hero )` charge arcs remain included.
+
+The supplied movie contains 15,268 inputs, including the Level 4 exit and a
+short Level 6 opening. Through the Level 5 clear, all **1,937 observed visible
+sprite tile/palette combinations** have detailed mappings. All **588 train
+and canyon background keys** are covered by painted cells, matching aliases,
+color variants or transparent sky cells. Level 6 scenery is still pending.
+Unrecorded animations and alternating two-player states remain unverified.
+This is not a full-game release.
 
 ## Install
 
@@ -45,8 +47,8 @@ The pack changes presentation; gameplay and music are unchanged.
 
 Approved checkpoints are accumulated on `develop`. Keep `main` at the current
 baseline until the full remake and final regression testing are complete,
-then merge `develop` and create the v1.0.0 release. The v0.6.0 checkpoint is
-approved and pushed on this development branch. v0.7.2 is prepared for user
+then merge `develop` and create the v1.0.0 release. The v0.7.2 checkpoint is
+approved and pushed on this development branch. v0.8.0 is prepared for user
 testing and has not been pushed or released.
 
 See [DEVELOPMENT.md](DEVELOPMENT.md) for build setup, tile mapping, validation
