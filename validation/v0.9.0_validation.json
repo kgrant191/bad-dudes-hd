@@ -1,0 +1,62 @@
+{
+  "version": "0.9.0",
+  "baseline_commit": "bf56adb886c0e2002c6e17e80ccbd6b693e69523",
+  "movie": "Bad Dudes (USA)(9).mmo",
+  "movie_inputs": 12331,
+  "final_captured_frames": 1758,
+  "scene_sequence_unchanged": true,
+  "loader_errors": 0,
+  "runtime_assets_match_final_replay": true,
+  "coverage": {
+    "version": "0.9.0",
+    "movie": "Bad Dudes (USA)(9).mmo",
+    "replay_frames": 12331,
+    "visible_gameplay_sprite_keys": 1485,
+    "detailed_sprite_keys": 1485,
+    "missing": []
+  },
+  "background_keys": 209,
+  "background_mapping": {
+    "reference_cells": 206,
+    "edge_material": [
+      [
+        2852,
+        253504571
+      ],
+      [
+        2868,
+        253504571
+      ]
+    ],
+    "unmapped": []
+  },
+  "shared_ninja_tile_image_checks": 44,
+  "small_ninja_source_scale": 0.46,
+  "small_ninja_action_source_scale": 0.22,
+  "previous_rule_count": 16474,
+  "new_rule_count": 17736,
+  "changed_previous_rules": 247,
+  "all_changed_previous_rules_are_small_ninja": true,
+  "removed_previous_rules": 0,
+  "previous_non_atlas_runtime_pngs_unchanged": true,
+  "unchanged_prior_art_files": 61,
+  "level4_regression": {
+    "frames": 312,
+    "changed_frames": 16,
+    "unexplained_frames": []
+  },
+  "level4_movie_inputs": 9360,
+  "level4_scene_sequence_unchanged": true,
+  "visual_review": [
+    "Small ninja run, jump, flips, attack and airborne recoil",
+    "Cave platforms, pillars, dark wall and falling stones",
+    "New dog leap",
+    "Staff fighter turning, kick, crouched thrust, recoil and full defeated body"
+  ],
+  "limits": [
+    "First hero recorded; alternating two-player turns and unrecorded moves remain untested.",
+    "Movie reaches Stage 6 Clear but stops before next-level entry; next level is not covered.",
+    "Native sprite-limit clipping and screen-edge clipping remain.",
+    "Screenshot callbacks can expose the most recently decoded video frame rather than the same numbered PPU frame. Regression masks include adjacent-frame small-ninja cells."
+  ]
+}

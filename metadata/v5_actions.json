@@ -2445,6 +2445,11 @@
     "palettes": [
       4279186946,
       4279186704
+    ],
+    "art_scale": 0.46,
+    "art_anchor": [
+      42,
+      128
     ]
   },
   {
@@ -2559,6 +2564,11 @@
     "palettes": [
       4279186946,
       4279186704
+    ],
+    "art_scale": 0.46,
+    "art_anchor": [
+      44,
+      120
     ]
   },
   {
@@ -2667,7 +2677,16 @@
     "palettes": [
       4279186946,
       4279186704
-    ]
+    ],
+    "art_scale": 0.46,
+    "art_anchor": [
+      47,
+      128
+    ],
+    "share_native_tiles_from": {
+      "sheet": "small_ninjas.png",
+      "cell": 0
+    }
   },
   {
     "kind": "enemy",
@@ -2765,6 +2784,11 @@
     "palettes": [
       4279186946,
       4279186704
+    ],
+    "art_scale": 0.46,
+    "art_anchor": [
+      36,
+      92
     ]
   },
   {
@@ -2879,6 +2903,11 @@
     "palettes": [
       4279186946,
       4279186704
+    ],
+    "art_scale": 0.46,
+    "art_anchor": [
+      58,
+      116
     ]
   },
   {
@@ -2987,7 +3016,16 @@
     "palettes": [
       4279186946,
       4279186704
-    ]
+    ],
+    "art_scale": 0.46,
+    "art_anchor": [
+      42,
+      128
+    ],
+    "share_native_tiles_from": {
+      "sheet": "small_ninjas.png",
+      "cell": 0
+    }
   },
   {
     "kind": "enemy",
@@ -3111,7 +3149,16 @@
     "palettes": [
       4279186946,
       4279186704
-    ]
+    ],
+    "art_scale": 0.46,
+    "art_anchor": [
+      44,
+      128
+    ],
+    "share_native_tiles_from": {
+      "sheet": "small_ninjas.png",
+      "cell": 0
+    }
   },
   {
     "kind": "enemy",

@@ -4,36 +4,34 @@ A work-in-progress **4x HD graphics pack** for Bad Dudes (NES), built for MesenC
 
 ![Bad Dudes HD preview](validation/visual_index.png)
 
-## Current build: v0.8.2
+## Current build: v0.9.0
 
-A **Level 1–5 test build**. Level 5 adds a painted canyon, distant mountains,
-colored freight cars, detailed locomotive vents, metal bogies and rails.
-Scrolling and the original moving tile-bank swaps remain game-controlled.
+A **Level 1–6 test build** for MesenCE. The cave stage now has painted emerald
+rock, mossy pillars and stalagmites, blue-gray limestone platforms, shadowed
+rear walls, spikes and falling stone fragments. Scrolling, platforms and
+hazards stay attached to the original game geometry.
 
-Missing acrobat flips, weapon thrusts, small-ninja attacks and burning recoil
-frames now keep their HD artwork. Returning earlier bosses also have the
-train stage's alternate costume palette. These shared mappings apply wherever
-the same enemies appear, including earlier levels. The chain-claw boss has
-detailed movement, attacks and airborne poses. v0.8.1 fixes repeated chain
-fragments and adds the complete defeated pose shown in the new boss recording.
-His face and body retain their separate palette identities. v0.8.2 stabilizes
-the green locomotive panels across the game's alternating graphics banks;
-the native wheel animation remains intact.
+The small ninja uses one artwork scale across its seven existing poses.
+Running and jump transitions reuse identical native head/torso cells, removing
+the stretching caused by fitting every pose to a different rectangle. The sai
+attack now matches the small ninja's costume and proportions. Its newly
+recorded airborne recoil has detailed art in both blue and gray uniforms.
+These shared enemy corrections also apply in earlier stages.
 
-The main character's recorded moves and damage flashes were checked; no
-additional hero frames were missing. Both approved heroes, the fixed dog
-animation/recoil and inward-facing `( hero )` charge arcs remain included.
+The cave's staff fighter has twelve complete recorded layouts covering walking,
+turning, jumping, kick, crouched thrust, recoil and defeat. A newly observed dog
+leap reuses the approved dog artwork and scale. The earlier train, boss-chain,
+dog-recoil, charge-arc, player and font fixes remain included.
 
-The v0.8.1 baseline was replayed over 15,268 inputs, including the Level 4 exit and a
-short Level 6 opening. Through the Level 5 clear, all **1,937 observed visible
-sprite tile/palette combinations** have detailed mappings. All **588 train
-and canyon background keys** are covered by painted cells, matching aliases,
-color variants or transparent sky cells. Level 6 scenery is still pending.
-v0.8.2 replays the additional 578-input boss recording frame by frame. The
-green locomotive body stays steady across bank swaps; all other rule images
-remain unchanged. Unrecorded animations and alternating two-player states
-remain unverified.
-This is not a full-game release.
+The supplied 12,331-input Level 6 movie was replayed in MesenCE. All **1,485
+observed visible gameplay sprite tile/palette combinations** have detailed
+mappings, and all **209 cave background keys** are replaced. An earlier Level 4
+movie is also replayed for shared-enemy regression checks. See
+`validation/v0.9.0_validation.json` for measured results and limits.
+
+The recording reaches **Stage 6 Clear**; it does not verify the transition
+into the next level or its gameplay. Unrecorded animations and
+alternating two-player states remain unverified. This is not a full-game release.
 
 ## Install
 
@@ -53,9 +51,10 @@ The pack changes presentation; gameplay and music are unchanged.
 
 Approved checkpoints are accumulated on `develop`. Keep `main` at the current
 baseline until the full remake and final regression testing are complete,
-then merge `develop` and create the v1.0.0 release. The v0.7.2 checkpoint is
-approved and pushed on this development branch. v0.8.2 supersedes the unapproved v0.8.0 and v0.8.1 test builds. None has been
-pushed or released; the new source bundle includes all three changes from v0.7.2.
+then merge `develop` and create the v1.0.0 release. The v0.8.2 checkpoint at
+`bf56adb886c0e2002c6e17e80ccbd6b693e69523` is approved and pushed to develop.
+v0.9.0 is a local test build prepared from that commit. No push, merge, tag or
+release has been performed for v0.9.0.
 
 See [DEVELOPMENT.md](DEVELOPMENT.md) for build setup, tile mapping, validation
 and the next art pass. `art/` contains the source illustrations; `scripts/`

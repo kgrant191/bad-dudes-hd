@@ -20,11 +20,16 @@ def palette_variant(im, source, target):
         mask=((r>g*1.6)&(r>b*1.4)&(g<110)) if source==0xff0f3606 else ((r>g*1.15)&(b>g*1.15))
         lum=rgb.max(axis=2)/170
         rgb[mask]=np.clip(lum[mask,None]*np.array([111,95,43]),0,255)
-    elif source==0xff0f3602 and target==0xff0f3510:
-        # Level 4 reuses the small ninja poses in a gray uniform.
+    elif source==0xff0f3602 and (target & 0xffffff00)==0xff0f3500:
+        # Small ninja aliases retain the known uniform family in later stages.
         r,g,b=rgb[:,:,0],rgb[:,:,1],rgb[:,:,2]
         mask=(b>g*1.2)&(b>r*.8)
-        grey=rgb@np.array([.299,.587,.114]);rgb[mask]=grey[mask,None]*np.array([.98,1.02,1.06])
+        if target==0xff0f3510:
+            grey=rgb@np.array([.299,.587,.114]);rgb[mask]=grey[mask,None]*np.array([.98,1.02,1.06])
+        else:
+            colors={0x12:[54,82,194],0x16:[190,47,35],0x1c:[24,155,156],0x1a:[39,146,38]}
+            lum=rgb.max(axis=2)/190
+            rgb[mask]=np.clip(lum[mask,None]*np.array(colors[target&255]),0,255)
     elif (target & 0xffffff00)==0xff0f3500 and (source & 0xffffff00)==0xff0f3500:
         # The ROM changes ninja uniform colors without changing their tiles.
         src=source&255;dst=target&255
@@ -48,7 +53,7 @@ def pickup_variant(im, target):
 
 def actor_art(keys):
     poses=[]
-    for name in ['player_missing','enemy_poses','effect_poses','v4_actions','v5_actions','v6_actions','v7_actions','v8_actions']:
+    for name in ['player_missing','enemy_poses','effect_poses','v4_actions','v5_actions','v6_actions','v7_actions','v8_actions','v9_actions']:
         poses+=json.loads((ROOT/f'metadata/{name}.json').read_text())
     sheets={};variants=defaultdict(list);stats=[];preview=[]
     palettes=defaultdict(set)
@@ -122,6 +127,17 @@ def actor_art(keys):
                 variant={'pose':i,'x':x,'y':y,'h':hm,'v':vm,'image':painted}
                 if im2 is not None and p==0xff301638:variant['player2_image']=palette_variant(im2,sp,p)
                 variants[(t,p)].append(variant)
+    # Shared native head/torso cells stay identical while the ninja's legs
+    # animate. A different fitted full-body crop must not resize his head.
+    for i,pose in enumerate(poses):
+        source=pose.get('share_native_tiles_from')
+        if not source:continue
+        base=next(j for j,p in enumerate(poses) if p['sheet']==source['sheet'] and p['cell']==source['cell'])
+        for variants_for_key in variants.values():
+            shared=next((v for v in variants_for_key if v['pose']==base),None)
+            if shared:
+                for v in variants_for_key:
+                    if v['pose']==i:v['image']=shared['image'].copy()
     # The airborne chain has byte-identical CHR aliases in bank 1D.
     for alias in json.loads((ROOT/'metadata/v8_sprite_aliases.json').read_text()):
         t,u,p=alias['tile'],alias['source'],alias['palette']

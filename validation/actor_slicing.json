@@ -725,7 +725,7 @@
     "sheet": "small_ninjas.png",
     "cell": 3,
     "tiles": 10,
-    "clipped_pixels": 84
+    "clipped_pixels": 33
   },
   {
     "pose": 104,
@@ -746,7 +746,7 @@
     "sheet": "small_ninjas.png",
     "cell": 6,
     "tiles": 14,
-    "clipped_pixels": 24
+    "clipped_pixels": 0
   },
   {
     "pose": 107,
@@ -1233,8 +1233,8 @@
   },
   {
     "pose": 176,
-    "sheet": "level5_enemy_actions.png",
-    "cell": 1,
+    "sheet": "small_ninja_actions.png",
+    "cell": 0,
     "tiles": 16,
     "clipped_pixels": 0
   },
@@ -1362,6 +1362,118 @@
     "sheet": "level5_boss_defeated.png",
     "cell": 0,
     "tiles": 12,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 195,
+    "sheet": "level6_boss.png",
+    "cell": 0,
+    "tiles": 12,
+    "clipped_pixels": 294
+  },
+  {
+    "pose": 196,
+    "sheet": "level6_boss.png",
+    "cell": 1,
+    "tiles": 16,
+    "clipped_pixels": 73
+  },
+  {
+    "pose": 197,
+    "sheet": "level6_boss.png",
+    "cell": 2,
+    "tiles": 20,
+    "clipped_pixels": 133
+  },
+  {
+    "pose": 198,
+    "sheet": "level6_boss.png",
+    "cell": 3,
+    "tiles": 16,
+    "clipped_pixels": 177
+  },
+  {
+    "pose": 199,
+    "sheet": "level6_boss.png",
+    "cell": 5,
+    "tiles": 12,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 200,
+    "sheet": "level6_boss.png",
+    "cell": 6,
+    "tiles": 14,
+    "clipped_pixels": 31
+  },
+  {
+    "pose": 201,
+    "sheet": "level6_boss.png",
+    "cell": 7,
+    "tiles": 16,
+    "clipped_pixels": 10
+  },
+  {
+    "pose": 202,
+    "sheet": "level6_boss.png",
+    "cell": 8,
+    "tiles": 18,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 203,
+    "sheet": "level6_boss.png",
+    "cell": 9,
+    "tiles": 14,
+    "clipped_pixels": 38
+  },
+  {
+    "pose": 204,
+    "sheet": "level6_boss.png",
+    "cell": 10,
+    "tiles": 20,
+    "clipped_pixels": 501
+  },
+  {
+    "pose": 205,
+    "sheet": "level6_boss.png",
+    "cell": 11,
+    "tiles": 14,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 206,
+    "sheet": "level6_boss.png",
+    "cell": 13,
+    "tiles": 16,
+    "clipped_pixels": 91
+  },
+  {
+    "pose": 207,
+    "sheet": "small_ninja_actions.png",
+    "cell": 1,
+    "tiles": 16,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 208,
+    "sheet": "level4_dogs.png",
+    "cell": 2,
+    "tiles": 10,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 209,
+    "sheet": "level6_falling_stone.png",
+    "cell": 0,
+    "tiles": 2,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 210,
+    "sheet": "level6_falling_stone.png",
+    "cell": 1,
+    "tiles": 2,
     "clipped_pixels": 0
   }
 ]

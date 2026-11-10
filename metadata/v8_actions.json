@@ -261,10 +261,10 @@
         0
       ]
     ],
-    "sheet": "level5_enemy_actions.png",
-    "cell": 1,
-    "columns": 4,
-    "rows": 2,
+    "sheet": "small_ninja_actions.png",
+    "cell": 0,
+    "columns": 2,
+    "rows": 1,
     "palettes": [
       4279186706,
       4279186710,
@@ -272,6 +272,11 @@
       4279186716,
       4279186714,
       4279186946
+    ],
+    "art_scale": 0.22,
+    "art_anchor": [
+      66,
+      128
     ]
   },
   {

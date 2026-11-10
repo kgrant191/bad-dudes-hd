@@ -1,12 +1,13 @@
-# Development checkpoint - v0.8.0
+# Development checkpoint - v0.9.0
 
 ## Current checkpoint and branch workflow
 
-v0.7.2 is approved and pushed to `develop` at
-6b7ada5e7e8419e57f1adb91d7154322227cbf51 (verified November 10, 2026).
-v0.8.0 is the next local test build. Its bundle starts at that exact checkpoint.
+v0.8.2 is approved and pushed to `develop` at
+bf56adb886c0e2002c6e17e80ccbd6b693e69523 (user confirmed November 10, 2026).
+v0.9.0 is the next local test build; its source bundle starts at that commit.
 Do not push, merge, tag or release without approval. Keep `main` unchanged
 until the full remake and final regressions are complete; then publish v1.0.0.
+Historical entries below retain their original checkpoint status.
 
 ## Inputs and replay
 
@@ -96,8 +97,8 @@ Use a separate output directory for original and HD screenshots.
 
 ## Next art pass
 
-1. User-test v0.8.0, including the train, shared enemies and chain-claw boss.
-2. Gather the Level 6 recording and finish its scenery/new enemies.
+1. User-test v0.9.0, especially small-ninja size/animation and the cave boss.
+2. Gather the next level and complete its new scenery/enemies.
 3. Capture unrecorded moves, alternating two-player states and game over.
 4. Assess the publisher splash, then run the final full-game regression.
 5. After approval, merge develop to main and prepare the v1.0.0 release.
@@ -581,3 +582,53 @@ this focused fix does not rerun that long recording. See v0.8.2_validation.json.
 
 This supersedes unapproved v0.8.0/v0.8.1. The source bundle includes all three
 commits from approved/pushed v0.7.2. Nothing is pushed; main stays unchanged.
+
+
+## v0.9.0 Level 6 caves and small-ninja stability
+
+Input: Bad Dudes (USA)(9).mmo, 12,331 inputs. Scene RAM $02C0 is 4 for
+226 frames and 5 for 12,105 frames. Stop at the movie input count. This movie
+contains the cave boss defeat and Stage 6 Clear, but not the next-level entry.
+
+Five registered painted views cover the cave's rock, platforms, pillars,
+stalagmites, depth wall and spikes. `level6_art.py` maps 209 bank-B background
+keys; two partial cliff-edge cells retain native contours with an adjacent
+painted limestone material. Every override requires scene 5, the exact HUD
+palette 0F1C2C3B and y<200. `hud6` and `hud_player_label6` keep live gold player
+labels and the common HUD panel without leaking into fades or prior levels.
+Falling-stone F30-F33 sprite pairs have two painted fragment states.
+
+The small ninja previously fit each pose independently to its native opaque
+bounds. The shared head could scale differently when a leg extended or tucked.
+All seven `small_ninjas.png` cells now use one `art_scale` of 0.46; fixed anchors
+keep the standing baseline and jump transition consistent. The first pose's
+native head/torso tiles are reused verbatim in the three layouts sharing them.
+`share_native_tiles_from` acts on only the specified source/cell and common
+native tile/palette pairs. It does not change other actors' slicing.
+
+`small_ninja_actions.png` replaces the old larger bare-arm sai attack with the
+same small full-sleeved ninja and adds airborne recoil tiles 15D6-15E5, missing
+from prior movies. Its two cells share scale 0.22. Both blue and gray uniforms
+are covered; the pre-existing attack palette family is retained. Uniform-only
+recoloring preserves skin, boots and metal. Native flips and timing remain.
+
+`v9_actions.json` adds twelve complete staff-boss poses, small-ninja recoil,
+one dog leap and two falling-stone states. Two apparent boss layouts were
+partial sprite-limit captures of existing full poses; use the full layouts
+instead of fitting paintings to their cropped bounds. The dog leap reuses
+`level4_dogs.png` cell 2 at the approved 0.34 scale. No new hero pose is needed.
+
+Validation uses `tools/verify_v0.9.0.lua` to sample the whole new recording and
+capture dense small-ninja, dog, boss kick/thrust/recoil/defeat sequences.
+All 1,485 observed visible gameplay sprite keys have detailed mappings; counts
+exclude native black fades, empty source cells and stage-message glyphs, whose
+live-font mappings remain present. All 16,474 earlier rules remain. The only
+changed earlier rule images belong to the intended small-ninja family.
+Earlier scene PNGs and approved source illustrations remain byte-identical.
+A complete Level 4 replay checks shared sprite changes against the prior pack.
+Measured results, comparisons and limits are in `validation/v0.9.0_validation.json`.
+
+Native sprite limits, offscreen clipping, gameplay timing and collisions remain
+unchanged. Coverage does not establish unrecorded moves, alternating two-player
+states, the next level or its entry transition. This checkpoint
+awaits user testing and approval before push; main is unchanged.
