@@ -7,6 +7,7 @@ from actor_art import actor_art
 from hud_art import hud_tile, panel, message_tile
 from level2_art import level2_art
 from level3_art import level3_art
+from level4_art import level4_art
 parser=argparse.ArgumentParser(description='Build Bad Dudes HD from its art and captured tile mappings.')
 parser.add_argument('--previews',type=Path,help='Optional directory for offline layout previews')
 args=parser.parse_args()
@@ -62,7 +63,7 @@ hero_palettes=[0xff0f2620,0xff0f2820,0xff301638]
 for pose in json.loads((ROOT/'metadata/effect_poses.json').read_text()):
     if pose['palette'] in hero_palettes:
         keys.extend((row[2],p) for row in pose['tiles'] for p in hero_palettes)
-for metadata in ['v5_actions','v6_actions']:
+for metadata in ['v5_actions','v6_actions','v7_actions']:
     for pose in json.loads((ROOT/f'metadata/{metadata}.json').read_text()):
         keys.extend((row[2],p) for row in pose['tiles'] for p in pose['palettes'])
 keys=list(dict.fromkeys(keys))
@@ -145,6 +146,9 @@ for t,p,im,extra in level2_art(level2_conditions):
 for t,p,im in level3_art():
     rule(t,p,im,'level3&hud3&stage_area')
 
+for t,p,im in level4_art():
+    rule(t,p,im,'level4&hud4&stage_area')
+
 # Background art retains the game's live menu, selection and dialogue layers.
 for n,name in [(8,'title_intro'),(9,'title_final')]:
     im=Image.open(ROOT/'art/title.png').convert('RGBA').resize((1024,960),Image.Resampling.LANCZOS)
@@ -214,12 +218,12 @@ for t,p in keys:
         else:im=blank
         rule(t,p,im,'briefing');special[(t,p,'briefing')]=im
     if not sprite and 0xd80<=t<=0xda7:
-        hud_gate='hud3' if p==0x0f001030 else 'hud'
-        label_gate='hud_player_label3' if p==0x0f001030 else 'hud_player_label'
+        hud_gate={0x0f001030:'hud3',0x0f071727:'hud4'}.get(p,'hud')
+        label_gate={0x0f001030:'hud_player_label3',0x0f071727:'hud_player_label4'}.get(p,'hud_player_label')
         if t in [0xd81,0xd82]:
             rule(t,p,hud_tile(t,gold=True),hud_gate+'&hud_floor&'+label_gate)
         rule(t,p,hud_tile(t),hud_gate)
-    if not sprite and t in [0x600,0x700,0x800]:
+    if not sprite and t in [0x600,0x700,0x800,0x900]:
         rule(t,p,blank,'hud_floor')
     if sprite and p==0xff001020 and 0x160c<=t<=0x1635:
         im=message_tile(t)
@@ -255,7 +259,7 @@ for t,p in keys:
 atlas=Image.new('RGBA',(2048,math.ceil(len(atlas_tiles)/64)*32))
 for i,im in enumerate(atlas_tiles):atlas.paste(im,(i%64*32,i//64*32))
 atlas.save(OUT/'tiles.png',optimize=True)
-header=['# Bad Dudes HD v0.6.0 - Level 3 sewer and animation coverage', '<ver>109','<scale>4','<supportedRom>26E184E350F50BFA06038379A84F3B685B7509B8','<overscan>0,0,0,0','<img>tiles.png',
+header=['# Bad Dudes HD v0.7.0 - Level 4 forest and animation coverage', '<ver>109','<scale>4','<supportedRom>26E184E350F50BFA06038379A84F3B685B7509B8','<overscan>0,0,0,0','<img>tiles.png',
  '<condition>first_turn,memoryCheckConstant,23F,!=,C0,C0',
  '<condition>second_turn,memoryCheckConstant,23F,==,C0,C0',
  '<condition>second_hero_1,memoryCheckConstant,23F,==,1,1',
@@ -267,6 +271,9 @@ header=['# Bad Dudes HD v0.6.0 - Level 3 sewer and animation coverage', '<ver>10
  '<condition>gameplay,memoryCheckConstant,2C0,==,0',
  '<condition>level2,memoryCheckConstant,2C0,==,1',
  '<condition>level3,memoryCheckConstant,2C0,==,2',
+ '<condition>level4,memoryCheckConstant,2C0,==,3',
+ '<condition>hud4,tileAtPosition,24,208,D9A,0F071727,N',
+ '<condition>hud_player_label4,tileNearby,8,0,D9A,0F071727,N',
  '<condition>hud,tileAtPosition,24,208,D9A,0F001020,N',
  '<condition>hud_player_label,tileNearby,8,0,D9A,0F001020,N',
  '<condition>hud3,tileAtPosition,24,208,D9A,0F001030,N',
@@ -277,6 +284,7 @@ header=['# Bad Dudes HD v0.6.0 - Level 3 sewer and animation coverage', '<ver>10
  '[gameplay&hud]<background>hud.png,1,0,0,11',
  '[level2&hud]<background>hud.png,1,0,0,11',
  '[level3&hud3]<background>hud.png,1,0,0,11',
+ '[level4&hud4]<background>hud.png,1,0,0,11',
  '[level2&hud]<background>level2_sky.png,1,0,0,10',
  '[title_intro]<background>title_intro.png,1,0,0,20',
  '[title_final]<background>title_final.png,1,0,0,20',

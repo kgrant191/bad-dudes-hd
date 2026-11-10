@@ -394,3 +394,42 @@ validation stop at the input count. Do not claim Level 4 coverage.
 
 Continue with user feedback on v0.6.0, then Level 4 recordings. Unrecorded
 moves, alternating two-player cases and later stages still require testing.
+
+
+## v0.7.0 Level 4 forest and enemy coverage
+
+Input: Bad Dudes (USA)(6).mmo, 9,360 input frames. Covers the forest, dogs,
+flaming and sword ninjas, armored boss combat and defeat. Stop at the movie
+input count; do not claim coverage of later levels or the following transition.
+
+- Six painted environment references map 217 bank-9 tile/palette keys.
+  213 keys are directly registered, one identical-pattern alias shares art,
+  and three partial rock corners use matching material under native masks.
+- All forest rules require scene RAM $02C0=3, the exact live HUD and y<200.
+  `hud4` uses D9A at (24,208), palette 0F071727, with ignore-palette disabled.
+  The player-label neighbor check uses the same exact palette. Blank $900
+  cells are transparent in the HUD floor only.
+- `v7_actions.json` contains 30 layouts: 15 armored-boss states, six dog
+  phases, six flame phases, three kneeling sword phases. The sword layouts
+  support all five known ninja uniform colors through existing recoloring.
+- Level 4 reuses the small ninja tiles with FF0F3510. Extend the existing
+  seven layouts to that palette and recolor only the blue uniform pixels.
+- No new hero pose indices were observed. All 42 layouts per hero are
+  retained. The movie records player 1; it does not verify two-player turns.
+- The HUD font already supports the recorded stage-clear digit. Keep its
+  tile-driven glyphs; do not bake text into the environment.
+- All 11,561 old rule images remain present and byte-identical, independently
+  of atlas placement. All seven prior non-atlas runtime PNGs and all earlier
+  source artwork remain unchanged. Level 3 is replayed for regression checks.
+- Build: 8,145 source keys, 13,225 tile rules, 9,280 unique atlas cells,
+  42 poses per hero, 174 additional actor/effect layouts.
+- Sprite coverage: 1,561/1,561 recorded visible gameplay tile/palette pairs,
+  excluding empty source cells and stage-message glyphs (already mapped by
+  the live font). Backgrounds: 217/217 replaced.
+- `tools/verify_v0.7.0.lua` samples the full replay with dense flame, sword,
+  gray ninja, boss kick, recoil and defeat checks. `validation/` contains
+  coverage, source-art notes, capture logs and final regression results.
+
+v0.6.0 is approved and pushed to develop. This v0.7.0 checkpoint awaits user
+testing. Do not push or merge without approval; main stays unchanged until
+final v1.0.0. Next: address Level 4 feedback, then the next level recording.

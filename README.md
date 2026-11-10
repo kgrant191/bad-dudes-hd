@@ -4,24 +4,24 @@ A work-in-progress **4x HD graphics pack** for Bad Dudes (NES), built for MesenC
 
 ![Bad Dudes HD preview](validation/visual_index.png)
 
-## Current build: v0.6.0
+## Current build: v0.7.0
 
-A **Level 1–3 test build**. Level 3 now has painted sewer masonry, overhead
-pipes, ladders, flowing and recessed drains, and the broken-wall boss area.
-The live HUD supports Level 3's alternate white palette and keeps the gold
-player labels, moving scores, timer and health bars.
+A **Level 1–4 test build**. Level 4 now has painted forest canopies, mossy
+trunks, fern walls, golden stone ledges, fallen logs and broken stumps.
+Its live HUD keeps the established gold labels, moving scores, health and timer.
 
-The new recording adds a red ninja dagger attack, green ninja boss states,
-appearance/white-flash/disappearance/defeat frames, and a narrow raised-fist
-victory pose for both heroes. Familiar ninja and super-punch animations reuse
-the approved artwork when the game switches CHR banks or uniform colors.
-The earlier truck-wheel and emerald-cab fixes remain included.
+Dogs have six walking/running phases, sword ninjas have the newly recorded
+kneeling attacks, and flaming ninjas retain their standing and running
+animations. The armored boss has detailed movement, attack, recoil and defeat
+poses. The small ninja's gray uniform now uses the existing HD animation set.
+The approved hero artwork and earlier sewer/truck fixes remain included.
 
-The complete 10,341-input Level 3 recording has detailed mappings for all
-1,411 observed visible gameplay sprite tile/palette combinations. All 212
-captured Level 3 scenery keys use the painted references. Coverage is limited
-to recorded states; later levels, unrecorded moves and alternating two-player
-play still need testing. This is not a complete full-game release.
+The complete 9,360-input Level 4 recording has detailed mappings for all
+1,561 observed visible gameplay sprite tile/palette combinations. All 217
+captured forest scenery keys are replaced: 214 use registered painted cells
+and three partial rock corners use matching painted material with native masks.
+Coverage is limited to recorded states; later levels, unrecorded moves and
+alternating two-player play still need testing. This is not a full-game release.
 
 ## Install
 
@@ -41,8 +41,9 @@ The pack changes presentation; gameplay and music are unchanged.
 
 Approved checkpoints are accumulated on `develop`. Keep `main` at the current
 baseline until the full remake and final regression testing are complete,
-then merge `develop` and create the v1.0.0 release. The v0.5.1 checkpoint is approved on this development branch. v0.6.0 is
-prepared for user testing and has not been pushed or released.
+then merge `develop` and create the v1.0.0 release. The v0.6.0 checkpoint is
+approved and pushed on this development branch. v0.7.0 is prepared for user
+testing and has not been pushed or released.
 
 See [DEVELOPMENT.md](DEVELOPMENT.md) for build setup, tile mapping, validation
 and the next art pass. `art/` contains the source illustrations; `scripts/`

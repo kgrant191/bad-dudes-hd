@@ -13,6 +13,11 @@ def palette_variant(im, source, target):
         grey=rgb@np.array([.299,.587,.114]);rgb[:]=grey[:,:,None]*.75+62
     elif target==0xff301638:
         rgb[:]=np.minimum(255,rgb*.55+np.array([255,126,57])*.45)
+    elif source==0xff0f3602 and target==0xff0f3510:
+        # Level 4 reuses the small ninja poses in a gray uniform.
+        r,g,b=rgb[:,:,0],rgb[:,:,1],rgb[:,:,2]
+        mask=(b>g*1.2)&(b>r*.8)
+        grey=rgb@np.array([.299,.587,.114]);rgb[mask]=grey[mask,None]*np.array([.98,1.02,1.06])
     elif (target & 0xffffff00)==0xff0f3500 and (source & 0xffffff00)==0xff0f3500:
         # The ROM changes ninja uniform colors without changing their tiles.
         src=source&255;dst=target&255
@@ -36,7 +41,7 @@ def pickup_variant(im, target):
 
 def actor_art(keys):
     poses=[]
-    for name in ['player_missing','enemy_poses','effect_poses','v4_actions','v5_actions','v6_actions']:
+    for name in ['player_missing','enemy_poses','effect_poses','v4_actions','v5_actions','v6_actions','v7_actions']:
         poses+=json.loads((ROOT/f'metadata/{name}.json').read_text())
     sheets={};variants=defaultdict(list);stats=[];preview=[]
     palettes=defaultdict(set)

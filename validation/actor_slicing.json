@@ -1006,5 +1006,215 @@
     "cell": 3,
     "tiles": 2,
     "clipped_pixels": 0
+  },
+  {
+    "pose": 144,
+    "sheet": "level4_boss.png",
+    "cell": 0,
+    "tiles": 28,
+    "clipped_pixels": 9
+  },
+  {
+    "pose": 145,
+    "sheet": "level4_boss.png",
+    "cell": 1,
+    "tiles": 32,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 146,
+    "sheet": "level4_boss.png",
+    "cell": 2,
+    "tiles": 32,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 147,
+    "sheet": "level4_boss.png",
+    "cell": 3,
+    "tiles": 32,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 148,
+    "sheet": "level4_boss.png",
+    "cell": 4,
+    "tiles": 12,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 149,
+    "sheet": "level4_boss.png",
+    "cell": 5,
+    "tiles": 16,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 150,
+    "sheet": "level4_boss.png",
+    "cell": 6,
+    "tiles": 36,
+    "clipped_pixels": 87
+  },
+  {
+    "pose": 151,
+    "sheet": "level4_boss.png",
+    "cell": 7,
+    "tiles": 40,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 152,
+    "sheet": "level4_boss.png",
+    "cell": 8,
+    "tiles": 28,
+    "clipped_pixels": 4550
+  },
+  {
+    "pose": 153,
+    "sheet": "level4_boss.png",
+    "cell": 9,
+    "tiles": 34,
+    "clipped_pixels": 1003
+  },
+  {
+    "pose": 154,
+    "sheet": "level4_boss.png",
+    "cell": 10,
+    "tiles": 36,
+    "clipped_pixels": 104
+  },
+  {
+    "pose": 155,
+    "sheet": "level4_boss.png",
+    "cell": 11,
+    "tiles": 26,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 156,
+    "sheet": "level4_boss.png",
+    "cell": 12,
+    "tiles": 28,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 157,
+    "sheet": "level4_boss.png",
+    "cell": 13,
+    "tiles": 32,
+    "clipped_pixels": 64
+  },
+  {
+    "pose": 158,
+    "sheet": "level4_boss.png",
+    "cell": 14,
+    "tiles": 36,
+    "clipped_pixels": 79
+  },
+  {
+    "pose": 159,
+    "sheet": "level4_dogs.png",
+    "cell": 0,
+    "tiles": 12,
+    "clipped_pixels": 4
+  },
+  {
+    "pose": 160,
+    "sheet": "level4_dogs.png",
+    "cell": 1,
+    "tiles": 10,
+    "clipped_pixels": 77
+  },
+  {
+    "pose": 161,
+    "sheet": "level4_dogs.png",
+    "cell": 2,
+    "tiles": 14,
+    "clipped_pixels": 43
+  },
+  {
+    "pose": 162,
+    "sheet": "level4_dogs.png",
+    "cell": 3,
+    "tiles": 16,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 163,
+    "sheet": "level4_dogs.png",
+    "cell": 4,
+    "tiles": 14,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 164,
+    "sheet": "level4_dogs.png",
+    "cell": 5,
+    "tiles": 14,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 165,
+    "sheet": "level4_fire.png",
+    "cell": 0,
+    "tiles": 16,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 166,
+    "sheet": "level4_fire.png",
+    "cell": 1,
+    "tiles": 20,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 167,
+    "sheet": "level4_fire.png",
+    "cell": 2,
+    "tiles": 24,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 168,
+    "sheet": "level4_fire.png",
+    "cell": 3,
+    "tiles": 14,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 169,
+    "sheet": "level4_fire.png",
+    "cell": 4,
+    "tiles": 14,
+    "clipped_pixels": 25
+  },
+  {
+    "pose": 170,
+    "sheet": "level4_fire.png",
+    "cell": 5,
+    "tiles": 14,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 171,
+    "sheet": "level4_sword.png",
+    "cell": 0,
+    "tiles": 14,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 172,
+    "sheet": "level4_sword.png",
+    "cell": 1,
+    "tiles": 14,
+    "clipped_pixels": 187
+  },
+  {
+    "pose": 173,
+    "sheet": "level4_sword.png",
+    "cell": 2,
+    "tiles": 20,
+    "clipped_pixels": 49
   }
 ]
