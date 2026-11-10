@@ -136,7 +136,8 @@ for (t,p), variants in actor_variants.items():
         character_rule(t,p,v['image'],name,v.get('player2_image'));actor_context_count+=1
 rules[:]=rules[player_rule_count:]+rules[:player_rule_count]
 
-for t,p,im,extra in level2_art():
+level2_conditions=[]
+for t,p,im,extra in level2_art(level2_conditions):
     rule(t,p,im,'level2&hud&stage_area'+('&'+extra if extra else ''))
 
 # Background art retains the game's live menu, selection and dialogue layers.
@@ -247,7 +248,7 @@ for t,p in keys:
 atlas=Image.new('RGBA',(2048,math.ceil(len(atlas_tiles)/64)*32))
 for i,im in enumerate(atlas_tiles):atlas.paste(im,(i%64*32,i//64*32))
 atlas.save(OUT/'tiles.png',optimize=True)
-header=['# Bad Dudes HD v0.5.0 - Level 2, weapon poses and stage messages', '<ver>109','<scale>4','<supportedRom>26E184E350F50BFA06038379A84F3B685B7509B8','<overscan>0,0,0,0','<img>tiles.png',
+header=['# Bad Dudes HD v0.5.1 - Stable truck wheels and emerald cab', '<ver>109','<scale>4','<supportedRom>26E184E350F50BFA06038379A84F3B685B7509B8','<overscan>0,0,0,0','<img>tiles.png',
  '<condition>first_turn,memoryCheckConstant,23F,!=,C0,C0',
  '<condition>second_turn,memoryCheckConstant,23F,==,C0,C0',
  '<condition>second_hero_1,memoryCheckConstant,23F,==,1,1',
@@ -270,7 +271,7 @@ header=['# Bad Dudes HD v0.5.0 - Level 2, weapon poses and stage messages', '<ve
  '[title_final]<background>title_final.png,1,0,0,20',
  '[select]<background>select.png,1,0,0,10',
  '[briefing]<background>briefing.png,1,0,0,10']
-(OUT/'hires.txt').write_text('\n'.join(header+player_conditions+actor_conditions+rules)+'\n')
+(OUT/'hires.txt').write_text('\n'.join(header+player_conditions+actor_conditions+level2_conditions+rules)+'\n')
 (ROOT/'build_stats.json').write_text(json.dumps({'source_keys':len(keys),'tile_rules':len(rules),'unique_atlas_tiles':len(atlas_tiles),'scale':4,'player_tiles':len(player_defaults),'player_poses_per_character':len(player_poses)+6+15,'player_characters':2,'player_context_rules':len(player_context)*5,'new_actor_poses':base_pose_offset,'new_actor_keys':len(actor_defaults),'actor_context_rules':actor_context_count},indent=2))
 
 # Offline previews are only for fast layout iteration; Mesen playback is final QA.

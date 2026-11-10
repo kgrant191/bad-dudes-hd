@@ -14,7 +14,7 @@ def fit_reference(name, source_y, target_y):
     return out
 
 
-def level2_art():
+def level2_art(conditions):
     Image.open(ROOT/'art/level2_sky.png').convert('RGBA').resize((1024,960),Image.Resampling.LANCZOS).save(ROOT/'pack/level2_sky.png')
     refs=[(600,fit_reference('level2_truck.png',
         [0,451/1214,519/1214,617/1214,688/1214,773/1214,940/1214,978/1214,1],
@@ -22,7 +22,7 @@ def level2_art():
         (7500,fit_reference('level2_cab.png',
         [0,432/1214,607/1214,920/1214,958/1214,1],
         [0,388,512,768,800,960]))]
-    out={}
+    out={};cab={}
     for f,art in refs:
         groups=defaultdict(list)
         for line in (ROOT/f'metadata/level2_{f}.tiles').read_text().splitlines():
@@ -30,10 +30,18 @@ def level2_art():
             if l==0 and t//256 in [5,6,7] and 0<=x<=248 and y<200:
                 groups[(t,p)].append((x,y))
         for key,places in groups.items():
-            if key in out:continue
             t,p=key
             x,y=min(places,key=lambda q:(abs(q[0]-128),q[1]))
-            out[key]=art.crop((x*4,y*4,x*4+32,y*4+32))
+            crop=art.crop((x*4,y*4,x*4+32,y*4+32))
+            if f==7500 and p==0x0f091910:cab[key]=crop
+            if key not in out:out[key]=crop
+    # The trailer reference contains bank-switch fragments on its top row.
+    # Green cab cells must come from the cab reference in BOTH CHR banks;
+    # otherwise its roof alternates between hedge fragments and metalwork.
+    cab_pixels={(pixels(t).tobytes(),p):im for (t,p),im in cab.items()}
+    for t,p in out:
+        if (pixels(t).tobytes(),p) in cab_pixels:
+            out[t,p]=cab_pixels[pixels(t).tobytes(),p]
     # The game swaps identical CHR cells between banks 5 and 7 while
     # scrolling. Reuse their exact painted counterparts, including tires.
     by_pixels={}
@@ -45,6 +53,51 @@ def level2_art():
     sky=Image.new('RGBA',(32,32))
     keys=[tuple(k) for k in json.loads((ROOT/'metadata/level2_background_keys.json').read_text())]
     variants=[]
+    # Both moving banks, plus fixed-bank edge cells, describe the same wheel.
+    # Register every phase to one wheel so its diameter does not pulse.
+    wheels={}
+    wheel_cells=json.loads((ROOT/'metadata/level2_wheel_variants.json').read_text())
+    # Preserve the cab's larger wheel and fitted green fender. Its hood
+    # directly above each column distinguishes it from a trailer wheel,
+    # including when either wheel edge is clipped by the screen boundary.
+    cab_wheel_cells=wheel_cells+[dict(tile=0x700,palette=0x0f001020,column=1,row=0)]
+    for cell in cab_wheel_cells:
+        col,row=cell['column'],cell['row']
+        for bank in [0x500,0x780]:
+            name=f'level2_cab_wheel_{col}_{row}_{bank:X}'
+            declaration=f'<condition>{name},tileNearby,0,{-8*(row+1)},{bank+0x3b+col:X},0F091910,N'
+            if declaration not in conditions:conditions.append(declaration)
+            x=64+col*8;y=160+row*8
+            variants.append((cell['tile'],cell['palette'],refs[1][1].crop((x*4,y*4,x*4+32,y*4+32)),name))
+    for cell in wheel_cells:
+        x=128+cell['column']*8;y=160+cell['row']*8
+        wheels[cell['tile'],cell['palette']]=refs[0][1].crop((x*4,y*4,x*4+32,y*4+32))
+    # The original animation replaces the upper tire cell with blank $700
+    # on alternate frames. Keep the painted tread, identified by the hub
+    # immediately below, without filling unrelated black background cells.
+    tread=refs[0][1].crop((136*4,160*4,144*4,168*4))
+    for neighbor in [0x55c,0x7dc]:
+        name=f'level2_tread_{neighbor:X}'
+        conditions.append(f'<condition>{name},tileNearby,0,8,{neighbor:X},0F001020,N')
+        variants.append((0x700,0x0f001020,tread,name))
+    # Blank CHR cells also cut holes in the cab's rear panel and window.
+    # Restore their reference crops only beside the corresponding cab part.
+    cab_rows=[tuple(map(int,line.split(','))) for line in
+              (ROOT/'metadata/level2_7500.tiles').read_text().splitlines()]
+    cab_grid={(x,y):(t,p) for l,x,y,t,p,h,v in cab_rows if l==0}
+    for x,y in [(0,y) for y in range(96,160,8)]+[(40,y) for y in [104,112,120]]+[(48,160)]:
+        t,p=cab_grid[x,y]
+        assert t==0x700 and p==0x0f091910
+        nt,npal=cab_grid[x+8,y]
+        # Static bank-7 cells have no paired bank-5 cell; animated cells do.
+        neighbors=[nt,nt+0x280] if 0x500<=nt<0x580 else [nt]
+        row=f'level2_cab_row_{y}'
+        declaration=f'<condition>{row},originPositionCheckY,==,{y}'
+        if declaration not in conditions:conditions.append(declaration)
+        for neighbor in neighbors:
+            name=f'level2_cab_{x}_{y}_{neighbor:X}'
+            conditions.append(f'<condition>{name},tileNearby,8,0,{neighbor:X},{npal:08X},N')
+            variants.append((t,p,refs[1][1].crop((x*4,y*4,x*4+32,y*4+32)),row+'&'+name))
     for t,p in keys:
         ix=pixels(t)
         im=out.get((t,p))
@@ -75,5 +128,6 @@ def level2_art():
             cyan=(rgb[:,:,2]>rgb[:,:,0]*1.35)&(rgb[:,:,1]>rgb[:,:,0]*1.25)&(rgb[:,:,2]>=rgb[:,:,1]*.95)&(rgb[:,:,0]<180)
             a[cyan]=np.array(road)[cyan];im=Image.fromarray(a)
         if np.all(ix==0):im=Image.new('RGBA',(32,32),(7,13,19,255))
+        if (t,p) in wheels:im=wheels[t,p]
         variants.append((t,p,im,None))
     return variants

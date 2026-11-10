@@ -1,7 +1,7 @@
 {
   "source_keys": 6096,
-  "tile_rules": 10130,
-  "unique_atlas_tiles": 6869,
+  "tile_rules": 10217,
+  "unique_atlas_tiles": 6881,
   "scale": 4,
   "player_tiles": 310,
   "player_poses_per_character": 41,

@@ -1,10 +1,10 @@
-# Development checkpoint - v0.5.0
+# Development checkpoint - v0.5.1
 
 ## Approved checkpoint and branch workflow
 
 The user approved v0.4.2 and requested Level 2 work using the existing
 approved artwork. v0.4.1 is pushed on develop; v0.4.2 is committed locally
-at 9569d66a85ad0ba2099c02a7d04501f3b08bd7fc. v0.5.0 is the next test build.
+at 9569d66a85ad0ba2099c02a7d04501f3b08bd7fc. v0.5.1 is the current test build.
 
 
 v0.4.1 was approved after the red-ninja falling-pose fix. The Git bundle
@@ -323,3 +323,39 @@ Native sprite limits still apply: overlapping fighters can lose sprite rows.
 Coverage counts establish mappings for recorded states, not every unrecorded
 pose or alternating-two-player situation. Later levels still need recordings.
 No push, merge, tag or release is part of this test-build preparation.
+
+## v0.5.1 Truck wheels and cab stability
+
+The user's three screenshots exposed two missed scrolling/animation cases.
+The original game swaps the tire's upper-middle cell to blank CHR $700;
+the generic black replacement erased the painted tread on that phase.
+Separately, the frame-600 trailer reference contains cab-bank fragments
+along scanline 96. Those fragments selected hedge crops for one cab bank,
+while the other bank used the correct emerald metal from the cab reference.
+
+- Select the cab reference for green cells before resolving exact CHR aliases.
+  All 35 observed green bank-5/bank-7 pairs now have identical image bytes.
+- Use the hub below blank $700 to select the missing tire crop. Other black
+  cells retain their dark fallback. Register the 32 recorded wheel keys to
+  a consistent trailer wheel, including fixed-bank right-edge cells.
+- Use the green hood above each wheel column to select the cab's larger
+  wheel and matching fender in both animation banks. This context remains
+  local in X so it works when a wheel enters or leaves the screen.
+- Restore the cab rear-panel and window blanks using their immediate
+  right-hand neighbor plus tile-origin Y. No fixed screen-X rules are used.
+- Reuse all existing source illustrations. All additions are gated by
+  Level 2, the live HUD, and the stage area above the HUD.
+
+Replay with tools/verify_v0.5.1.lua; compare the packaged v0.5.0 baseline
+and the new capture using tools/check_v0.5.1.py. The coverage JSON records
+image-byte comparisons independently of atlas offsets, cab bank parity,
+HUD/upper-scene comparisons and consecutive-frame tire checks.
+
+Final validation: complete 8,850-input MesenCE replay, 264 screenshots,
+302 complete tire-tread checks across 71 consecutive frames, and 81 stable
+cab frames. All 10,099 other rule images and all seven scene PNGs are
+unchanged. The HUD and upper scene are pixel-identical at every sampled
+frame. All 35 source-art files remain byte-identical to v0.5.0.
+
+The patch is a local develop checkpoint for testing. Main stays unchanged;
+no push, merge, tag or v1.0.0 release is authorized by this graphics fix.

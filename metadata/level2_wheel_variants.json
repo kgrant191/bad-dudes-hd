@@ -1,0 +1,194 @@
+[
+  {
+    "tile": 1355,
+    "palette": 251662368,
+    "column": 0,
+    "row": 0
+  },
+  {
+    "tile": 1356,
+    "palette": 251662368,
+    "column": 1,
+    "row": 0
+  },
+  {
+    "tile": 1357,
+    "palette": 251662368,
+    "column": 2,
+    "row": 0
+  },
+  {
+    "tile": 1358,
+    "palette": 251662368,
+    "column": 3,
+    "row": 0
+  },
+  {
+    "tile": 1371,
+    "palette": 251662368,
+    "column": 0,
+    "row": 1
+  },
+  {
+    "tile": 1372,
+    "palette": 251662368,
+    "column": 1,
+    "row": 1
+  },
+  {
+    "tile": 1373,
+    "palette": 251662368,
+    "column": 2,
+    "row": 1
+  },
+  {
+    "tile": 1374,
+    "palette": 251662368,
+    "column": 3,
+    "row": 1
+  },
+  {
+    "tile": 1387,
+    "palette": 251662368,
+    "column": 0,
+    "row": 2
+  },
+  {
+    "tile": 1388,
+    "palette": 251662368,
+    "column": 1,
+    "row": 2
+  },
+  {
+    "tile": 1389,
+    "palette": 251662392,
+    "column": 2,
+    "row": 2
+  },
+  {
+    "tile": 1390,
+    "palette": 251662392,
+    "column": 3,
+    "row": 2
+  },
+  {
+    "tile": 1403,
+    "palette": 251662368,
+    "column": 0,
+    "row": 3
+  },
+  {
+    "tile": 1404,
+    "palette": 251662368,
+    "column": 1,
+    "row": 3
+  },
+  {
+    "tile": 1405,
+    "palette": 251662392,
+    "column": 2,
+    "row": 3
+  },
+  {
+    "tile": 1806,
+    "palette": 251662368,
+    "column": 2,
+    "row": 2
+  },
+  {
+    "tile": 1807,
+    "palette": 251662368,
+    "column": 3,
+    "row": 2
+  },
+  {
+    "tile": 1822,
+    "palette": 251662368,
+    "column": 2,
+    "row": 3
+  },
+  {
+    "tile": 1823,
+    "palette": 251662368,
+    "column": 3,
+    "row": 3
+  },
+  {
+    "tile": 1841,
+    "palette": 251662392,
+    "column": 3,
+    "row": 3
+  },
+  {
+    "tile": 1995,
+    "palette": 251662368,
+    "column": 0,
+    "row": 0
+  },
+  {
+    "tile": 1996,
+    "palette": 251662368,
+    "column": 1,
+    "row": 0
+  },
+  {
+    "tile": 1997,
+    "palette": 251662368,
+    "column": 2,
+    "row": 0
+  },
+  {
+    "tile": 1998,
+    "palette": 251662368,
+    "column": 3,
+    "row": 0
+  },
+  {
+    "tile": 2011,
+    "palette": 251662368,
+    "column": 0,
+    "row": 1
+  },
+  {
+    "tile": 2012,
+    "palette": 251662368,
+    "column": 1,
+    "row": 1
+  },
+  {
+    "tile": 2013,
+    "palette": 251662368,
+    "column": 2,
+    "row": 1
+  },
+  {
+    "tile": 2014,
+    "palette": 251662368,
+    "column": 3,
+    "row": 1
+  },
+  {
+    "tile": 2027,
+    "palette": 251662368,
+    "column": 0,
+    "row": 2
+  },
+  {
+    "tile": 2028,
+    "palette": 251662368,
+    "column": 1,
+    "row": 2
+  },
+  {
+    "tile": 2043,
+    "palette": 251662368,
+    "column": 0,
+    "row": 3
+  },
+  {
+    "tile": 2044,
+    "palette": 251662368,
+    "column": 1,
+    "row": 3
+  }
+]

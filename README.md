@@ -4,7 +4,12 @@ A work-in-progress **4x HD graphics pack** for Bad Dudes (NES), built for MesenC
 
 ![Bad Dudes HD preview](validation/visual_index.png)
 
-## Current build: v0.5.0
+## Current build: v0.5.1
+
+This patch fills the black squares in the truck tires and keeps the wheel
+size consistent through every mapped animation phase. The cab now uses the
+same emerald finish across both scrolling banks, including its roof, rear
+panel and window. It reuses the existing approved artwork.
 
 A **Level 1 and Level 2 test build**, with the approved character artwork reused
 throughout. Level 2 adds a painted city/highway, moving silver and emerald
