@@ -1,8 +1,5 @@
 # Bad Dudes HD
 
-**Test build v0.11.1:** player/lives-screen font correction awaiting review.
-Publishing v1.0.0 is on hold.
-
 A **4x HD graphics pack for Bad Dudes (NES)**, built for MesenCE. Play the
 original game with detailed characters, enemies and environments across all
 seven stages. Gameplay, collisions, timing and music stay controlled by the game.

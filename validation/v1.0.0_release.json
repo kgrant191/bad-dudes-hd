@@ -1,31 +1,34 @@
 {
   "version": "1.0.0",
-  "approved_baseline_commit": "8c0b5f507db29cc9c17e4c918f6c48115c1dec8e",
+  "approved_baseline_commit": "990072aed67b359fede527efec9bdd25fcfa04c6",
   "runtime_images_byte_identical": 11,
   "non_comment_runtime_rules_identical": true,
   "install_zip_files": 13,
   "pack_sha256": {
-    "README.txt": "b499622c963d15a1e9ff17af33f879c5362a27b803cdac63d1ba7e5c15bdf347",
+    "README.txt": "49154ba1e320cb8238b71a1b7fa0c134403f67d5de1d714e77f87211388e4cc4",
     "briefing.png": "765aca91fc9f6d3221a6a02fc6d784db4a00883bbc1576c0deb93d74e6d35089",
     "ending_credits.png": "55712f8551c040c0f4933b378fccc1dcdbbe18478fee1e4fe9536a4921440ea1",
     "ending_credits_player2.png": "4b0f95bce2f0dcd92f96f053a8e5c0798cd3354f7484b87d32b4e608fd8eb2b0",
     "ending_office.png": "1881c367c7809fc838f646dccaa0f60613e9ca9948cf2c66cb6968ad71884588",
-    "hires.txt": "205d0d3b338c50364c2f051970cc13f63ed9a974f99330abae34fae9e51ea936",
+    "hires.txt": "ef4964cbf85bf9c21c970c0001cbb75a14611a7c2921898ad0a09bf05396ce1b",
     "hud.png": "f7fa2284f43499c3e43550b20c8cbd889da8782704564459e93609e18057ebe7",
     "level2_sky.png": "1719cd00d750e6a823289b22413bb23ee69fb502a68def47279cdb43489c25f6",
     "select.png": "e9ac3b8797ed9238104d1a07310f939eae63aabc09d620d1d29a974b8bc6224d",
     "sky.png": "69c5652368aa0c8b6d18b1d4292e87d0aae4be9de4ae663f6ecc867eca436870",
-    "tiles.png": "7c078a84640eccb08cb7532e12b6a93c0237b8694f821aece5f770913c39aa4a",
+    "tiles.png": "b115c17bf4326e52fb39f16533b57a8e80989968fbb6b6cd435d906fb3c531bb",
     "title_final.png": "7a073b9ce2099bce0c694d2bd45d3d39006b56b8f40eda0340acafcaa7b78436",
     "title_intro.png": "8e7f4016c86c761a7051a0aba374f8e2af2d019edbf87b4cd94e8f6252ee6b9c"
   },
-  "regression_evidence": "validation/v0.11.0_validation.json",
+  "regression_evidence": [
+    "validation/v0.11.0_validation.json",
+    "validation/v0.11.1_validation.json"
+  ],
   "changes": [
     "Version labels and release documentation",
-    "Four matched before/after images and README gallery",
-    "Separately distributed 1080x1920 gameplay comparison video"
+    "Verified deterministic packaging",
+    "GitHub Actions publication of the approved release"
   ],
-  "publication_status": "Prepared; not published in this commit.",
+  "publication_status": "Approved for publication; see GitHub Releases for current status.",
   "media_validation": {
     "matching_input_state_frames": 80942,
     "paired_video_frames": 1050,
@@ -43,8 +46,8 @@
     ],
     "asset_sha256": {
       "Bad_Dudes_HD_v1.0.0_TikTok_Before_After.mp4": "675eb2902b69e8e9d7c755b60476944b3335cece0d41a5f11ec85c89488798d8",
-      "Bad_Dudes_HD_v1.0.0_Before_After_Images.zip": "888e22313cefcfad0a5c396b04d38270a91191803d162f2a3615209bf394c514",
-      "Bad_Dudes_HD_v1.0.0.zip": "17c1a98af036c0f372d1dc6a3643715ad8237756ee03832d12a0f03502e7c6e7"
+      "Bad_Dudes_HD_v1.0.0_Before_After_Images.zip": "888e22313cefcfad0a5c396b04d38270a91191803d162f2a3615209bf394c514"
     }
-  }
+  },
+  "approved_baseline_version": "0.11.1"
 }

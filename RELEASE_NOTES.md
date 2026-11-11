@@ -1,7 +1,5 @@
 # Bad Dudes HD v1.0.0
 
-**Draft: publication paused pending approval of the v0.11.1 menu correction.**
-
 The first complete release of Bad Dudes HD: a 4x graphics pack for Bad Dudes
 (NES), built for MesenCE. All seven stages, both playable heroes, enemies,
 bosses, effects, menus and ending screens are included.
@@ -27,8 +25,8 @@ For manual installation, place the ZIP's contents in
 
 ## Validation and presentation
 
-Tested with MesenCE 2.2.1. The release retains the approved v0.11.0 gameplay artwork
-and mappings, with the v0.11.1 player/lives-screen font correction. Regression evidence covers all seven stages as the
+Tested with MesenCE 2.2.1. The release preserves the approved v0.11.1 artwork and runtime mappings,
+including the player/lives-screen font correction. Regression evidence covers all seven stages as the
 second character, the complete credits and subsequent menus, game over,
 and a final cave replay. The source repository contains the detailed results.
 

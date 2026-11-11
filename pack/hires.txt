@@ -1,4 +1,4 @@
-# Bad Dudes HD v0.11.1 - Player and lives interstitial font correction
+# Bad Dudes HD v1.0.0 - Complete seven-stage HD graphics pack
 <ver>109
 <scale>4
 <supportedRom>26E184E350F50BFA06038379A84F3B685B7509B8
