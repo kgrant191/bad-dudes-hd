@@ -33,20 +33,18 @@ preserved.
 
 ## Install
 
-Tested with **MesenCE 2.2.1** and **Bad Dudes (USA).nes**.
+Use **standalone MesenCE 2.2.1**, the tested emulator for these packs. [Download MesenCE](https://github.com/nesdev-org/MesenCE/releases/tag/2.2.1). These packs use modern Mesen 2 / MesenCE HD-pack features; original Mesen 0.9.x and RetroArch’s **legacy Mesen core** are not compatible. That core supports pack format 106, while these projects use newer features. A separate MesenCE-based RetroArch core now exists, but these releases have not been validated with it. Standalone MesenCE is the supported setup described here.
 
-1. Download `Bad_Dudes_HD_v1.0.0.zip` from Releases.
-2. Open your own Bad Dudes (USA) ROM in MesenCE.
-3. Choose **Tools > HD Packs (NES) > Install HD Pack** and select the ZIP.
-4. Enable HD packs in NES settings and reload the game if needed.
+1. Download **Bad_Dudes_HD_v1.0.0.zip** from the game’s Releases page. Leave the ZIP compressed.
+2. Open your own supported **ROM in MesenCE**.
+3. Choose **Tools > HD Packs (NES) > Install HD Pack** and select the downloaded ZIP.
+4. When MesenCE reports that installation succeeded, click **OK** to reset the game and load the HD pack.
 
-For manual installation, place `hires.txt`, `README.txt` and all eleven PNGs
-together in `HdPacks/Bad Dudes (USA)/`. The folder name must match your ROM's
-base filename. When updating, replace the previous pack's files.
+No manual extraction or folder renaming is needed for this normal installation. To update a pack, open the same ROM and install the newer release ZIP through the same menu.
 
-The install ZIP contains only the HD pack. No ROM, emulator or movie recording
-is included. GitHub's **Code > Download ZIP** also contains the installable
-`pack/` directory, along with development files.
+[Full installation guide and troubleshooting](docs/INSTALLATION.md).
+
+No ROM or emulator is included. Supply your own supported ROM.
 
 ## Development
 
@@ -59,3 +57,4 @@ See [DEVELOPMENT.md](DEVELOPMENT.md) for build setup and
 [RELEASE_NOTES.md](RELEASE_NOTES.md) for the release notes. `art/` contains source
 illustrations, `scripts/` builds the pack, and `metadata/` holds tile mappings.
 The source ROM is required to rebuild and must remain outside this repository.
+
