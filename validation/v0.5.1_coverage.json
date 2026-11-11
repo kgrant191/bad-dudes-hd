@@ -1,0 +1,140 @@
+{
+  "version": "0.5.1",
+  "movie_inputs": 8850,
+  "sampled_frames": 264,
+  "dense_wheel_frames": 71,
+  "complete_tread_checks": 302,
+  "stable_cab_frames": 81,
+  "identical_green_bank_pairs": 35,
+  "changed_level2_scenery_rules": 31,
+  "added_context_rules": 87,
+  "unchanged_other_rule_images": 10099,
+  "unchanged_scene_pngs": 7,
+  "hud_and_upper_scene_pixel_identical": true,
+  "changed_rules": [
+    {
+      "tile": "54B",
+      "palette": "0F001020"
+    },
+    {
+      "tile": "54D",
+      "palette": "0F001020"
+    },
+    {
+      "tile": "54E",
+      "palette": "0F001020"
+    },
+    {
+      "tile": "55B",
+      "palette": "0F001020"
+    },
+    {
+      "tile": "55C",
+      "palette": "0F001020"
+    },
+    {
+      "tile": "55D",
+      "palette": "0F001020"
+    },
+    {
+      "tile": "55E",
+      "palette": "0F001020"
+    },
+    {
+      "tile": "56B",
+      "palette": "0F001020"
+    },
+    {
+      "tile": "56C",
+      "palette": "0F001020"
+    },
+    {
+      "tile": "56D",
+      "palette": "0F001038"
+    },
+    {
+      "tile": "56E",
+      "palette": "0F001038"
+    },
+    {
+      "tile": "57B",
+      "palette": "0F001020"
+    },
+    {
+      "tile": "57C",
+      "palette": "0F001020"
+    },
+    {
+      "tile": "57D",
+      "palette": "0F001038"
+    },
+    {
+      "tile": "70E",
+      "palette": "0F001020"
+    },
+    {
+      "tile": "70F",
+      "palette": "0F001020"
+    },
+    {
+      "tile": "71E",
+      "palette": "0F001020"
+    },
+    {
+      "tile": "71F",
+      "palette": "0F001020"
+    },
+    {
+      "tile": "728",
+      "palette": "0F091910"
+    },
+    {
+      "tile": "729",
+      "palette": "0F091910"
+    },
+    {
+      "tile": "72B",
+      "palette": "0F091910"
+    },
+    {
+      "tile": "731",
+      "palette": "0F001038"
+    },
+    {
+      "tile": "73B",
+      "palette": "0F091910"
+    },
+    {
+      "tile": "7A4",
+      "palette": "0F091910"
+    },
+    {
+      "tile": "7C0",
+      "palette": "0F091910"
+    },
+    {
+      "tile": "7C9",
+      "palette": "0F091910"
+    },
+    {
+      "tile": "7CC",
+      "palette": "0F091910"
+    },
+    {
+      "tile": "7CD",
+      "palette": "0F001020"
+    },
+    {
+      "tile": "7CE",
+      "palette": "0F001020"
+    },
+    {
+      "tile": "7DD",
+      "palette": "0F001020"
+    },
+    {
+      "tile": "7DE",
+      "palette": "0F001020"
+    }
+  ]
+}

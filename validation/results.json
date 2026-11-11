@@ -1,0 +1,88 @@
+{
+  "version": "0.4.2",
+  "emulator": "MesenCE 2.2.1",
+  "replay_frames": {
+    "original": 8500,
+    "player1_action_clip": 1442,
+    "player2_combat_clip": 5617,
+    "red_ninja_clip": 712,
+    "red_ninja_truck_clip": 690,
+    "missed_super_punch_clip": 1190
+  },
+  "loader_errors": 0,
+  "visible_sprite_coverage": {
+    "old_scan": {
+      "sprite_keys": 1236,
+      "detailed_keys": 1236,
+      "missing": []
+    },
+    "new_original": {
+      "sprite_keys": 613,
+      "detailed_keys": 613,
+      "missing": []
+    },
+    "v4_original": {
+      "sprite_keys": 1068,
+      "detailed_keys": 1068,
+      "missing": []
+    },
+    "pickup_checks": {
+      "normal_art_identical_for_both_players": true,
+      "flash_alpha_identical": true,
+      "flash_rgb_brighter": true
+    },
+    "approved_scene_art_unchanged": true
+  },
+  "new_hero_layouts": 0,
+  "new_enemy_boss_layouts": 0,
+  "pickup_flash": "Same HD art and alpha, warm phase brightened 35% toward white.",
+  "unchanged_approved_scenes": [
+    "title_intro",
+    "title_final",
+    "select",
+    "briefing",
+    "sky",
+    "hud"
+  ],
+  "source_ROM_included": false,
+  "scope": "Recorded Level 1 for both heroes; unrecorded moves, alternating two-player states and later stages remain unverified.",
+  "v0_4_1_verification": {
+    "version": "0.4.1",
+    "new_movie_inputs": 712,
+    "visible_sprite_keys": 350,
+    "detailed_sprite_keys": 350,
+    "missing": [],
+    "unchanged_v0_4_0_rule_images": 6485,
+    "unchanged_scene_images": 6,
+    "fixed_falling_tiles": "1230-123F, palette FF0F3516, frames 291-326",
+    "known_uniform_palettes": [
+      "FF0F3512",
+      "FF0F3516",
+      "FF0F3510",
+      "FF0F351C"
+    ]
+  },
+  "v0_4_2_verification": {
+    "version": "0.4.2",
+    "unchanged_v0_4_1_rule_images": 7296,
+    "unchanged_scene_images": 6,
+    "coverage": {
+      "1.mmo": {
+        "visible_sprite_keys": 505,
+        "detailed_sprite_keys": 505,
+        "missing": [],
+        "replay_frames": 690
+      },
+      "2.mmo": {
+        "visible_sprite_keys": 489,
+        "detailed_sprite_keys": 489,
+        "missing": [],
+        "replay_frames": 1190
+      }
+    },
+    "red_ninja_already_covered_by_v0_4_1": true,
+    "new_effect_keys_observed": 18,
+    "hud_rule": "Digits 1/2 immediately before P, below y=200, on live HUD use gold. Numeric values retain their existing art."
+  },
+  "hud_2p_diagnostic": "Nametable label substitution only; actual Mesen output checked."
+}

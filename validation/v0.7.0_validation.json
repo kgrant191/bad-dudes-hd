@@ -1,0 +1,27 @@
+{
+  "version": "0.7.0",
+  "emulator": "MesenCE 2.2.1",
+  "base_commit": "4d33cb03b59f43b35f33fb7205a1eb7c2a22667f",
+  "level4_movie_frames": 9360,
+  "level4_captured_frames": 729,
+  "level4_scene_progression_unchanged": true,
+  "level4_sprite_keys": 1561,
+  "level4_detailed_sprite_keys": 1561,
+  "level4_missing_sprite_keys": 0,
+  "level4_background_keys": 217,
+  "level4_reference_or_alias_keys": 214,
+  "level4_partial_material_keys": 3,
+  "previous_rule_images_unchanged": 11561,
+  "previous_scene_pngs_unchanged": 7,
+  "previous_source_art_unchanged": true,
+  "level3_replay_frames": 10341,
+  "level3_compared_screenshots": 658,
+  "level3_changed_screenshots": [],
+  "repacked_atlas_rule_images_match_playback": true,
+  "loader_errors": 0,
+  "limits": [
+    "Movie records hero 1, not alternating two-player turns.",
+    "Native sprite limits and occlusion preserved.",
+    "Unrecorded states and Level 5 onward remain unverified."
+  ]
+}

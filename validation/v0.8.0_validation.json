@@ -1,0 +1,41 @@
+{
+  "version": "0.8.0",
+  "base_commit": "6b7ada5e7e8419e57f1adb91d7154322227cbf51",
+  "emulator": "MesenCE 2.2.1",
+  "movie": "Bad Dudes (USA)(7).mmo",
+  "movie_frames": 15268,
+  "scene_frames": {
+    "level4_exit": 206,
+    "level5": 14763,
+    "level6_opening": 299
+  },
+  "sampled_screenshots": 629,
+  "scene_progression_unchanged": true,
+  "visible_sprite_keys_through_level5_clear": 1937,
+  "detailed_sprite_keys": 1937,
+  "missing_sprite_keys": 0,
+  "level5_background_keys": 588,
+  "background_material_fallbacks": 0,
+  "new_actor_layouts": 20,
+  "boss_chain_aliases": 3,
+  "prior_rule_images_unchanged": 13225,
+  "prior_rules_removed": 0,
+  "previous_scene_images_unchanged": 7,
+  "previous_source_art_unchanged": true,
+  "level4_regression_frames": 9360,
+  "level4_compared_screenshots": 312,
+  "level4_changed_screenshots": 0,
+  "post_regression_changes_scoped_to_level5": true,
+  "engine_palette_fix": {
+    "changed_rule_images": 2,
+    "all_scoped_to_level5_engine_palette": true
+  },
+  "final_pack_matches_replay": true,
+  "loader_errors": 0,
+  "limits": [
+    "Only visible captured boss poses can be verified; some movement is offscreen.",
+    "Hero 1 recorded; alternating two-player states are not tested.",
+    "Level 6 scenery and unrecorded animations remain pending.",
+    "Native sprite limits and screen-edge clipping preserved."
+  ]
+}

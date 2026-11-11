@@ -1,0 +1,31 @@
+{
+  "version": "0.5.0",
+  "movie": "Bad Dudes (USA)(4).mmo",
+  "replay_frames": 8850,
+  "visible_gameplay_sprite_keys": 1227,
+  "detailed_sprite_keys": 1227,
+  "missing": [],
+  "unchanged_v042_rule_images": 7414,
+  "changed_stage_message_rule_images": 24,
+  "unchanged_scene_pngs": 6,
+  "regression": {
+    "1.mmo": {
+      "frames": 690,
+      "sampled_frames": 115,
+      "pixel_identical_to_v042": true
+    },
+    "2.mmo": {
+      "frames": 1190,
+      "sampled_frames": 198,
+      "pixel_identical_to_v042": true
+    }
+  },
+  "player2_diagnostic": "Isolated pack swaps normal hero palette rules and selects hero 2 for warm flashes; original movie controls are replayed. Not a native player-two recording.",
+  "weapon_pickup_checks": {
+    "tiles": 8,
+    "palettes": 3,
+    "same_normal_art_for_both_heroes": true,
+    "bright_alpha_identical": true
+  },
+  "install_zip_sha256": "af1775b50f82647bcf53c04a4a026bad03b3417c58936331739451bd1fece120"
+}

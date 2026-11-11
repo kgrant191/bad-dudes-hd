@@ -1,0 +1,142 @@
+[
+  {
+    "pose": 0,
+    "frame": 2501,
+    "tiles": 16,
+    "clipped_pixels": 0,
+    "opaque_pixels": 6680
+  },
+  {
+    "pose": 1,
+    "frame": 2500,
+    "tiles": 16,
+    "clipped_pixels": 0,
+    "opaque_pixels": 8316
+  },
+  {
+    "pose": 2,
+    "frame": 2509,
+    "tiles": 18,
+    "clipped_pixels": 0,
+    "opaque_pixels": 9630
+  },
+  {
+    "pose": 3,
+    "frame": 2593,
+    "tiles": 16,
+    "clipped_pixels": 0,
+    "opaque_pixels": 8337
+  },
+  {
+    "pose": 4,
+    "frame": 2546,
+    "tiles": 18,
+    "clipped_pixels": 0,
+    "opaque_pixels": 9209
+  },
+  {
+    "pose": 5,
+    "frame": 3141,
+    "tiles": 20,
+    "clipped_pixels": 125,
+    "opaque_pixels": 9519
+  },
+  {
+    "pose": 6,
+    "frame": 2871,
+    "tiles": 12,
+    "clipped_pixels": 0,
+    "opaque_pixels": 8205
+  },
+  {
+    "pose": 7,
+    "frame": 3281,
+    "tiles": 18,
+    "clipped_pixels": 2,
+    "opaque_pixels": 8378
+  },
+  {
+    "pose": 8,
+    "frame": 2504,
+    "tiles": 22,
+    "clipped_pixels": 10,
+    "opaque_pixels": 9803
+  },
+  {
+    "pose": 9,
+    "frame": 3232,
+    "tiles": 12,
+    "clipped_pixels": 0,
+    "opaque_pixels": 4856
+  },
+  {
+    "pose": 10,
+    "frame": 2609,
+    "tiles": 18,
+    "clipped_pixels": 72,
+    "opaque_pixels": 8973
+  },
+  {
+    "pose": 11,
+    "frame": 3218,
+    "tiles": 18,
+    "clipped_pixels": 0,
+    "opaque_pixels": 9790
+  },
+  {
+    "pose": 12,
+    "frame": 2611,
+    "tiles": 18,
+    "clipped_pixels": 0,
+    "opaque_pixels": 8339
+  },
+  {
+    "pose": 13,
+    "frame": 3229,
+    "tiles": 12,
+    "clipped_pixels": 0,
+    "opaque_pixels": 5253
+  },
+  {
+    "pose": 14,
+    "frame": 4517,
+    "tiles": 14,
+    "clipped_pixels": 0,
+    "opaque_pixels": 8513
+  },
+  {
+    "pose": 15,
+    "frame": 2617,
+    "tiles": 22,
+    "clipped_pixels": 0,
+    "opaque_pixels": 8947
+  },
+  {
+    "pose": 16,
+    "frame": 3097,
+    "tiles": 16,
+    "clipped_pixels": 0,
+    "opaque_pixels": 8374
+  },
+  {
+    "pose": 17,
+    "frame": 2614,
+    "tiles": 24,
+    "clipped_pixels": 131,
+    "opaque_pixels": 9292
+  },
+  {
+    "pose": 18,
+    "frame": 3419,
+    "tiles": 12,
+    "clipped_pixels": 0,
+    "opaque_pixels": 7843
+  },
+  {
+    "pose": 19,
+    "frame": 3128,
+    "tiles": 12,
+    "clipped_pixels": 0,
+    "opaque_pixels": 6644
+  }
+]

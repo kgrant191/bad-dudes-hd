@@ -1,0 +1,1584 @@
+[
+  {
+    "pose": 0,
+    "sheet": "player_sheet_missing.png",
+    "cell": 0,
+    "tiles": 12,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 1,
+    "sheet": "player_sheet_missing.png",
+    "cell": 1,
+    "tiles": 20,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 2,
+    "sheet": "player_sheet_missing.png",
+    "cell": 2,
+    "tiles": 18,
+    "clipped_pixels": 232
+  },
+  {
+    "pose": 3,
+    "sheet": "player_sheet_missing.png",
+    "cell": 3,
+    "tiles": 16,
+    "clipped_pixels": 664
+  },
+  {
+    "pose": 4,
+    "sheet": "player_hit.png",
+    "cell": 0,
+    "tiles": 18,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 5,
+    "sheet": "player_hit.png",
+    "cell": 1,
+    "tiles": 18,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 6,
+    "sheet": "ninjas_a.png",
+    "cell": 0,
+    "tiles": 14,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 7,
+    "sheet": "ninjas_a.png",
+    "cell": 1,
+    "tiles": 14,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 8,
+    "sheet": "ninjas_a.png",
+    "cell": 2,
+    "tiles": 14,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 9,
+    "sheet": "ninjas_a.png",
+    "cell": 3,
+    "tiles": 14,
+    "clipped_pixels": 64
+  },
+  {
+    "pose": 10,
+    "sheet": "ninjas_a.png",
+    "cell": 4,
+    "tiles": 14,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 11,
+    "sheet": "ninjas_a.png",
+    "cell": 5,
+    "tiles": 14,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 12,
+    "sheet": "ninjas_a.png",
+    "cell": 6,
+    "tiles": 16,
+    "clipped_pixels": 44
+  },
+  {
+    "pose": 13,
+    "sheet": "ninjas_a.png",
+    "cell": 7,
+    "tiles": 16,
+    "clipped_pixels": 34
+  },
+  {
+    "pose": 14,
+    "sheet": "ninjas_a.png",
+    "cell": 8,
+    "tiles": 16,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 15,
+    "sheet": "ninjas_a.png",
+    "cell": 9,
+    "tiles": 16,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 16,
+    "sheet": "ninjas_a.png",
+    "cell": 10,
+    "tiles": 12,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 17,
+    "sheet": "ninjas_a.png",
+    "cell": 11,
+    "tiles": 18,
+    "clipped_pixels": 137
+  },
+  {
+    "pose": 18,
+    "sheet": "ninjas_b.png",
+    "cell": 0,
+    "tiles": 18,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 19,
+    "sheet": "ninjas_b.png",
+    "cell": 1,
+    "tiles": 20,
+    "clipped_pixels": 23
+  },
+  {
+    "pose": 20,
+    "sheet": "ninjas_b.png",
+    "cell": 2,
+    "tiles": 14,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 21,
+    "sheet": "ninjas_b.png",
+    "cell": 3,
+    "tiles": 16,
+    "clipped_pixels": 1
+  },
+  {
+    "pose": 22,
+    "sheet": "ninjas_b.png",
+    "cell": 4,
+    "tiles": 22,
+    "clipped_pixels": 174
+  },
+  {
+    "pose": 23,
+    "sheet": "ninjas_b.png",
+    "cell": 5,
+    "tiles": 18,
+    "clipped_pixels": 96
+  },
+  {
+    "pose": 24,
+    "sheet": "ninjas_b.png",
+    "cell": 6,
+    "tiles": 16,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 25,
+    "sheet": "ninjas_b.png",
+    "cell": 7,
+    "tiles": 16,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 26,
+    "sheet": "ninjas_b.png",
+    "cell": 8,
+    "tiles": 18,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 27,
+    "sheet": "boss.png",
+    "cell": 0,
+    "tiles": 30,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 28,
+    "sheet": "boss.png",
+    "cell": 1,
+    "tiles": 28,
+    "clipped_pixels": 58
+  },
+  {
+    "pose": 29,
+    "sheet": "boss.png",
+    "cell": 2,
+    "tiles": 24,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 30,
+    "sheet": "boss.png",
+    "cell": 3,
+    "tiles": 24,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 31,
+    "sheet": "boss.png",
+    "cell": 4,
+    "tiles": 26,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 32,
+    "sheet": "boss.png",
+    "cell": 5,
+    "tiles": 24,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 33,
+    "sheet": "boss.png",
+    "cell": 6,
+    "tiles": 20,
+    "clipped_pixels": 245
+  },
+  {
+    "pose": 34,
+    "sheet": "boss.png",
+    "cell": 7,
+    "tiles": 20,
+    "clipped_pixels": 646
+  },
+  {
+    "pose": 35,
+    "sheet": "boss.png",
+    "cell": 8,
+    "tiles": 22,
+    "clipped_pixels": 145
+  },
+  {
+    "pose": 36,
+    "sheet": "boss.png",
+    "cell": 9,
+    "tiles": 22,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 37,
+    "sheet": "boss.png",
+    "cell": 10,
+    "tiles": 28,
+    "clipped_pixels": 5
+  },
+  {
+    "pose": 38,
+    "sheet": "specialists.png",
+    "cell": 0,
+    "tiles": 16,
+    "clipped_pixels": 21
+  },
+  {
+    "pose": 39,
+    "sheet": "specialists.png",
+    "cell": 1,
+    "tiles": 20,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 40,
+    "sheet": "specialists.png",
+    "cell": 2,
+    "tiles": 20,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 41,
+    "sheet": "specialists.png",
+    "cell": 3,
+    "tiles": 12,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 42,
+    "sheet": "specialists.png",
+    "cell": 4,
+    "tiles": 12,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 43,
+    "sheet": "specialists.png",
+    "cell": 5,
+    "tiles": 12,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 44,
+    "sheet": "specialists.png",
+    "cell": 6,
+    "tiles": 14,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 45,
+    "sheet": "specialists.png",
+    "cell": 7,
+    "tiles": 12,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 46,
+    "sheet": "specialists.png",
+    "cell": 8,
+    "tiles": 12,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 47,
+    "sheet": "specialists.png",
+    "cell": 9,
+    "tiles": 22,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 48,
+    "sheet": "specialists.png",
+    "cell": 10,
+    "tiles": 18,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 49,
+    "sheet": "specialists.png",
+    "cell": 11,
+    "tiles": 8,
+    "clipped_pixels": 32
+  },
+  {
+    "pose": 50,
+    "sheet": "specialists.png",
+    "cell": 12,
+    "tiles": 14,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 51,
+    "sheet": "specialists.png",
+    "cell": 13,
+    "tiles": 16,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 52,
+    "sheet": "effects.png",
+    "cell": 2,
+    "tiles": 2,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 53,
+    "sheet": "effects.png",
+    "cell": 9,
+    "tiles": 2,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 54,
+    "sheet": "effects.png",
+    "cell": 9,
+    "tiles": 2,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 55,
+    "sheet": "effects.png",
+    "cell": 3,
+    "tiles": 2,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 56,
+    "sheet": "effects.png",
+    "cell": 9,
+    "tiles": 4,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 57,
+    "sheet": "effects.png",
+    "cell": 9,
+    "tiles": 2,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 58,
+    "sheet": "effects.png",
+    "cell": 9,
+    "tiles": 2,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 59,
+    "sheet": "effects.png",
+    "cell": 0,
+    "tiles": 4,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 60,
+    "sheet": "effects.png",
+    "cell": 4,
+    "tiles": 2,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 61,
+    "sheet": "effects.png",
+    "cell": 9,
+    "tiles": 4,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 62,
+    "sheet": "effects.png",
+    "cell": 1,
+    "tiles": 2,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 63,
+    "sheet": "effects.png",
+    "cell": 5,
+    "tiles": 2,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 64,
+    "sheet": "effects.png",
+    "cell": 5,
+    "tiles": 4,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 65,
+    "sheet": "effects.png",
+    "cell": 7,
+    "tiles": 16,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 66,
+    "sheet": "effects.png",
+    "cell": 8,
+    "tiles": 4,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 67,
+    "sheet": "effects.png",
+    "cell": 8,
+    "tiles": 16,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 68,
+    "sheet": "effects.png",
+    "cell": 5,
+    "tiles": 4,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 69,
+    "sheet": "effects.png",
+    "cell": 6,
+    "tiles": 10,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 70,
+    "sheet": "effects.png",
+    "cell": 7,
+    "tiles": 16,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 71,
+    "sheet": "effects.png",
+    "cell": 5,
+    "tiles": 4,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 72,
+    "sheet": "effects.png",
+    "cell": 8,
+    "tiles": 4,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 73,
+    "sheet": "effects.png",
+    "cell": 8,
+    "tiles": 16,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 74,
+    "sheet": "effects.png",
+    "cell": 3,
+    "tiles": 2,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 75,
+    "sheet": "effects.png",
+    "cell": 4,
+    "tiles": 2,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 76,
+    "sheet": "effects.png",
+    "cell": 2,
+    "tiles": 2,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 77,
+    "sheet": "effects.png",
+    "cell": 10,
+    "tiles": 12,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 78,
+    "sheet": "enemy_actions.png",
+    "cell": 0,
+    "tiles": 20,
+    "clipped_pixels": 498
+  },
+  {
+    "pose": 79,
+    "sheet": "enemy_actions.png",
+    "cell": 1,
+    "tiles": 18,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 80,
+    "sheet": "enemy_actions.png",
+    "cell": 2,
+    "tiles": 16,
+    "clipped_pixels": 52
+  },
+  {
+    "pose": 81,
+    "sheet": "boss_actions.png",
+    "cell": 0,
+    "tiles": 24,
+    "clipped_pixels": 55
+  },
+  {
+    "pose": 82,
+    "sheet": "boss_actions.png",
+    "cell": 1,
+    "tiles": 24,
+    "clipped_pixels": 45
+  },
+  {
+    "pose": 83,
+    "sheet": "boss_actions.png",
+    "cell": 2,
+    "tiles": 22,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 84,
+    "sheet": "boss_actions.png",
+    "cell": 3,
+    "tiles": 28,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 85,
+    "sheet": "player_weapons.png",
+    "cell": 0,
+    "tiles": 18,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 86,
+    "sheet": "player_weapons.png",
+    "cell": 1,
+    "tiles": 18,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 87,
+    "sheet": "player_weapons.png",
+    "cell": 2,
+    "tiles": 16,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 88,
+    "sheet": "player_weapons.png",
+    "cell": 3,
+    "tiles": 14,
+    "clipped_pixels": 13
+  },
+  {
+    "pose": 89,
+    "sheet": "player_weapons.png",
+    "cell": 4,
+    "tiles": 22,
+    "clipped_pixels": 110
+  },
+  {
+    "pose": 90,
+    "sheet": "player_weapons.png",
+    "cell": 5,
+    "tiles": 24,
+    "clipped_pixels": 54
+  },
+  {
+    "pose": 91,
+    "sheet": "player_weapons.png",
+    "cell": 6,
+    "tiles": 20,
+    "clipped_pixels": 54
+  },
+  {
+    "pose": 92,
+    "sheet": "player_weapons.png",
+    "cell": 7,
+    "tiles": 18,
+    "clipped_pixels": 241
+  },
+  {
+    "pose": 93,
+    "sheet": "player_weapons.png",
+    "cell": 8,
+    "tiles": 12,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 94,
+    "sheet": "player_weapons.png",
+    "cell": 9,
+    "tiles": 12,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 95,
+    "sheet": "player_weapons.png",
+    "cell": 10,
+    "tiles": 18,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 96,
+    "sheet": "player_weapons.png",
+    "cell": 11,
+    "tiles": 14,
+    "clipped_pixels": 8
+  },
+  {
+    "pose": 97,
+    "sheet": "player_weapons.png",
+    "cell": 12,
+    "tiles": 20,
+    "clipped_pixels": 1
+  },
+  {
+    "pose": 98,
+    "sheet": "player_weapons.png",
+    "cell": 13,
+    "tiles": 22,
+    "clipped_pixels": 233
+  },
+  {
+    "pose": 99,
+    "sheet": "player_weapons.png",
+    "cell": 14,
+    "tiles": 24,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 100,
+    "sheet": "small_ninjas.png",
+    "cell": 0,
+    "tiles": 12,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 101,
+    "sheet": "small_ninjas.png",
+    "cell": 1,
+    "tiles": 12,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 102,
+    "sheet": "small_ninjas.png",
+    "cell": 2,
+    "tiles": 12,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 103,
+    "sheet": "small_ninjas.png",
+    "cell": 3,
+    "tiles": 10,
+    "clipped_pixels": 33
+  },
+  {
+    "pose": 104,
+    "sheet": "small_ninjas.png",
+    "cell": 4,
+    "tiles": 12,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 105,
+    "sheet": "small_ninjas.png",
+    "cell": 5,
+    "tiles": 12,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 106,
+    "sheet": "small_ninjas.png",
+    "cell": 6,
+    "tiles": 14,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 107,
+    "sheet": "ninjas_level2.png",
+    "cell": 0,
+    "tiles": 14,
+    "clipped_pixels": 6
+  },
+  {
+    "pose": 108,
+    "sheet": "ninjas_level2.png",
+    "cell": 1,
+    "tiles": 12,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 109,
+    "sheet": "ninjas_level2.png",
+    "cell": 2,
+    "tiles": 14,
+    "clipped_pixels": 148
+  },
+  {
+    "pose": 110,
+    "sheet": "ninjas_level2.png",
+    "cell": 3,
+    "tiles": 14,
+    "clipped_pixels": 249
+  },
+  {
+    "pose": 111,
+    "sheet": "ninjas_level2.png",
+    "cell": 4,
+    "tiles": 12,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 112,
+    "sheet": "ninjas_level2.png",
+    "cell": 5,
+    "tiles": 12,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 113,
+    "sheet": "ninjas_level2.png",
+    "cell": 6,
+    "tiles": 16,
+    "clipped_pixels": 94
+  },
+  {
+    "pose": 114,
+    "sheet": "ninjas_level2.png",
+    "cell": 7,
+    "tiles": 16,
+    "clipped_pixels": 24
+  },
+  {
+    "pose": 115,
+    "sheet": "level2_boss.png",
+    "cell": 0,
+    "tiles": 16,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 116,
+    "sheet": "level2_boss.png",
+    "cell": 1,
+    "tiles": 16,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 117,
+    "sheet": "level2_boss.png",
+    "cell": 2,
+    "tiles": 14,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 118,
+    "sheet": "level2_boss.png",
+    "cell": 3,
+    "tiles": 14,
+    "clipped_pixels": 126
+  },
+  {
+    "pose": 119,
+    "sheet": "level2_boss.png",
+    "cell": 4,
+    "tiles": 10,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 120,
+    "sheet": "level2_boss.png",
+    "cell": 5,
+    "tiles": 10,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 121,
+    "sheet": "level2_boss.png",
+    "cell": 6,
+    "tiles": 12,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 122,
+    "sheet": "level2_boss.png",
+    "cell": 7,
+    "tiles": 12,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 123,
+    "sheet": "level2_boss.png",
+    "cell": 8,
+    "tiles": 16,
+    "clipped_pixels": 9
+  },
+  {
+    "pose": 124,
+    "sheet": "level2_boss.png",
+    "cell": 9,
+    "tiles": 16,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 125,
+    "sheet": "effects.png",
+    "cell": 11,
+    "tiles": 4,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 126,
+    "sheet": "nunchaku_pickup.png",
+    "cell": 0,
+    "tiles": 4,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 127,
+    "sheet": "level3_ninjas.png",
+    "cell": 0,
+    "tiles": 12,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 128,
+    "sheet": "level3_ninjas.png",
+    "cell": 1,
+    "tiles": 12,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 129,
+    "sheet": "level3_ninjas.png",
+    "cell": 2,
+    "tiles": 16,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 130,
+    "sheet": "level3_ninjas.png",
+    "cell": 3,
+    "tiles": 20,
+    "clipped_pixels": 22
+  },
+  {
+    "pose": 131,
+    "sheet": "level3_ninjas.png",
+    "cell": 4,
+    "tiles": 12,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 132,
+    "sheet": "player_level3_victory.png",
+    "cell": 0,
+    "tiles": 20,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 133,
+    "sheet": "effects.png",
+    "cell": 9,
+    "tiles": 2,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 134,
+    "sheet": "effects.png",
+    "cell": 9,
+    "tiles": 2,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 135,
+    "sheet": "effects.png",
+    "cell": 9,
+    "tiles": 4,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 136,
+    "sheet": "effects.png",
+    "cell": 4,
+    "tiles": 2,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 137,
+    "sheet": "effects.png",
+    "cell": 7,
+    "tiles": 16,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 138,
+    "sheet": "effects.png",
+    "cell": 8,
+    "tiles": 4,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 139,
+    "sheet": "effects.png",
+    "cell": 8,
+    "tiles": 16,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 140,
+    "sheet": "effects.png",
+    "cell": 5,
+    "tiles": 4,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 141,
+    "sheet": "ninjas_b.png",
+    "cell": 6,
+    "tiles": 14,
+    "clipped_pixels": 11
+  },
+  {
+    "pose": 142,
+    "sheet": "ninjas_a.png",
+    "cell": 6,
+    "tiles": 16,
+    "clipped_pixels": 44
+  },
+  {
+    "pose": 143,
+    "sheet": "effects.png",
+    "cell": 3,
+    "tiles": 2,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 144,
+    "sheet": "level4_boss.png",
+    "cell": 0,
+    "tiles": 28,
+    "clipped_pixels": 9
+  },
+  {
+    "pose": 145,
+    "sheet": "level4_boss.png",
+    "cell": 1,
+    "tiles": 32,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 146,
+    "sheet": "level4_boss.png",
+    "cell": 2,
+    "tiles": 32,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 147,
+    "sheet": "level4_boss.png",
+    "cell": 3,
+    "tiles": 32,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 148,
+    "sheet": "level4_boss.png",
+    "cell": 4,
+    "tiles": 12,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 149,
+    "sheet": "level4_boss.png",
+    "cell": 5,
+    "tiles": 16,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 150,
+    "sheet": "level4_boss.png",
+    "cell": 6,
+    "tiles": 36,
+    "clipped_pixels": 87
+  },
+  {
+    "pose": 151,
+    "sheet": "level4_boss.png",
+    "cell": 7,
+    "tiles": 40,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 152,
+    "sheet": "level4_boss.png",
+    "cell": 8,
+    "tiles": 28,
+    "clipped_pixels": 4550
+  },
+  {
+    "pose": 153,
+    "sheet": "level4_boss.png",
+    "cell": 9,
+    "tiles": 34,
+    "clipped_pixels": 1003
+  },
+  {
+    "pose": 154,
+    "sheet": "level4_boss.png",
+    "cell": 10,
+    "tiles": 36,
+    "clipped_pixels": 104
+  },
+  {
+    "pose": 155,
+    "sheet": "level4_boss.png",
+    "cell": 11,
+    "tiles": 26,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 156,
+    "sheet": "level4_boss.png",
+    "cell": 12,
+    "tiles": 28,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 157,
+    "sheet": "level4_boss.png",
+    "cell": 13,
+    "tiles": 32,
+    "clipped_pixels": 64
+  },
+  {
+    "pose": 158,
+    "sheet": "level4_boss.png",
+    "cell": 14,
+    "tiles": 36,
+    "clipped_pixels": 79
+  },
+  {
+    "pose": 159,
+    "sheet": "level4_dogs.png",
+    "cell": 0,
+    "tiles": 12,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 160,
+    "sheet": "level4_dogs.png",
+    "cell": 1,
+    "tiles": 10,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 161,
+    "sheet": "level4_dogs.png",
+    "cell": 2,
+    "tiles": 14,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 162,
+    "sheet": "level4_dogs.png",
+    "cell": 3,
+    "tiles": 16,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 163,
+    "sheet": "level4_dogs.png",
+    "cell": 4,
+    "tiles": 14,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 164,
+    "sheet": "level4_dogs.png",
+    "cell": 5,
+    "tiles": 14,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 165,
+    "sheet": "level4_fire.png",
+    "cell": 0,
+    "tiles": 16,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 166,
+    "sheet": "level4_fire.png",
+    "cell": 1,
+    "tiles": 20,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 167,
+    "sheet": "level4_fire.png",
+    "cell": 2,
+    "tiles": 24,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 168,
+    "sheet": "level4_fire.png",
+    "cell": 3,
+    "tiles": 14,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 169,
+    "sheet": "level4_fire.png",
+    "cell": 4,
+    "tiles": 14,
+    "clipped_pixels": 25
+  },
+  {
+    "pose": 170,
+    "sheet": "level4_fire.png",
+    "cell": 5,
+    "tiles": 14,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 171,
+    "sheet": "level4_sword.png",
+    "cell": 0,
+    "tiles": 14,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 172,
+    "sheet": "level4_sword.png",
+    "cell": 1,
+    "tiles": 14,
+    "clipped_pixels": 187
+  },
+  {
+    "pose": 173,
+    "sheet": "level4_sword.png",
+    "cell": 2,
+    "tiles": 20,
+    "clipped_pixels": 49
+  },
+  {
+    "pose": 174,
+    "sheet": "level4_dog_recoil.png",
+    "cell": 0,
+    "tiles": 12,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 175,
+    "sheet": "level5_enemy_actions.png",
+    "cell": 0,
+    "tiles": 18,
+    "clipped_pixels": 229
+  },
+  {
+    "pose": 176,
+    "sheet": "small_ninja_actions.png",
+    "cell": 0,
+    "tiles": 16,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 177,
+    "sheet": "level5_enemy_actions.png",
+    "cell": 2,
+    "tiles": 14,
+    "clipped_pixels": 556
+  },
+  {
+    "pose": 178,
+    "sheet": "level5_enemy_actions.png",
+    "cell": 3,
+    "tiles": 18,
+    "clipped_pixels": 14
+  },
+  {
+    "pose": 179,
+    "sheet": "level5_enemy_actions.png",
+    "cell": 4,
+    "tiles": 16,
+    "clipped_pixels": 62
+  },
+  {
+    "pose": 180,
+    "sheet": "level5_enemy_actions.png",
+    "cell": 5,
+    "tiles": 20,
+    "clipped_pixels": 154
+  },
+  {
+    "pose": 181,
+    "sheet": "level5_enemy_actions.png",
+    "cell": 6,
+    "tiles": 16,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 182,
+    "sheet": "level5_enemy_actions.png",
+    "cell": 7,
+    "tiles": 24,
+    "clipped_pixels": 496
+  },
+  {
+    "pose": 183,
+    "sheet": "level5_boss.png",
+    "cell": 0,
+    "tiles": 30,
+    "clipped_pixels": 147
+  },
+  {
+    "pose": 184,
+    "sheet": "level5_boss.png",
+    "cell": 1,
+    "tiles": 28,
+    "clipped_pixels": 173
+  },
+  {
+    "pose": 185,
+    "sheet": "level5_boss.png",
+    "cell": 2,
+    "tiles": 20,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 186,
+    "sheet": "level5_boss.png",
+    "cell": 3,
+    "tiles": 18,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 187,
+    "sheet": "level5_boss.png",
+    "cell": 4,
+    "tiles": 22,
+    "clipped_pixels": 11
+  },
+  {
+    "pose": 188,
+    "sheet": "level5_boss.png",
+    "cell": 5,
+    "tiles": 26,
+    "clipped_pixels": 369
+  },
+  {
+    "pose": 189,
+    "sheet": "level5_boss.png",
+    "cell": 6,
+    "tiles": 26,
+    "clipped_pixels": 517
+  },
+  {
+    "pose": 190,
+    "sheet": "level5_boss.png",
+    "cell": 7,
+    "tiles": 18,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 191,
+    "sheet": "level5_boss.png",
+    "cell": 8,
+    "tiles": 28,
+    "clipped_pixels": 1018
+  },
+  {
+    "pose": 192,
+    "sheet": "level5_boss.png",
+    "cell": 9,
+    "tiles": 8,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 193,
+    "sheet": "level5_enemy_actions.png",
+    "cell": 6,
+    "tiles": 16,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 194,
+    "sheet": "level5_boss_defeated.png",
+    "cell": 0,
+    "tiles": 12,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 195,
+    "sheet": "level6_boss.png",
+    "cell": 0,
+    "tiles": 12,
+    "clipped_pixels": 294
+  },
+  {
+    "pose": 196,
+    "sheet": "level6_boss.png",
+    "cell": 1,
+    "tiles": 16,
+    "clipped_pixels": 73
+  },
+  {
+    "pose": 197,
+    "sheet": "level6_boss.png",
+    "cell": 2,
+    "tiles": 20,
+    "clipped_pixels": 133
+  },
+  {
+    "pose": 198,
+    "sheet": "level6_boss.png",
+    "cell": 3,
+    "tiles": 16,
+    "clipped_pixels": 177
+  },
+  {
+    "pose": 199,
+    "sheet": "level6_boss.png",
+    "cell": 5,
+    "tiles": 12,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 200,
+    "sheet": "level6_boss.png",
+    "cell": 6,
+    "tiles": 14,
+    "clipped_pixels": 31
+  },
+  {
+    "pose": 201,
+    "sheet": "level6_boss.png",
+    "cell": 7,
+    "tiles": 16,
+    "clipped_pixels": 10
+  },
+  {
+    "pose": 202,
+    "sheet": "level6_boss.png",
+    "cell": 8,
+    "tiles": 18,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 203,
+    "sheet": "level6_boss.png",
+    "cell": 9,
+    "tiles": 14,
+    "clipped_pixels": 38
+  },
+  {
+    "pose": 204,
+    "sheet": "level6_boss.png",
+    "cell": 10,
+    "tiles": 20,
+    "clipped_pixels": 501
+  },
+  {
+    "pose": 205,
+    "sheet": "level6_boss.png",
+    "cell": 11,
+    "tiles": 14,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 206,
+    "sheet": "level6_boss.png",
+    "cell": 13,
+    "tiles": 16,
+    "clipped_pixels": 91
+  },
+  {
+    "pose": 207,
+    "sheet": "small_ninja_actions.png",
+    "cell": 1,
+    "tiles": 16,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 208,
+    "sheet": "level4_dogs.png",
+    "cell": 2,
+    "tiles": 10,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 209,
+    "sheet": "level6_falling_stone.png",
+    "cell": 0,
+    "tiles": 2,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 210,
+    "sheet": "level6_falling_stone.png",
+    "cell": 1,
+    "tiles": 2,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 211,
+    "sheet": "level7_boss.png",
+    "cell": 0,
+    "tiles": 18,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 212,
+    "sheet": "level7_boss.png",
+    "cell": 1,
+    "tiles": 22,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 213,
+    "sheet": "level7_boss.png",
+    "cell": 2,
+    "tiles": 18,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 214,
+    "sheet": "level7_boss.png",
+    "cell": 3,
+    "tiles": 8,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 215,
+    "sheet": "level7_boss.png",
+    "cell": 4,
+    "tiles": 10,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 216,
+    "sheet": "level7_boss.png",
+    "cell": 5,
+    "tiles": 18,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 217,
+    "sheet": "level7_boss.png",
+    "cell": 6,
+    "tiles": 22,
+    "clipped_pixels": 2
+  },
+  {
+    "pose": 218,
+    "sheet": "level7_boss.png",
+    "cell": 7,
+    "tiles": 22,
+    "clipped_pixels": 66
+  },
+  {
+    "pose": 219,
+    "sheet": "level7_extra.png",
+    "cell": 0,
+    "tiles": 8,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 220,
+    "sheet": "level7_extra.png",
+    "cell": 1,
+    "tiles": 22,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 221,
+    "sheet": "level7_extra.png",
+    "cell": 2,
+    "tiles": 12,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 222,
+    "sheet": "level7_extra.png",
+    "cell": 3,
+    "tiles": 20,
+    "clipped_pixels": 123
+  },
+  {
+    "pose": 223,
+    "sheet": "level7_extra.png",
+    "cell": 0,
+    "tiles": 8,
+    "clipped_pixels": 0
+  },
+  {
+    "pose": 224,
+    "sheet": "level6_boss.png",
+    "cell": 2,
+    "tiles": 14,
+    "clipped_pixels": 101
+  },
+  {
+    "pose": 225,
+    "sheet": "level7_boss.png",
+    "cell": 0,
+    "tiles": 4,
+    "clipped_pixels": 0
+  }
+]

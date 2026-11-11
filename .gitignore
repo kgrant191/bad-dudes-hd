@@ -1,0 +1,13 @@
+*.nes
+*.mmo
+*.mss
+*.so
+*.dll
+*.exe
+*.bundle
+__pycache__/
+*.py[cod]
+.DS_Store
+dist/
+work/
+deliverables/
