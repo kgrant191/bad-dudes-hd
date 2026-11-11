@@ -12,6 +12,7 @@ bosses, effects, menus and ending screens are included.
 - Updated enemy and boss animations, including recoil and defeat states.
 - Illustrated menus and ending scenes with live dialogue and credits.
 - Consistent HUD and menu lettering, including game-over and scene fades.
+- Matching gold player/lives-screen numerals and centered dash.
 
 ## Install
 
@@ -24,8 +25,8 @@ For manual installation, place the ZIP's contents in
 
 ## Validation and presentation
 
-Tested with MesenCE 2.2.1. The release preserves the approved v0.11.0 artwork
-and runtime mappings. Regression evidence covers all seven stages as the
+Tested with MesenCE 2.2.1. The release preserves the approved v0.11.1 artwork and runtime mappings,
+including the player/lives-screen font correction. Regression evidence covers all seven stages as the
 second character, the complete credits and subsequent menus, game over,
 and a final cave replay. The source repository contains the detailed results.
 

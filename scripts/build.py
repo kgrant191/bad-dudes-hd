@@ -301,6 +301,15 @@ for t,p in keys:
         second=flash(player_defaults[t][1])
     character_rule(t,p,im,player2=second)
 
+# The black player/lives interstitial uses background digits D01-D0A and
+# dash DB2, unlike the two-row sprite font used by stage-clear messages.
+# Append their atlas cells to preserve the approved artwork, then put these
+# exact-palette overrides before the scaled-original fallback definitions.
+menu_counter_start=len(rules)
+for t,char in [(0xd01+i,c) for i,c in enumerate('1234567890')]+[(0xdb2,'-')]:
+    rule(t,0x0f0f0f20,ending_glyph(char))
+rules[:]=rules[menu_counter_start:]+rules[:menu_counter_start]
+
 atlas=Image.new('RGBA',(2048,math.ceil(len(atlas_tiles)/64)*32))
 for i,im in enumerate(atlas_tiles):atlas.paste(im,(i%64*32,i//64*32))
 atlas.save(OUT/'tiles.png',optimize=True)

@@ -89,7 +89,7 @@ def level7_sprite_art():
 def ending_glyph(char):
     im=Image.new('RGBA',(128,128));d=ImageDraw.Draw(im);font=ImageFont.truetype(FONT,106)
     bb=d.textbbox((0,0),char,font=font)
-    top=88 if char in ['.',','] else 8
+    top=88 if char in ['.',','] else (44 if char=='-' else 8)
     d.text(((128-(bb[2]-bb[0]))/2-bb[0],top-bb[1]),char,font=font,fill=(255,221,160,255),stroke_width=2,stroke_fill=(40,25,20,255))
     return im.resize((32,32),Image.Resampling.LANCZOS)
 

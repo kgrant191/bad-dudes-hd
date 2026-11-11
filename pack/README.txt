@@ -18,8 +18,11 @@ INCLUDED
 - Updated HUD, menus, live credits and palette-fade transitions.
 
 TESTED SCOPE
-MesenCE 2.2.1. The approved v0.11.0 artwork and mappings are unchanged.
-The final regression included a complete 91,532-input second-character
+MesenCE 2.2.1. Includes the approved v0.11.1 player/lives-screen correction.
+The player/lives interstitial now uses matching gold digits and a centered dash.
+All previous artwork and rule definitions are preserved. New exact-palette
+overrides cover menu digits 0-9 and the dash; gameplay counters are unchanged.
+The preceding full regression included a complete 91,532-input second-character
 playthrough, a 1,017-input game-over recording and a final 12,331-input cave replay.
 These recordings do not exercise every possible input or alternating-player state.
 Native damage blinking, boss palette cycling, sprite limits and clipping remain.
