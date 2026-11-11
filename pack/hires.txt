@@ -1,4 +1,4 @@
-# Bad Dudes HD v1.0.0 - Complete seven-stage HD graphics pack
+# Bad Dudes HD v0.11.1 - Player and lives interstitial font correction
 <ver>109
 <scale>4
 <supportedRom>26E184E350F50BFA06038379A84F3B685B7509B8
@@ -23126,6 +23126,17 @@
 [level7&fade_hud_6_4]<tile>0,DA5,0F0F0F0F,1024,4288,0.000000,N
 [level7&fade_hud_6_4]<tile>0,DA6,0F0F0F0F,1984,3008,0.000000,N
 [level7&fade_hud_6_4]<tile>0,DA6,0F0F0F0F,1152,4288,0.000000,N
+<tile>0,D01,0F0F0F20,1632,7616,1,N
+<tile>0,D02,0F0F0F20,1664,7616,1,N
+<tile>0,D03,0F0F0F20,1696,7616,1,N
+<tile>0,D04,0F0F0F20,1728,7616,1,N
+<tile>0,D05,0F0F0F20,1760,7616,1,N
+<tile>0,D06,0F0F0F20,1792,7616,1,N
+<tile>0,D07,0F0F0F20,1824,7616,1,N
+<tile>0,D08,0F0F0F20,1856,7616,1,N
+<tile>0,D09,0F0F0F20,1888,7616,1,N
+<tile>0,D0A,0F0F0F20,1920,7616,1,N
+<tile>0,DB2,0F0F0F20,1952,7616,1,N
 [actor_1184_FF0F2620_1]<tile>0,1184,FF0F2620,1024,32,1,N
 [actor_1184_FF0F2620_2]<tile>0,1184,FF0F2620,1056,32,1,N
 [first_turn&second_hero_1&actor_1184_FF301638_1]<tile>0,1184,FF301638,1088,32,1,N

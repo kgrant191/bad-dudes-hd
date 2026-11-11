@@ -1,4 +1,31 @@
-# Release preparation - v1.0.0
+# Current test checkpoint - v0.11.1
+
+The user paused v1.0.0 publication after noticing enlarged white numerals and
+a dash among the gold PLAYER / P lettering on the black player/lives screen.
+The release-preparation tree was merged to main at
+c85f0773caff8e1d9bfef7211d598d8bcaa48a76, but no release has been published.
+Do not publish v1.0.0 until the corrected test build is approved.
+
+The interstitial uses background digits D01-D0A and dash DB2 with palette
+0F0F0F20, distinct from the two-row stage-clear sprite alphabet. v0.11.0
+replaced only A-Z in this palette. This fix uses the same live font and gold
+color for all ten digits, and centers a shorter dash at the text midline.
+
+Eleven priority overrides append new cells to the atlas. All prior rule lines
+remain in their original order and every prior atlas crop is pixel-identical.
+Other runtime PNGs are byte-identical. No ROM, inputs or gameplay is changed.
+The numeric HUD rules use other palettes and are unaffected.
+
+Targeted verification replays the starts of both submitted character runs and
+the complete game-over recording. A separate display-only nametable diagnostic
+checks PLAYER 2 and remaining-lives digits 0-9; it is not an alternating
+2-player gameplay test. See validation/v0.11.1_validation.json for results.
+The screenshot correction is recorded in tools/verify_v0.11.1.lua.
+
+The test ZIP, preview and incremental source bundle are prepared for approval.
+No push, merge, tag or release action is part of this correction checkpoint.
+
+# Previous release preparation - v1.0.0
 
 The user approved v0.11.0 and requested before/after media followed by v1.0.0
 preparation. GitHub develop was verified at
