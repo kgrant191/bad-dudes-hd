@@ -10,7 +10,8 @@ from level3_art import level3_art
 from level4_art import level4_art
 from level5_art import level5_art
 from level6_art import level6_art
-from level7_art import level7_art, level7_sprite_art, ending_art
+from level7_art import level7_art, level7_sprite_art, ending_art, ending_glyph
+from transition_art import transition_rules
 parser=argparse.ArgumentParser(description='Build Bad Dudes HD from its art and captured tile mappings.')
 parser.add_argument('--previews',type=Path,help='Optional directory for offline layout previews')
 args=parser.parse_args()
@@ -72,7 +73,7 @@ hero_palettes=[0xff0f2620,0xff0f2820,0xff301638]
 for pose in json.loads((ROOT/'metadata/effect_poses.json').read_text()):
     if pose['palette'] in hero_palettes:
         keys.extend((row[2],p) for row in pose['tiles'] for p in hero_palettes)
-for metadata in ['v5_actions','v6_actions','v7_actions','v8_actions','v9_actions','v10_actions']:
+for metadata in ['v5_actions','v6_actions','v7_actions','v8_actions','v9_actions','v10_actions','v11_actions']:
     for pose in json.loads((ROOT/f'metadata/{metadata}.json').read_text()):
         keys.extend((row[2],p) for row in pose['tiles'] for p in pose['palettes'])
 keys.extend((0xf6f,p) for p in hero_palettes)
@@ -176,6 +177,17 @@ for t,p,im in level7_sprite_art():
 ending_headers=[]
 for t,p,im,condition in ending_art(ending_headers):
     rule(t,p,im,condition)
+# Credits continue beyond the first submitted ending clip. Hide every native
+# illustration cell in those banks, including uncaptured flag/portrait phases.
+for bank,p,gate in [(2,0x0f000000,'ending_office'),(3,0x0f000000,'ending_credits'),
+                    (0x1d,0xff000000,'ending_office'),(0x1f,0xff000000,'ending_office'),
+                    (0x1f,0xff000000,'ending_credits')]:
+    for t in range(bank*256,(bank+1)*256):rule(t,p,blank,gate,default=True)
+
+# The Continue/End and Game Over messages use the ordinary 8x8 alphabet.
+# Keep their layout, cursor and timing controlled by the game.
+for t in range(0xd0b,0xd25):
+    rule(t,0x0f0f0f20,ending_glyph(chr(65+t-0xd0b)))
 
 # Background art retains the game's live menu, selection and dialogue layers.
 for n,name in [(8,'title_intro'),(9,'title_final')]:
@@ -253,10 +265,12 @@ for t,p in keys:
             rule(t,p,hud_image(t,p,gold=True),hud_gate+'&hud_floor&'+label_gate)
         rule(t,p,hud_image(t,p),hud_gate)
     if not sprite and t==0xdbc:
+        # The enemy-health dot is shared by every stage, not only the finale.
         rule(t,p,hud_image(0xda7,p),'level7&hud7&hud_floor')
+        rule(t,p,hud_image(0xda7,p),'hud_any&hud_floor')
     if not sprite and t in [0x600,0x700,0x800,0x900,0xa00,0xb00,0xc00,0xe00]:
         rule(t,p,blank,'hud_floor')
-    if sprite and p==0xff001020 and 0x160c<=t<=0x1635:
+    if sprite and p in [0xff001020,0xff000f16] and 0x160c<=t<=0x1635:
         im=message_tile(t)
     elif (t,p) in actor_defaults:
         im=actor_defaults[(t,p)]
@@ -290,7 +304,7 @@ for t,p in keys:
 atlas=Image.new('RGBA',(2048,math.ceil(len(atlas_tiles)/64)*32))
 for i,im in enumerate(atlas_tiles):atlas.paste(im,(i%64*32,i//64*32))
 atlas.save(OUT/'tiles.png',optimize=True)
-header=['# Bad Dudes HD v0.10.0 - Final factory, helicopter boss and ending', '<ver>109','<scale>4','<supportedRom>26E184E350F50BFA06038379A84F3B685B7509B8','<overscan>0,0,0,0','<img>tiles.png',
+header=['# Bad Dudes HD v0.11.0 - Full-game player 2 regression fixes', '<ver>109','<scale>4','<supportedRom>26E184E350F50BFA06038379A84F3B685B7509B8','<overscan>0,0,0,0','<img>tiles.png',
  '<condition>first_turn,memoryCheckConstant,23F,!=,C0,C0',
  '<condition>second_turn,memoryCheckConstant,23F,==,C0,C0',
  '<condition>second_hero_1,memoryCheckConstant,23F,==,1,1',
@@ -306,6 +320,7 @@ header=['# Bad Dudes HD v0.10.0 - Final factory, helicopter boss and ending', '<
  '<condition>level5,memoryCheckConstant,2C0,==,4',
  '<condition>level6,memoryCheckConstant,2C0,==,5',
  '<condition>level7,memoryCheckConstant,2C0,==,6',
+ '<condition>hud_any,tileAtPosition,24,208,D9A,0F001020,Y',
  '<condition>hud7,tileAtPosition,24,208,D9A,0F1B2A20,Y',
  '<condition>hud_player_label7,tileNearby,8,0,D9A,0F1B2A20,Y',
  '<condition>hud6,tileAtPosition,24,208,D9A,0F1C2C3B,N',
@@ -337,8 +352,10 @@ for p in sorted({p for t,p in json.loads((ROOT/'metadata/level7_movie_keys.json'
     gate=f'hud7_palette_{p:X}'
     brightness=float(np.array(tile(0xd9a,p))[:,:,:3].max())/255
     header.extend([f'<condition>{gate},tileAtPosition,24,208,D9A,{p:08X},N',f'[level7&{gate}]<background>hud.png,{brightness:.5f},0,0,11'])
-(OUT/'hires.txt').write_text('\n'.join(header+ending_headers+player_conditions+actor_conditions+level2_conditions+level5_conditions+rules)+'\n')
-(ROOT/'build_stats.json').write_text(json.dumps({'source_keys':len(keys),'tile_rules':len(rules),'unique_atlas_tiles':len(atlas_tiles),'scale':4,'player_tiles':len(player_defaults),'player_poses_per_character':len(player_poses)+6+15+1,'player_characters':2,'player_context_rules':len(player_context)*5,'new_actor_poses':base_pose_offset,'new_actor_keys':len(actor_defaults),'actor_context_rules':actor_context_count},indent=2))
+header+=ending_headers+player_conditions+actor_conditions+level2_conditions+level5_conditions
+fades=transition_rules(rules,header)
+(OUT/'hires.txt').write_text('\n'.join(header+fades+rules)+'\n')
+(ROOT/'build_stats.json').write_text(json.dumps({'source_keys':len(keys),'tile_rules':len(rules)+len(fades),'transition_rules':len(fades),'unique_atlas_tiles':len(atlas_tiles),'scale':4,'player_tiles':len(player_defaults),'player_poses_per_character':len(player_poses)+6+15+1,'player_characters':2,'player_context_rules':len(player_context)*5,'new_actor_poses':base_pose_offset,'new_actor_keys':len(actor_defaults),'actor_context_rules':actor_context_count},indent=2))
 
 # Offline previews are only for fast layout iteration; Mesen playback is final QA.
 if args.previews:args.previews.mkdir(parents=True,exist_ok=True)

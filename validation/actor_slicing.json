@@ -1566,5 +1566,19 @@
     "cell": 0,
     "tiles": 8,
     "clipped_pixels": 0
+  },
+  {
+    "pose": 224,
+    "sheet": "level6_boss.png",
+    "cell": 2,
+    "tiles": 14,
+    "clipped_pixels": 101
+  },
+  {
+    "pose": 225,
+    "sheet": "level7_boss.png",
+    "cell": 0,
+    "tiles": 4,
+    "clipped_pixels": 0
   }
 ]

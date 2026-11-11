@@ -58,7 +58,7 @@ def pickup_variant(im, target):
 
 def actor_art(keys):
     poses=[]
-    for name in ['player_missing','enemy_poses','effect_poses','v4_actions','v5_actions','v6_actions','v7_actions','v8_actions','v9_actions','v10_actions']:
+    for name in ['player_missing','enemy_poses','effect_poses','v4_actions','v5_actions','v6_actions','v7_actions','v8_actions','v9_actions','v10_actions','v11_actions']:
         poses+=json.loads((ROOT/f'metadata/{name}.json').read_text())
     sheets={};variants=defaultdict(list);stats=[];preview=[]
     palettes=defaultdict(set)

@@ -1,6 +1,51 @@
-# Development checkpoint - v0.10.0
+# Development checkpoint - v0.11.0
 
-## Current checkpoint and branch workflow
+## Current regression checkpoint
+
+The user supplied `Bad Dudes (USA)_full(1).mmo` (91,532 inputs) and
+`Bad Dudes (USA)_gameover(1).mmo` (1,017 inputs) for a complete second-character
+regression. The preceding local checkpoint is a906b4a0de425d975b3343fba98789ae98bdbcde.
+The user reported old credit lettering and brief final-stage/transition artwork.
+v0.11.0 addresses this audit; it is not an approved release or a remote push.
+
+The full recording includes all seven stages, the complete credits, THE END,
+return to title, selection, and the beginning of another briefing. Hero selector
+$023F is 1 through the completed player-2 game and resets to 0 in the next menus.
+
+`transition_art.py` expands the captured normal scenery/HUD rules into the
+four subtract-$10 palette fade steps. It reuses atlas cells and per-rule
+brightness, including faded nearby-tile conditions for trucks and trains.
+The rendered HUD and scene gates keep these rules out of menus and normal play.
+
+`v11_actions.json` covers the staff boss's backward recoil and the final boss's
+flying mask. Both reuse the established source sheets. The full credit alphabet
+and illustrated-bank coverage no longer depend on letters appearing in the
+shorter first ending movie. The player-2 ending source changes only the hero's
+identity/clothes and is selected by the same turn/hero conditions as flash art.
+
+The enemy visibility audit resolves local sprite-neighbor, scene and hero
+conditions against every recorded gameplay frame. It checks connected components
+of at least six nonempty native cells for complete HD transparency; isolated
+small effects and unrecorded situations are outside that specific check.
+Native green/white boss palette cycling is also visible without the HD pack.
+
+The completed player-2 and game-over replays cover the fixes above. A final
+isolated enemy-health period fix adds 29 DBC rules and five HUD conditions,
+preserving every prior rule's content/order and every runtime PNG byte. The
+final pack was then replayed through the 12,331-input cave recording. The
+staff-recoil evidence image is labeled as preceding that final punctuation
+patch; the cave-HUD image shows the final result.
+
+Tools/capture_all.cpp now accepts BAD_DUDES_TIMEOUT_SECONDS (default 600) for
+long movies and BAD_DUDES_BG_INTERVAL (default 30) for dense fade diagnostics.
+No ROM or movie data is changed or distributed.
+
+After this regression build is approved, create the promotional before/after
+screenshots and video, then prepare v1.0.0. Keep main unchanged until release.
+The source bundle must include v0.9.0, v0.10.0 and v0.11.0 from the last confirmed
+pushed bf56adb886c0e2002c6e17e80ccbd6b693e69523 baseline.
+
+## Previous checkpoint and branch workflow
 
 v0.9.0 is approved by the user at local develop commit
 26e3d2a574e7364e6483891705aa0afe0ef1c1cc (November 10, 2026).

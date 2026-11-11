@@ -96,14 +96,19 @@ def ending_glyph(char):
 
 def ending_art(headers):
     """Illustrated ending plates under the game's unchanged live text."""
-    for name in ['ending_office','ending_credits']:
+    for name in ['ending_office','ending_credits','ending_credits_player2']:
         Image.open(ROOT/f'art/{name}.png').convert('RGBA').resize((1024,960),Image.Resampling.LANCZOS).save(ROOT/f'pack/{name}.png')
     headers.extend(['<condition>ending_office,memoryCheckConstant,2C0,==,B',
                     '<condition>ending_credits,memoryCheckConstant,2C0,==,C',
                     '[ending_office]<background>ending_office.png,1,0,0,10',
+                    '[ending_credits&first_turn&second_hero_1]<background>ending_credits_player2.png,1,0,0,10',
+                    '[ending_credits&second_turn&second_hero_2]<background>ending_credits_player2.png,1,0,0,10',
                     '[ending_credits]<background>ending_credits.png,1,0,0,10'])
     blank=Image.new('RGBA',(32,32));out=[]
-    for t,p in json.loads((ROOT/'metadata/level7_movie_keys.json').read_text()):
+    keys={tuple(k) for k in json.loads((ROOT/'metadata/additional_keys.json').read_text())}
+    keys.update((t,0x0f222630) for t in range(0xd00,0xd40))
+    keys.update((t,0x0f172636) for t in range(0x28b,0x2ac))
+    for t,p in sorted(keys):
         sprite=p>>24==255;bank=t//256
         if not sprite and bank==2:
             char=chr(65+t-0x28b) if 0x28b<=t<=0x2a4 else {0x2a8:'!',0x2a9:'.',0x2aa:',',0x2ab:"'"}.get(t)

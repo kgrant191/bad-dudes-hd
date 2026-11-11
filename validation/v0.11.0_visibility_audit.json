@@ -1,0 +1,6 @@
+{
+  "actor_frames": 59691,
+  "connected_actor_components": 79229,
+  "fully_transparent_components": [],
+  "method": "Native on-screen enemy/boss cells, exact tile/palette rule order, local sprite-neighbor and scene/hero conditions; components contain at least six nonempty native cells."
+}

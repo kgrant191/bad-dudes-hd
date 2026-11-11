@@ -33,7 +33,8 @@ public:
  std::set<std::tuple<int,int,int,int,uint32_t,int,int>> entries;
  for(int y=0;y<240;y++) for(int x=0;x<256;x++){
  auto &px=info->ScreenTiles[y*256+x];
- auto add=[&](HdPpuTileInfo&t,int layer){if(t.TileIndex<0 || (layer==0 && count%30!=0))return;int oy=t.OffsetY; if(layer && t.VerticalMirroring)oy=7-oy;entries.insert({layer,x-t.OffsetX,y-oy,t.TileIndex,t.PaletteColors,t.HorizontalMirroring,t.VerticalMirroring});};
+ static const int bgInterval=std::getenv("BAD_DUDES_BG_INTERVAL")?std::max(1,std::stoi(std::getenv("BAD_DUDES_BG_INTERVAL"))):30;
+ auto add=[&](HdPpuTileInfo&t,int layer){if(t.TileIndex<0 || (layer==0 && count%bgInterval!=0))return;int oy=t.OffsetY; if(layer && t.VerticalMirroring)oy=7-oy;entries.insert({layer,x-t.OffsetX,y-oy,t.TileIndex,t.PaletteColors,t.HorizontalMirroring,t.VerticalMirroring});};
  add(px.Tile,0);for(int k=0;k<px.SpriteCount;k++)add(px.Sprite[k],1);
  }
  static std::ofstream out(std::getenv("BAD_DUDES_TILE_CSV"));
@@ -71,7 +72,8 @@ int main(int argc,char**argv){
  // Movie/ROM loading resets runtime speed flags; apply after setup.
  settings->SetFlag(EmulationFlags::MaximumSpeed);
  Resume();
- for(int i=0;i<6000;i++){
+ const int timeoutSeconds=std::getenv("BAD_DUDES_TIMEOUT_SECONDS")?std::stoi(std::getenv("BAD_DUDES_TIMEOUT_SECONDS")):600;
+ for(int i=0;i<timeoutSeconds*10;i++){
  std::this_thread::sleep_for(std::chrono::milliseconds(100));
  if(std::filesystem::exists(std::string(argv[1])+"/done")) break;
  if(i%100==0){char log[16384]={};GetScriptLog(id,log,sizeof(log));std::cerr<<log<<std::endl;}
