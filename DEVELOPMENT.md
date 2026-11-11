@@ -1,4 +1,26 @@
-# Development checkpoint - v0.11.0
+# Release preparation - v1.0.0
+
+The user approved v0.11.0 and requested before/after media followed by v1.0.0
+preparation. GitHub develop was verified at
+8c0b5f507db29cc9c17e4c918f6c48115c1dec8e after the supplied bundle push.
+
+The release changes documentation and version labeling, adds four matched
+before/after screenshots to the README, and packages the approved pack.
+Every runtime PNG and every non-comment hires.txt line remains identical to
+v0.11.0. Release validation records that comparison and ZIP contents.
+
+The promotional video pairs original and HD replays of the same user-supplied
+movie, with native gameplay audio. Capture frames and media parameters are
+recorded in docs/media_manifest.json. The video is distributed separately;
+only the four comparison images are committed to the repository.
+
+This is release preparation. Publication and merging to main have not occurred
+in this checkpoint. The repository was private when preparation began; public
+access to the promotional download URL requires making the repository public.
+The source bundle is incremental from the confirmed pushed v0.11.0 commit.
+Historical notes below retain their original checkpoint status.
+
+# Previous checkpoint - v0.11.0
 
 ## Current regression checkpoint
 

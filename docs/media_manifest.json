@@ -1,0 +1,112 @@
+{
+  "version": "1.0.0",
+  "approved_art_commit": "8c0b5f507db29cc9c17e4c918f6c48115c1dec8e",
+  "movie": "Bad Dudes (USA)_full(1).mmo",
+  "emulator": "MesenCE 2.2.1",
+  "native_fps": 60.0988118623484,
+  "screenshot_size": [
+    2048,
+    1152
+  ],
+  "screenshots": [
+    {
+      "file": "docs/images/before-after-street.png",
+      "scene": "City streets",
+      "movie_frame": 2640,
+      "sha256": "9d5324b7b1fece8a80309afd1221546734e95c7181b29448a786a638c50b4087"
+    },
+    {
+      "file": "docs/images/before-after-highway.png",
+      "scene": "Highway",
+      "movie_frame": 10080,
+      "sha256": "a7f7a746bb5904cd00a5013e2e406d217f1c2b68187c6cac663c4dd65c65aa02"
+    },
+    {
+      "file": "docs/images/before-after-train.png",
+      "scene": "Train",
+      "movie_frame": 43500,
+      "sha256": "d70fe11e421564900c97983604e20fbf77475ef289eaaff01a43ddd137cd377b"
+    },
+    {
+      "file": "docs/images/before-after-cave.png",
+      "scene": "Caves",
+      "movie_frame": 56400,
+      "sha256": "cfcf0d4f56feaca63ddccd0637ff24cac7f7fa80d44665dd8d343de877bf9964"
+    }
+  ],
+  "video": {
+    "file": "Bad_Dudes_HD_v1.0.0_TikTok_Before_After.mp4",
+    "size": [
+      1080,
+      1920
+    ],
+    "fps": 30,
+    "frame_count": 1050,
+    "clips": [
+      {
+        "name": "Title screen",
+        "start": 60,
+        "frames": 120
+      },
+      {
+        "name": "Stage 1 / City streets",
+        "start": 2640,
+        "frames": 300
+      },
+      {
+        "name": "Stage 2 / Highway",
+        "start": 10080,
+        "frames": 240
+      },
+      {
+        "name": "Stage 3 / Sewers",
+        "start": 18000,
+        "frames": 240
+      },
+      {
+        "name": "Stage 4 / Forest",
+        "start": 30000,
+        "frames": 240
+      },
+      {
+        "name": "Stage 5 / Train",
+        "start": 43500,
+        "frames": 240
+      },
+      {
+        "name": "Stage 6 / Caves",
+        "start": 56400,
+        "frames": 240
+      },
+      {
+        "name": "Stage 7 / Factory",
+        "start": 79200,
+        "frames": 240
+      },
+      {
+        "name": "Final boss",
+        "start": 80700,
+        "frames": 240
+      }
+    ],
+    "audio": "Native gameplay audio from a matching original replay; uniform volume adjustment and brief fades at edits.",
+    "layout": "Original NES above; HD pack below. Both screens show the same movie input intervals.",
+    "audio_sample_rate": 48000,
+    "audio_channel_volumes": [
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100
+    ],
+    "audio_gain_db": 8.1084,
+    "sha256": "675eb2902b69e8e9d7c755b60476944b3335cece0d41a5f11ec85c89488798d8"
+  },
+  "capture_note": "Frame numbers are replay callbacks. Screenshots use MesenCE native screenshot output, which may show the preceding decoded PPU frame. No synthetic game imagery or interpolated animation is used."
+}

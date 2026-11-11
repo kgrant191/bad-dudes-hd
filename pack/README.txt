@@ -1,36 +1,34 @@
-BAD DUDES HD - v0.11.0
-Full-game player 2 regression test build
+BAD DUDES HD - v1.0.0
+4x HD graphics pack for Bad Dudes (NES)
 
 INSTALL IN MESENCE
-1. Load your Bad Dudes (USA) NES ROM.
-2. Tools > HD Packs (NES) > Install HD Pack: select Bad_Dudes_HD_v0.11.0.zip.
-3. Enable HD packs in NES settings and reload the game.
+1. Open your own Bad Dudes (USA) NES ROM in MesenCE.
+2. Tools > HD Packs (NES) > Install HD Pack: select Bad_Dudes_HD_v1.0.0.zip.
+3. Enable HD packs in NES settings and reload the game if needed.
 
-Manual installation: place hires.txt and all eleven PNG files together in
-HdPacks/Bad Dudes (USA)/. The folder name must match your ROM filename.
+Manual installation: place hires.txt, README.txt and all eleven PNGs together
+in HdPacks/Bad Dudes (USA)/. The folder name must match your ROM's base filename.
+When updating, replace the previous pack's files.
 
-CHANGES
-- Preserve detailed scenery and HUD artwork through palette fades.
-- Cover the cave staff boss's recoil and the final boss's flying mask.
-- Complete the ending-credit alphabet through THE END.
-- Use the second hero's ending illustration after a player 2 run.
-- Update the live Continue/End, Game Over and title-menu lettering.
-- Correct the enemy-health label's period across stages.
-- Include all earlier player, enemy, boss, scenery and effect artwork.
+INCLUDED
+- All seven stages, moving trucks, train, caves, final factory and helicopter.
+- Distinct artwork for both playable heroes, weapons, effects and palette states.
+- Detailed enemies and bosses, including attack, recoil and defeat states.
+- Illustrated title, selection, briefing and ending screens.
+- Updated HUD, menus, live credits and palette-fade transitions.
 
-RECORDED SCOPE
-MesenCE 2.2.1. Complete 91,532-input second-character playthrough, including
-all seven stages, the full ending, title return and subsequent menus; separate
-1,017-input game-over recording. Detailed audit evidence is in the source bundle.
-Native sprite limits, damage blinking and boss palette cycling remain intact.
-The ending illustrations use static characters and flags, with live dialogue
-and scrolling credits. These recordings do not exercise every possible input.
-
-This checkpoint awaits review. After approval, create promotional before/after
-screenshots and video, then prepare the v1.0.0 release.
+TESTED SCOPE
+MesenCE 2.2.1. The approved v0.11.0 artwork and mappings are unchanged.
+The final regression included a complete 91,532-input second-character
+playthrough, a 1,017-input game-over recording and a final 12,331-input cave replay.
+These recordings do not exercise every possible input or alternating-player state.
+Native damage blinking, boss palette cycling, sprite limits and clipping remain.
+Ending figures and flags are still illustrations; dialogue and credits stay live.
 
 4x rendering: 1024 x 960 before aspect-ratio correction.
 Gameplay timing, collisions and audio remain game-controlled.
 No ROM, emulator, recording or source build files are included.
 Supported whole-ROM SHA1: 26E184E350F50BFA06038379A84F3B685B7509B8
 HD pack format: 109.
+
+Project and updates: https://github.com/kgrant191/bad-dudes-hd

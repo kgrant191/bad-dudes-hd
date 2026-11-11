@@ -1,57 +1,61 @@
 # Bad Dudes HD
 
-A work-in-progress **4x HD graphics pack** for Bad Dudes (NES), built for MesenCE.
+A **4x HD graphics pack for Bad Dudes (NES)**, built for MesenCE. Play the
+original game with detailed characters, enemies and environments across all
+seven stages. Gameplay, collisions, timing and music stay controlled by the game.
 
-![Bad Dudes HD preview](validation/visual_index.png)
+**[Download the HD pack](https://github.com/kgrant191/bad-dudes-hd/releases)**
 
-## Current build: v0.11.0
+## Before and after
 
-A **full-game regression test build** for MesenCE, based on the supplied
-91,532-input second-character playthrough and 1,017-input game-over recording.
+Original NES on the left; Bad Dudes HD on the right. Each pair comes from the
+same frame of the same recorded playthrough.
 
-- Preserve HD scenery and HUD art through the native palette fades.
-- Cover the cave staff boss's missed recoil pose and the final boss's flying mask.
-- Render every ending-credit letter consistently through THE END.
-- Select the short-haired second hero's illustration after a player 2 run.
-- Update the live Continue/End, Game Over and title-menu lettering.
-- Correct the enemy-health label's period across stages.
+![City streets: original NES and Bad Dudes HD](docs/images/before-after-street.png)
+![Highway: original NES and Bad Dudes HD](docs/images/before-after-highway.png)
+![Train: original NES and Bad Dudes HD](docs/images/before-after-train.png)
+![Caves: original NES and Bad Dudes HD](docs/images/before-after-cave.png)
 
-The detailed Level 1–7 environments, both playable heroes, enemies, bosses,
-weapons, effects and illustrated ending screens remain included. The ending
-illustrations use static figures and flags; dialogue and scrolling credits
-stay controlled by the game.
+## What's included in v1.0.0
 
-This checkpoint awaits user review. After approval, the next steps are the
-promotional before/after screenshots and video, then the v1.0.0 release.
-Validation evidence and recorded-state limits are kept in `validation/`.
+- All seven stages, including the moving trucks, train, caves, final factory
+  and helicopter battle.
+- Distinct artwork for both playable heroes, including their weapons,
+  effects and palette variants.
+- Detailed enemies and bosses, with attack, recoil and defeat states.
+- Illustrated title, selection, briefing and ending screens.
+- Updated HUD, menus and live credit lettering, with HD art retained through
+  the game's palette fades.
+
+Ending figures and flags are still illustrations; dialogue and scrolling
+credits remain live. Original damage blinking, sprite limits and clipping are
+preserved.
 
 ## Install
 
-Load your own **Bad Dudes (USA).nes** in MesenCE, then choose
-**Tools > HD Packs (NES) > Install HD Pack** and select the install ZIP.
-Enable HD packs in NES settings and reload the game if needed.
+Tested with **MesenCE 2.2.1** and **Bad Dudes (USA).nes**.
 
-For manual installation, copy the contents of `pack/` into
-`HdPacks/Bad Dudes (USA)/`. The folder name must match your ROM's base filename.
-All eleven PNGs and `hires.txt` must be together. This repository's Code > Download
-ZIP also contains an installable `pack/hires.txt` directory.
+1. Download `Bad_Dudes_HD_v1.0.0.zip` from Releases.
+2. Open your own Bad Dudes (USA) ROM in MesenCE.
+3. Choose **Tools > HD Packs (NES) > Install HD Pack** and select the ZIP.
+4. Enable HD packs in NES settings and reload the game if needed.
 
-Tested with MesenCE 2.2.1. No ROM, emulator or movie recording is included.
-The pack changes presentation; gameplay and music are unchanged.
+For manual installation, place `hires.txt`, `README.txt` and all eleven PNGs
+together in `HdPacks/Bad Dudes (USA)/`. The folder name must match your ROM's
+base filename. When updating, replace the previous pack's files.
+
+The install ZIP contains only the HD pack. No ROM, emulator or movie recording
+is included. GitHub's **Code > Download ZIP** also contains the installable
+`pack/` directory, along with development files.
 
 ## Development
 
-Approved checkpoints are accumulated on `develop`. Keep `main` at the current
-baseline until the full remake and final regression testing are complete,
-then merge `develop` and create the v1.0.0 release. The v0.8.2 checkpoint at
-`bf56adb886c0e2002c6e17e80ccbd6b693e69523` is approved and pushed to develop.
-v0.9.0 at `26e3d2a574e7364e6483891705aa0afe0ef1c1cc` is approved locally.
-v0.10.0 is the preceding final-level test checkpoint. v0.11.0 addresses the
-full-game regression findings; its source bundle includes all three checkpoints
-from the last confirmed pushed v0.8.2 base. No new push, merge,
-tag or release has been performed.
+The release uses the approved v0.11.0 artwork and mappings. The final regression
+covered a full second-character playthrough, the complete ending and return to
+menus, a separate game-over recording, and a final cave replay. Evidence and
+recorded-state limits are in `validation/`.
 
-See [DEVELOPMENT.md](DEVELOPMENT.md) for build setup, tile mapping, validation
-and the next art pass. `art/` contains the source illustrations; `scripts/`
-assembles them into `pack/`; `metadata/` holds the captured tile mappings.
+See [DEVELOPMENT.md](DEVELOPMENT.md) for build setup and
+[RELEASE_NOTES.md](RELEASE_NOTES.md) for the release notes. `art/` contains source
+illustrations, `scripts/` builds the pack, and `metadata/` holds tile mappings.
 The source ROM is required to rebuild and must remain outside this repository.
